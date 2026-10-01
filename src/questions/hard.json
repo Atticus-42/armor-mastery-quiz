@@ -10,13 +10,13 @@
     ],
     "prompt": "A brigade commander in Mindanao wants a force that attacks mounted in protected vehicles, combines fire and maneuver at the decisive time and place, and may also be tasked with ISO in peacetime. Which assessment of armor is accurate?",
     "options": [
-      "Armor fights mainly dismounted, relies on maneuver alone, and is barred from ISO in peacetime",
-      "Armor fights as a pure tank force without other arms, relying on shock effect only, and may not conduct ISO",
-      "Armor fights mounted in armor-protected vehicles, uses controlled fire and maneuver, and may conduct ISO when higher headquarters requires",
-      "Armor fights from static positions, relies on indirect fire, and conducts ISO only in wartime"
+      "Armor fights mounted in armor-protected vehicles and uses controlled fire and maneuver, but it is barred from ISO in peacetime",
+      "Armor fights as a pure tank force without other arms, relies on shock effect alone, and conducts ISO only when attached",
+      "Armor fights mounted in armor-protected vehicles, uses controlled fire and maneuver, and may conduct ISO when higher HQ requires",
+      "Armor fights from protected static positions, relies on massed indirect fire, and conducts ISO only during wartime"
     ],
     "answer": 2,
-    "explanation": "Pages 13-14 give the definition, the fire and maneuver method and the ISO provision.",
+    "explanation": "Page 13 defines armor as a combined arms force fighting mounted in armor-protected vehicles, conducting operations by fire and maneuver combined and controlled; page 14 says it may also conduct ISO, independently or in a task force, in peacetime as required by higher headquarters.",
     "sourceSlides": [
       13,
       14
@@ -55,13 +55,13 @@
     ],
     "prompt": "An S3 argues that armor operations succeed through shock effect alone. Which flaw does the lesson expose?",
     "options": [
-      "Shock effect is not part of the armor mission, which depends only on dismounted fire and maneuver",
-      "Armor operations depend on armor protection alone, so firepower and mobility are secondary",
-      "Shock effect applies only to cavalry, so tanks and mechanized infantry should not seek it",
-      "Armor operations combine and control fire and maneuver to create a preponderance of combat power, with shock effect applied in coordination with other arms"
+      "Shock effect is not part of the armor mission at all; armor relies only on dismounted fire and maneuver to win",
+      "Armor operations depend mainly on armor protection, so firepower, mobility and shock effect are all secondary",
+      "Shock effect belongs only to cavalry, so tanks and mechanized infantry should rely on fire and maneuver alone",
+      "Shock effect works only with fire and maneuver, combined and controlled, and in coordination with other arms"
     ],
     "answer": 3,
-    "explanation": "Pages 13-14 tie shock effect to fire and maneuver in coordination with other arms.",
+    "explanation": "Page 13 says armor operations are conducted by fire and maneuver, combined and controlled to create a preponderance of combat power; page 14 says armor neutralizes the enemy by fire, maneuver and shock effect in coordination with other arms.",
     "sourceSlides": [
       13,
       14
@@ -77,7 +77,7 @@
       "communication",
       "mobility"
     ],
-    "prompt": "After an exercise, a company is scored: crews survived small arms and shell fragments, the radio net failed during maneuver, and the vehicles kept pace over varied terrain. Which assessment fits the lesson?",
+    "prompt": "After an exercise, a Philippine Army armor company is scored: crews survived small arms and machine gun fire, the radio net failed during maneuver, and the vehicles kept pace over varied terrain. Which assessment fits the lesson?",
     "options": [
       "Armor protection was degraded, intensive and flexible communication held, and mobility held",
       "Armor protection held, intensive and flexible communication was degraded, and mobility held",
@@ -146,17 +146,18 @@
       "dismount team",
       "responsibilities"
     ],
-    "prompt": "During a dismount, who is responsible for both the maneuver of the dismount team and the positioning of the AV?",
+    "prompt": "During a dismount near an enemy-held barangay, a Philippine Army squad's dismount team moves into a ditch while the AIFV driver waits to be told where to position the vehicle. The carrier team leader and the squad leader each assume the other will decide. Per the dismounting SOPs, who is responsible?",
     "options": [
-      "The squad leader or the platoon leader",
-      "The AIFV driver alone",
-      "The carrier team leader only",
-      "The company first sergeant"
+      "The squad leader or platoon leader, who answers for both the dismount team's maneuver and the AV's position",
+      "The carrier team leader, who places the AV, while the squad leader controls only the dismount team's maneuver",
+      "The driver, who positions the AV on his own initiative, since speed is of the essence during the dismount",
+      "The company first sergeant, as resource manager, who positions all AVs while the squad leaders maneuver"
     ],
     "answer": 0,
-    "explanation": "Page 31 assigns this responsibility to the SL or PL.",
+    "explanation": "Page 31 says the SL or PL is responsible for both the maneuver of the dismount team and the positioning of the AV. The first sergeant appears in the lesson only as a possible resource manager in planning (page 69).",
     "sourceSlides": [
-      31
+      31,
+      69
     ]
   },
   {
@@ -167,18 +168,19 @@
       "company organization",
       "AIFV"
     ],
-    "prompt": "A mechanized infantry company has three platoons of four AIFVs each. How many AIFVs do the platoons field together?",
+    "prompt": "A Philippine Army mechanized infantry company commander must know his dismounted strength. Each squad has 9 enlisted, and each squad's carrier team is the normal three-man crew that stays with the AIFV. Counting only the squads, how many soldiers dismount across the company's three platoons?",
     "options": [
-      "Eight",
-      "Ten",
-      "Twelve",
-      "Sixteen"
+      "18, since six soldiers in each of the three squads dismount",
+      "81, since every squad member dismounts and leaves the AIFV",
+      "54, since six of nine enlisted dismount in each of nine squads",
+      "72, since only the driver stays and eight soldiers per squad dismount"
     ],
     "answer": 2,
-    "explanation": "Pages 24 and 27 give three platoons of four AIFVs each: 3 x 4 = 12.",
+    "explanation": "Page 25 gives three squads of 9 enlisted per platoon and page 24 three platoons per company, or nine squads. Page 26 says the carrier team is normally the carrier team leader, gunner and driver, so six per squad dismount: 9 x 6 = 54. Eighteen is the count for one platoon only.",
     "sourceSlides": [
       24,
-      27
+      25,
+      26
     ]
   },
   {
@@ -212,13 +214,13 @@
     ],
     "prompt": "Enemy mortars range the only road while AIFVs halt so squads can dismount. Which limitations combine here?",
     "options": [
-      "AVs are restricted to certain avenues, infantry need time to mount and dismount, and dismounted infantry are vulnerable to indirect fire",
-      "AIFVs are less vulnerable than tanks, infantry dismount instantly, and indirect fire is no risk",
-      "AVs may use any avenue, infantry need no time to dismount, and small arms are the only risk",
-      "AIFVs and APCs are stronger than tanks, so halting is safe, and dismounted infantry are protected by armor"
+      "AVs are restricted to certain avenues, infantry need time to dismount, and dismounted infantry are vulnerable to indirect fire",
+      "AIFVs are more vulnerable than tanks, AVs are restricted to certain avenues, and the infantry are safe once they dismount",
+      "AVs may use any avenue of approach, infantry need sufficient time to dismount, and small arms fire is the only risk to them",
+      "AIFVs and APCs are as protected as tanks, so the halt is safe, but dismounted infantry are vulnerable to indirect fire"
     ],
     "answer": 0,
-    "explanation": "Page 30 lists all three limitations.",
+    "explanation": "Page 30 lists that AVs are restricted to certain avenues of approach, infantrymen need sufficient time to mount and dismount, and dismounted infantrymen are vulnerable to small arms and indirect fire; it also says AIFVs and APCs are more vulnerable than tanks.",
     "sourceSlides": [
       30
     ]
@@ -233,14 +235,15 @@
     ],
     "prompt": "A commander says mechanized infantry are tanks with legs and will lead an assault against enemy tanks. Which flaw does the lesson show?",
     "options": [
-      "Mechanized infantry should lead because AIFVs are better protected than tanks",
-      "Mechanized infantry can be used against tank units if the infantry stay dismounted",
+      "Mechanized infantry may lead because mounted AIFVs can destroy light armor vehicles and maneuver with tanks",
+      "Mechanized infantry can be used against tank units if the infantry dismount and fix the enemy for the assault",
       "Mechanized infantry cannot be used against tank units, and AIFVs and APCs are more vulnerable than tanks",
-      "Mechanized infantry lack the firepower to support tanks in any form of attack"
+      "Mechanized infantry lack the firepower to support tanks, so they should be kept out of every armored attack"
     ],
     "answer": 2,
-    "explanation": "Pages 30 and 69 give both points.",
+    "explanation": "Page 69 says mechanized infantry cannot be used against tank units, and page 30 says AIFVs and APCs are more vulnerable than tanks. Destroying light armor vehicles and maneuvering with tanks (page 28) do not extend to fighting tank units.",
     "sourceSlides": [
+      28,
       30,
       69
     ]
@@ -255,16 +258,20 @@
     ],
     "prompt": "A squad dismounts left because terrain on the right is unfavorable, and fire opens from the right as it deploys. Which actions follow?",
     "options": [
-      "Return fire from the kill zone, remain there until the AV is repositioned, then dismount the rest",
-      "Dismount right into the enemy fire, then wait for the AV to reposition before reacting",
-      "Stay mounted, close the ramp and wait until the enemy fire ceases before the dismount drill",
-      "React to contact on the right, extricate out of the kill zone, perform IAD after dismount procedures, with the SL or PL positioning the AV"
+      "Return fire from the kill zone and stay beside the AV until it repositions, with the carrier team leader moving the AV",
+      "Dismount right toward the enemy fire to close with it, then let the driver reposition the AV once the contact ends",
+      "Remain mounted with the ramp closed until the fire ceases, then begin the dismount left drill under the platoon leader",
+      "React to contact on the right, extricate out of the kill zone, perform IAD, with the SL or PL positioning the AV"
     ],
     "answer": 3,
-    "explanation": "Pages 31 and 35-39 combine the dismount left objectives with the SOP on positioning the AV.",
+    "explanation": "Pages 35-39 give the dismount left objectives under fire from the right: react to contact on the right, extricate out of the kill zone, and perform IAD after dismount procedures. Page 31 makes the SL or PL responsible for both the dismount team's maneuver and the AV's position.",
     "sourceSlides": [
       31,
-      35
+      35,
+      36,
+      37,
+      38,
+      39
     ]
   },
   {
@@ -276,14 +283,15 @@
     ],
     "prompt": "A squad remounts from the right while under fire from the left. Which actions comply with the SOPs?",
     "options": [
-      "Rush the door together, keep weapons loaded and muzzles up inside, and close the ramp after the last soldier",
-      "Provide cover while others mount, avoid piling at the door, move in one at a time, clear weapons and muzzles down inside",
-      "Mount only after the enemy fire stops, then climb on top of the AV to watch the flank",
-      "Let the first soldiers out board first, hide behind the AV, then board when the cover team is ready"
+      "Rush the door together, keep weapons loaded with muzzles up inside, and close the ramp after the last soldier",
+      "Provide cover while others mount, avoid piling at the door, move in one at a time, clear weapons and muzzles down",
+      "Wait until the enemy fire stops, then have riders climb on top of the AV to watch the left flank during the move",
+      "Board in the same order the squad dismounted, take cover behind the AV, then mount when the cover team is ready"
     ],
     "answer": 1,
-    "explanation": "Pages 45 and 49 combine the mounting SOPs with mounting from the right under fire from the left.",
+    "explanation": "Page 45 lists the mounting SOPs; page 49 shows mounting from the right under fire from the left. Page 31 forbids riders on top and hiding behind an AV, and says the first to dismount is the last to mount.",
     "sourceSlides": [
+      31,
       45,
       49
     ]
@@ -298,13 +306,13 @@
     ],
     "prompt": "Eight soldiers dismounted in order 1 through 8 and must remount under fire. Which sequence follows the SOPs?",
     "options": [
-      "Soldier 8 mounts first, soldier 1 mounts last, one at a time, with cover provided",
-      "Soldier 1 mounts first and soldier 8 last, all in a single rush",
-      "All eight mount at once to save time, in any order",
-      "Soldier 1 mounts first and soldier 8 last, one at a time"
+      "Soldier 8 mounts first and soldier 1 last, one at a time, with cover provided",
+      "Soldier 1 mounts first and soldier 8 last, in a single rush to keep up speed",
+      "All eight mount at once in any order, since speed is of the essence under fire",
+      "Soldier 1 mounts first and soldier 8 last, one at a time, with cover provided"
     ],
     "answer": 0,
-    "explanation": "Page 31 says the first to dismount is last to mount and vice versa; page 45 says one at a time with cover.",
+    "explanation": "Page 31 says the first to dismount is the last to mount and vice versa; page 45 says to provide cover while others mount and to move inside one at a time.",
     "sourceSlides": [
       31,
       45
@@ -320,13 +328,13 @@
     ],
     "prompt": "A brigade commander gives a cavalry troop a zone reconnaissance as flank guard while keeping the main body concentrated for the decisive point. Which fundamentals support this?",
     "options": [
-      "Main effort, concealment from the enemy, and permanent holding of the flank",
-      "Rear security, resupply of the main body, and replacement of the reserve",
-      "Economy of force, eyes and ears for situational awareness, and concentration of superior combat power at the decisive time and point",
-      "Reserve role, counterattack, and reinforcement of the main body"
+      "Main effort, since cavalry attacks to overrun prepared defenses and so frees the main body to stay in reserve",
+      "Rear security and resupply of the main body, so the brigade's combat power can be spread along its whole flank",
+      "Economy of force, eyes and ears for situational awareness, and concentration of combat power at the decisive point",
+      "Reserve and counterattack roles, since cavalry must first be reinforced before it can operate as a flank guard"
     ],
     "answer": 2,
-    "explanation": "Pages 53-54 and 60 support these fundamentals.",
+    "explanation": "Page 53 calls cavalry the commander's eyes and ears and says it helps him concentrate superior combat power at the decisive time and point; page 54 describes its economy of force role; page 60 lists moving to contact as flank guard as zone reconnaissance, without reinforcement.",
     "sourceSlides": [
       53,
       54,
@@ -343,13 +351,13 @@
     ],
     "prompt": "A separate cavalry troop with a light brigade must cover a flank through dense forest, steep ridges and a major river, with a stretched supply line. Which statement fits the lesson?",
     "options": [
-      "It works for the division commander as a heavy unit, and terrain does not restrict its mobility",
-      "It works for the brigade commander as a heavy unit, since all separate troops are heavy",
-      "It works for the division commander as a light unit, and logistics are not a concern",
-      "It works for the brigade commander as a light unit, but high logistics needs and terrain-restricted mobility are limitations"
+      "It works for the division commander as a heavy unit, and dense forest and rivers do not restrict its mobility",
+      "It works for the brigade commander as a heavy unit, since separate troops are heavy whatever the brigade type",
+      "It works for the division commander as a light unit, and its light design keeps logistics requirements low",
+      "It works for the brigade commander as a light unit, and high logistics needs and restricted mobility limit it"
     ],
     "answer": 3,
-    "explanation": "Pages 58 and 61 give these points.",
+    "explanation": "Page 58 says the separate troop is part of a separate light or armored brigade, heavy or light according to the brigade, and operates for the brigade commander; page 61 lists high logistics requirements and terrain-restricted mobility.",
     "sourceSlides": [
       58,
       61
@@ -362,18 +370,18 @@
     "tags": [
       "cavalry organization"
     ],
-    "prompt": "A unit supporting a separate light brigade needs the cavalry design organized as part of that brigade. Which design is it?",
+    "prompt": "In terrain suitable for cavalry, a Philippine Army brigade commander gives his cavalry squadron three tasks: attack to penetrate a prepared enemy strong point, hold a wide sector in an economy of force role without reinforcement during a delay, and move to contact as the advance covering force. Which assessment matches the lesson?",
     "options": [
-      "Cavalry Troop/Company (Separate), light because the brigade is light",
-      "Cavalry Squadron/Battalion, heavy because squadrons are always heavy",
-      "Air Cavalry Squadron, light because it flies above the brigade",
-      "Cavalry Troop/Company, assigned to the division and not to the brigade"
+      "All three are cavalry capabilities, applying its inherent combined arms mobility, firepower and shock effect",
+      "Only the move to contact fits; armor may assault only unprepared, suppressed defenses, not prepared strong points",
+      "Only the attack and move to contact fit; an economy of force role in a delay needs the squadron to be reinforced",
+      "None fits; cavalry is limited to reconnaissance, surveillance and security and must avoid attacks and delays"
     ],
     "answer": 0,
-    "explanation": "Pages 55 and 58 describe the separate troop and its weight.",
+    "explanation": "Page 60 says that in suitable terrain cavalry can operate in economy of force without being reinforced in offensive, defensive or delay operations, move to contact as part of the advance covering force, and attack to overrun, penetrate or envelop prepared enemy defenses or strong points. Assaulting unprepared, suppressed defenses is a mounted mechanized infantry capability (page 28).",
     "sourceSlides": [
-      55,
-      58
+      28,
+      60
     ]
   },
   {
@@ -386,13 +394,13 @@
     ],
     "prompt": "A tank company is attached to an infantry battalion for a theater deployment. Which arrangements does the lesson require?",
     "options": [
-      "The tanks deploy under their own power, and the infantry trucks carry all Class III, V and IX supplies",
-      "The tanks deploy by air, and the infantry battalion provides all Class III, V and IX support",
-      "Flatbeds for deployment, and FFSU and division CSS support for Classes III, V and IX because the infantry lacks organic transport",
-      "The tanks need no sustainment support, since they carry enough supplies for the whole operation"
+      "Tanks deploy under their own strategic mobility, and infantry battalion trucks carry their Classes III, V and IX",
+      "Tanks deploy by air, and the infantry battalion supplies Classes III and V, since the FFSU handles only Class IX",
+      "Flatbeds for deployment, plus FFSU and division CSS support, since the infantry lacks transport for tank CSS",
+      "Flatbeds for deployment, and the infantry battalion's organic trucks for Classes III, V and IX once in theater"
     ],
     "answer": 2,
-    "explanation": "Pages 67-68 give the flatbed and CSS limitations.",
+    "explanation": "Page 67 says the tank depends on flatbeds for deployment; page 68 says tanks need FFSU and division CSS support because infantry units lack the organic transportation to support tank CSS needs, especially Classes III, V and IX.",
     "sourceSlides": [
       67,
       68
@@ -407,13 +415,13 @@
     ],
     "prompt": "A light tank must fight in extremely close terrain against infantry with anti-armor weapons and antitank mines. Which statement fits the lesson?",
     "options": [
-      "Light tanks lack main battle tank protection, are vulnerable to anti-armor weapons and mines, and their mobility and firepower are restricted in close terrain",
-      "Light tanks match main battle tank protection and can ignore mines, but mobility is restricted",
-      "Light tanks are protected against all anti-armor weapons, and close terrain improves their firepower",
-      "Light tanks are vulnerable only to enemy aircraft, and close terrain improves their mobility"
+      "It lacks main battle tank protection, is vulnerable to anti-armor weapons and mines, and close terrain restricts it",
+      "It matches main battle tank protection and resists mines, but extremely close terrain restricts its mobility",
+      "It lacks main battle tank protection, but close terrain improves its firepower against infantry with anti-armor weapons",
+      "Its armor protects it from small arms, machine guns and anti-armor weapons, so only its mobility is restricted"
     ],
     "answer": 0,
-    "explanation": "Pages 67-68 list these limitations.",
+    "explanation": "Page 67 says the light tank lacks the protection of a main battle tank and that tanks are vulnerable to infantry with anti-armor weapons and antitank mines; page 68 says mobility and firepower are restricted in extremely close terrain.",
     "sourceSlides": [
       67,
       68
@@ -426,16 +434,18 @@
     "tags": [
       "tank planning considerations"
     ],
-    "prompt": "A tank platoon leader plans an SBF and asks about employment. Which statement is correct?",
+    "prompt": "A Philippine Army tank platoon in an SBF position overwatches a mechanized infantry company assaulting an objective. Enemy armored vehicles then appear on the flank. Which plan matches the lesson?",
     "options": [
-      "Plan the objective to combat trains distance and the Ex-O as resource manager; tanks cannot be used against other tanks",
-      "Plan the surface danger zone, direct fire control measures and cover against enemy air; tanks may be used against other tanks or any armored vehicle",
-      "Plan indirect fire weapon support and distance from main body; tanks should be kept from armored vehicles",
-      "Plan where to dismount and avenue restrictions; tanks may be used only against infantry"
+      "The mechanized infantry turn their AIFVs on the enemy armor, while the tanks keep firing on the objective from the SBF",
+      "The tanks engage the enemy armor, using a planned surface danger zone and direct fire control measures to protect the assault",
+      "The tanks withdraw from the SBF to avoid the enemy armor, and the cavalry is called forward to engage it instead",
+      "The tanks stay on the objective and leave the enemy armor to indirect fire, since tanks should not fight other armor"
     ],
     "answer": 1,
-    "explanation": "Page 71 lists tank planning considerations.",
+    "explanation": "Page 71 lists SBF positions, surface danger zone and direct fire control measures as tank planning considerations and says tanks can be used against other tanks or any armored vehicle of the enemy. Pages 69 and 70 say mechanized infantry and cavalry cannot be used against tank units.",
     "sourceSlides": [
+      69,
+      70,
       71
     ]
   },
@@ -494,18 +504,18 @@
     "prompt": "A planner needs wheeled vehicles only for a road march. Which group contains only wheeled vehicles from the lesson?",
     "options": [
       "M113A2 APC, Simba Fighting Vehicle and Guarani 6x6",
-      "Commando V-150S, Sabrah Light Tank and Guarani 6x6",
+      "Commando V-150S, Mounted Mortar System and Guarani 6x6",
       "Commando V-150S, Simba Fighting Vehicle and Guarani 6x6",
-      "Commando V-150S, Fire Support Vehicle and Simba Fighting Vehicle"
+      "Commando V-150S, M113A2 APC (Ambulance) and Simba Fighting Vehicle"
     ],
     "answer": 2,
-    "explanation": "Pages 79, 80 and 83 describe wheeled vehicles; the M113A2 family (page 73), FSV and Sabrah are tracked.",
+    "explanation": "Pages 79, 80 and 83 describe the Commando V-150S and Simba as wheeled AFVs and the Guarani as a 6x6 wheeled APC. The M113A2 APC, its ambulance version and the Mounted Mortar System are listed as full tracked laying (pages 73, 77 and 78).",
     "sourceSlides": [
       73,
+      77,
+      78,
       79,
       80,
-      81,
-      82,
       83
     ]
   },
@@ -517,15 +527,15 @@
       "effective range",
       "Sabrah"
     ],
-    "prompt": "A target sits 3,200 m away. Which vehicle can engage it within its stated maximum effective range?",
+    "prompt": "An enemy armored vehicle halts 3,200 m from a Philippine Army position held by a Sabrah light tank, an M113A2 IFV with the Unmanned Turret System, a Fire Support Vehicle and a Guarani APC. Which vehicle can engage it within the stated effective range of its main weapon?",
     "options": [
-      "Sabrah Light Tank ASCOD II (3,600 m)",
-      "M113A2 IFV Unmanned Turret System (3,000 m)",
-      "Fire Support Vehicle (2,200 m direct fire)",
-      "Guarani 6x6 wheeled APC (1,830 m)"
+      "The Sabrah light tank with its 105 mm main gun",
+      "The M113A2 UTS with its 25 mm Bush-Master cannon",
+      "The Fire Support Vehicle with its 76 mm L23A1 gun",
+      "The Guarani with its 12.7 mm heavy machine gun"
     ],
     "answer": 0,
-    "explanation": "Pages 75, 81, 82 and 83 give these effective ranges.",
+    "explanation": "Page 82 gives the Sabrah's 105 mm a combat effective range of 3,600 m. The UTS 25 mm reaches 3,000 m effective (page 75), the FSV 2,200 m by direct fire (its 5,000 m semi-direct figure is a maximum range, page 81), and the Guarani 1,830 m (page 83).",
     "sourceSlides": [
       75,
       81,
