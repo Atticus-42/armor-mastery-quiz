@@ -1,0 +1,1981 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Armor Operations Mastery Quiz</title>
+  <style>
+    /* =====================================================================
+       DESIGN TOKENS. This page is the reference template for lesson quizzes.
+
+       Colour. Ratios are WCAG 2.1 contrast against --color-surface (#fbfaf3)
+       unless noted. Every text pair meets AA (4.5:1 body, 3:1 large text/UI).
+         --color-text            #1d2119  15.6:1  body copy
+         --color-muted           #464c3c   8.5:1  secondary copy, captions, dimmed options
+         --color-border          #7a8068   3.9:1  control borders (UI >= 3:1)
+         --color-border-subtle   #c3c7ae          decorative dividers only
+         --color-accent          #3f4d22   8.6:1  primary buttons (white text 9.1:1)
+         --color-focus           #1a4fd1   6.5:1  keyboard focus ring, 3px solid
+         --color-correct         #1c6530   6.8:1  (6.0:1 on --color-correct-bg, white on it 7.1:1)
+         --color-incorrect       #9e2418   7.4:1  (6.5:1 on --color-incorrect-bg, white on it 7.7:1)
+         --color-warning-text    #7a3e00   7.4:1 on --color-warning-bg
+         --color-brass           #e3b65a          hero accents on charcoal only (9.4:1 on #23281e)
+         Armor khaki             #c9b37a          hero artwork only, never text on light surfaces
+         Difficulty accents (--mode-accent) reach >= 4.6:1 on their --mode-selected
+         tint and carry white text at >= 6:1. Difficulty is always named in text too.
+
+       Interaction states (colour is never the only signal):
+         unselected  2px --color-border, surface fill, outlined letter badge
+         hover       --mode-accent border, --mode-tint fill
+         focus       3px solid --color-focus outline, 2px offset
+         selected    --mode-accent border + inset ring, --mode-selected fill,
+                     filled letter badge, "Selected" tag with check icon
+         correct     --color-correct border + ring, --color-correct-bg fill,
+                     "Correct answer" tag with check icon
+         incorrect   --color-incorrect border + ring, --color-incorrect-bg fill,
+                     "Your answer" tag with cross icon
+         dimmed      subtle border, sunken fill, muted text (still 8:1)
+
+       Spacing:  --space-1 0.25rem · 2 0.5rem · 3 0.75rem · 4 1rem · 5 1.5rem · 6 2rem · 7 3rem
+       Type:     --text-xs 0.8125rem · sm 0.875rem · base 1rem · md 1.125rem · lg 1.375rem
+                 · xl 1.75rem · 2xl clamp(1.75rem, 1.2rem + 2vw, 2.5rem); line-height 1.5 body, 1.25 headings
+       Radii:    --radius-sm 0.375rem · md 0.5rem · lg 0.75rem · pill 999px
+       Shadows:  --shadow-sm resting cards · --shadow-md main card
+       Fonts:    system stacks only (--font-sans, --font-mono); no web fonts.
+       ===================================================================== */
+    :root {
+      --color-bg: #e7e8d6;
+      --color-surface: #fbfaf3;
+      --color-surface-sunken: #f1f1e6;
+      --color-text: #1d2119;
+      --color-muted: #464c3c;
+      --color-border: #7a8068;
+      --color-border-subtle: #c3c7ae;
+      --color-accent: #3f4d22;
+      --color-accent-hover: #2f3a19;
+      --color-accent-text: #ffffff;
+      --color-charcoal: #23281e;
+      --color-olive-deep: #4a4128;
+      --color-terrain: #5b6b3a;
+      --color-brass: #e3b65a;
+      --color-hero-text: #f3efdf;
+      --color-hero-muted: #d6d2bf;
+      --color-warning-bg: #fff0c7;
+      --color-warning-border: #9a5a00;
+      --color-warning-text: #7a3e00;
+      --color-correct: #1c6530;
+      --color-correct-bg: #e3f1e4;
+      --color-incorrect: #9e2418;
+      --color-incorrect-bg: #fbe6e2;
+      --color-self-bg: #fff4d1;
+      --color-self-border: #9a6a00;
+      --color-focus: #1a4fd1;
+      --band-mastery: #1c6530;
+      --band-proficient: #3f4d22;
+      --band-developing: #8a5700;
+      --band-review: #9e2418;
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.5rem;
+      --space-6: 2rem;
+      --space-7: 3rem;
+
+      --text-xs: 0.8125rem;
+      --text-sm: 0.875rem;
+      --text-base: 1rem;
+      --text-md: 1.125rem;
+      --text-lg: 1.375rem;
+      --text-xl: 1.75rem;
+      --text-2xl: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-pill: 999px;
+
+      --shadow-sm: 0 1px 2px rgba(35, 40, 30, 0.12), 0 1px 6px rgba(35, 40, 30, 0.08);
+      --shadow-md: 0 2px 4px rgba(35, 40, 30, 0.1), 0 8px 24px rgba(35, 40, 30, 0.14);
+
+      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --font-mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+      --mode-accent: var(--color-accent);
+      --mode-tint: #eef0e2;
+      --mode-selected: #e3e8cf;
+      --mode-glow: var(--color-brass);
+    }
+    /* Difficulty identities. The difficulty is always also named in text. */
+    .theme-easy, .mode-easy { --mode-accent: #2d6a2f; --mode-tint: #eef1e3; --mode-selected: #dcebd0; --mode-glow: #8fd17a; }
+    .theme-medium, .mode-medium { --mode-accent: #8a5700; --mode-tint: #f7eed6; --mode-selected: #f5e3b8; --mode-glow: #f2b441; }
+    .theme-hard, .mode-hard { --mode-accent: #a63d17; --mode-tint: #f8e6dc; --mode-selected: #f7d9cb; --mode-glow: #ff8a5c; }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: var(--text-base);
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+    h1, h2, h3, h4 { line-height: 1.25; }
+    h2 { font-size: var(--text-lg); margin: var(--space-6) 0 var(--space-3); }
+    h3 { font-size: var(--text-md); margin: var(--space-5) 0 var(--space-3); }
+    h4 { font-size: var(--text-base); margin: var(--space-4) 0 var(--space-2); }
+    p { margin: 0 0 var(--space-3); }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Decorative tactical-map layer: fixed, clipped and inert, so it never adds page width. */
+    .terrain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .terrain svg { display: block; width: 100%; height: 100%; }
+
+    /* Armor hero */
+    .hero {
+      background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-olive-deep) 100%);
+      color: var(--color-hero-text);
+      border-bottom: 6px solid var(--mode-glow);
+      overflow: hidden;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      gap: var(--space-5);
+      align-items: center;
+      width: 100%;
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: var(--space-5) var(--space-4);
+    }
+    .hero-copy { min-width: 0; }
+    .eyebrow { margin: 0; font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.04em; color: var(--color-brass); }
+    h1 { margin: var(--space-1) 0 var(--space-2); font-size: var(--text-2xl); }
+    .hero-lede { margin: 0; color: var(--color-hero-muted); max-width: 34rem; }
+    .hero-tools { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+    .hero-art { min-width: 0; }
+    .hero-art svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .hero-art text { font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: 0.08em; }
+    body[data-view="quiz"] .hero-inner, body[data-view="results"] .hero-inner { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+    body[data-view="quiz"] .hero-art svg, body[data-view="results"] .hero-art svg { max-height: 12rem; }
+
+    /* Sound toggle: speaker icon plus visible On/Off text; aria-pressed carries the state. */
+    .sound-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      border: 2px solid var(--color-brass);
+      background: rgba(20, 24, 17, 0.55);
+      color: var(--color-hero-text);
+      font-size: var(--text-sm);
+    }
+    .sound-toggle:hover:not(:disabled) { background: rgba(20, 24, 17, 0.85); border-color: var(--color-hero-text); }
+    .sound-toggle svg { width: 1.25rem; height: 1.25rem; flex: none; }
+    .sound-toggle .sound-waves { display: inline; }
+    .sound-toggle .sound-mute { display: none; }
+    .sound-toggle[aria-pressed="false"] .sound-waves { display: none; }
+    .sound-toggle[aria-pressed="false"] .sound-mute { display: inline; }
+    .sound-state { font-weight: 700; color: var(--color-brass); }
+
+    /* Artwork parts. Rest states are the static artwork shown with reduced motion. */
+    #objective { color: var(--mode-glow); }
+    #muzzle-blast { opacity: 0; transform-box: fill-box; transform-origin: 0% 50%; }
+    #shell { opacity: 0; transform: translate(280px, 172px); }
+    #tank-gun { transform-box: fill-box; transform-origin: 100% 50%; }
+    #dust .dust-puff { opacity: 0; transform-box: fill-box; transform-origin: center; }
+    #objective .impact-pulse { opacity: 0; transform-box: fill-box; transform-origin: center; }
+
+    /* One collection cycle (4 seconds) plays when the art appears; nothing loops, so no pause control is needed. */
+    #tank-gun { animation: gun-recoil 4s ease-out 1 both; }
+    #muzzle-blast { animation: muzzle-blast 4s ease-out 1 both; }
+    #shell { animation: shell-flight 4s linear 1 both; }
+    #dust .dust-puff { animation: dust-drift 4s ease-out 1 both; }
+    #dust .dust-puff:nth-child(2) { animation-delay: 0.12s; }
+    #dust .dust-puff:nth-child(3) { animation-delay: 0.24s; }
+    #objective .impact-pulse { animation: impact-pulse 4s ease-out 1 both; }
+
+    @keyframes gun-recoil {
+      0%, 15% { transform: translateX(0); }
+      16.5% { transform: translateX(-9px); }
+      32%, 100% { transform: translateX(0); }
+    }
+    @keyframes muzzle-blast {
+      0%, 15% { opacity: 0; transform: scale(0.3); }
+      16.5% { opacity: 1; transform: scale(1); }
+      22%, 100% { opacity: 0; transform: scale(1.2); }
+    }
+    @keyframes dust-drift {
+      0%, 16% { opacity: 0; transform: translate(0, 0) scale(0.4); }
+      21% { opacity: 0.8; transform: translate(-4px, -3px) scale(0.9); }
+      70%, 100% { opacity: 0; transform: translate(-34px, -22px) scale(2.2); }
+    }
+    @keyframes shell-flight {
+      0%, 15.9% { opacity: 0; transform: translate(280px, 172px); }
+      16% { opacity: 1; transform: translate(280px, 172px); }
+      56% { opacity: 1; transform: translate(408px, 198px); }
+      57%, 100% { opacity: 0; transform: translate(408px, 198px); }
+    }
+    @keyframes impact-pulse {
+      0%, 56% { opacity: 0; transform: scale(0.3); }
+      58% { opacity: 1; transform: scale(0.6); }
+      85%, 100% { opacity: 0; transform: scale(2.6); }
+    }
+    @keyframes view-enter {
+      from { opacity: 0; transform: translateY(0.5rem); }
+      to { opacity: 1; transform: none; }
+    }
+
+    /* Main card */
+    .app {
+      width: calc(100% - 2rem);
+      max-width: 52rem;
+      margin: var(--space-5) auto var(--space-6);
+      padding: var(--space-5);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-top: 6px solid var(--mode-accent);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+    .view { animation: view-enter 0.3s ease-out both; }
+    .view > h2:first-child { margin-top: 0; }
+
+    button {
+      font: inherit;
+      min-height: 44px;
+      min-width: 44px;
+      padding: var(--space-3) var(--space-4);
+      border: 2px solid var(--color-accent);
+      border-radius: var(--radius-sm);
+      background: var(--color-accent);
+      color: var(--color-accent-text);
+      font-weight: 600;
+      line-height: 1.25;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    button:hover:not(:disabled) { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+    button.secondary { background: var(--color-surface); color: var(--color-accent); }
+    button.secondary:hover:not(:disabled) { background: var(--mode-tint); color: var(--color-accent-hover); }
+    button.compact { padding: var(--space-2) var(--space-3); font-size: var(--text-sm); }
+    button:disabled { cursor: not-allowed; opacity: 0.55; }
+    :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+    .hero :focus-visible { outline-color: #ffffff; }
+
+    /* Icons are drawn in CSS with currentColor, always paired with text. */
+    .icon { position: relative; display: inline-block; flex: none; width: 1em; height: 1em; vertical-align: -0.125em; }
+    .icon::before, .icon::after { content: ""; position: absolute; }
+    .icon-check::before { left: 0.32em; top: 0.06em; width: 0.34em; height: 0.64em; border: solid currentColor; border-width: 0 0.16em 0.16em 0; transform: rotate(45deg); }
+    .icon-cross::before, .icon-cross::after { left: 0.42em; top: 0.02em; width: 0.16em; height: 0.96em; border-radius: 0.08em; background: currentColor; transform: rotate(45deg); }
+    .icon-cross::after { transform: rotate(-45deg); }
+    .icon-alert::before { left: 0.42em; top: 0.04em; width: 0.16em; height: 0.6em; border-radius: 0.08em; background: currentColor; }
+    .icon-alert::after { left: 0.42em; top: 0.78em; width: 0.16em; height: 0.18em; border-radius: 0.08em; background: currentColor; }
+    .icon-dot::before { left: 0.3em; top: 0.3em; width: 0.4em; height: 0.4em; border-radius: 50%; background: currentColor; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.125rem 0.625rem;
+      border-radius: var(--radius-pill);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      line-height: 1.5;
+      white-space: nowrap;
+    }
+    .tag-selected { background: var(--mode-accent); color: #ffffff; }
+    .tag-correct { background: var(--color-correct); color: #ffffff; }
+    .tag-incorrect { background: var(--color-incorrect); color: #ffffff; }
+    .tag-strength { background: var(--color-correct-bg); color: var(--color-correct); border: 1px solid var(--color-correct); }
+    .tag-gap { background: var(--color-incorrect-bg); color: var(--color-incorrect); border: 1px solid var(--color-incorrect); }
+    .tag-you { background: var(--color-accent); color: #ffffff; font-size: var(--text-xs); padding: 0 var(--space-2); }
+
+    /* Landing */
+    .field { margin: 0 0 var(--space-5); }
+    .field-label { display: block; margin-bottom: var(--space-1); font-weight: 700; }
+    .field-help { margin: 0 0 var(--space-2); font-size: var(--text-sm); color: var(--color-muted); }
+    .text-input {
+      display: block;
+      width: 100%;
+      max-width: 26rem;
+      min-height: 44px;
+      padding: var(--space-2) var(--space-3);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      color: var(--color-text);
+      font: inherit;
+      transition: border-color 0.15s ease;
+    }
+    .text-input:hover { border-color: var(--color-accent); }
+    .text-input[aria-invalid="true"] { border-color: var(--color-incorrect); }
+    .field-message { display: flex; gap: var(--space-2); align-items: baseline; margin: var(--space-2) 0 0; color: var(--color-incorrect); font-weight: 600; }
+
+    .study-warning {
+      border: 2px solid var(--color-warning-border);
+      border-left-width: 8px;
+      border-radius: var(--radius-md);
+      background: var(--color-warning-bg);
+      padding: var(--space-4);
+    }
+    .study-warning p { margin-top: 0; }
+    .study-warning strong { color: var(--color-warning-text); }
+    .study-confirm {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+      min-height: 44px;
+      padding: var(--space-2) 0;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .study-confirm input { flex: none; width: 1.5rem; height: 1.5rem; margin: 0.1rem 0 0; accent-color: var(--color-accent); }
+
+    .mode-hint { color: var(--color-muted); }
+    .mode-list {
+      display: grid;
+      gap: var(--space-3);
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+    }
+    .mode-button {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-1);
+      text-align: left;
+      padding: var(--space-4);
+      background: var(--mode-tint);
+      color: var(--color-text);
+      border: 2px solid var(--color-border);
+      border-left: 10px solid var(--mode-accent);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .mode-button:hover:not(:disabled) { background: var(--color-surface); border-color: var(--mode-accent); color: var(--color-text); }
+    .mode-name { font-size: var(--text-md); font-weight: 700; color: var(--mode-accent); }
+    .mode-desc { font-size: 0.9375rem; font-weight: 400; }
+    .privacy-note, .question-category, .results-reminder { color: var(--color-muted); }
+    .privacy-note { margin-top: var(--space-5); font-size: var(--text-sm); }
+
+    /* Quiz */
+    .quiz-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-2) var(--space-4); margin-bottom: var(--space-3); }
+    .quiz-head h2 { margin: 0; }
+    .student-line { margin: 0; font-size: var(--text-sm); color: var(--color-muted); }
+    .student-line strong { color: var(--color-text); }
+    .quiz-progress label { font-size: var(--text-sm); font-weight: 600; color: var(--color-muted); }
+    .quiz-status { font-size: var(--text-sm); color: var(--color-muted); }
+    progress { display: block; width: 100%; height: 0.75rem; accent-color: var(--mode-accent); }
+    .question-heading { margin: var(--space-5) 0 var(--space-1); }
+    .question-category { margin: 0 0 var(--space-4); font-size: var(--text-sm); }
+    fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+    legend { display: block; max-width: 100%; margin-bottom: var(--space-4); padding: 0; font-size: var(--text-md); font-weight: 600; line-height: 1.45; white-space: normal; }
+
+    .option {
+      position: relative;
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+      min-height: 44px;
+      margin-bottom: var(--space-2);
+      padding: var(--space-3) var(--space-4) var(--space-3) var(--space-3);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      cursor: pointer;
+      transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    /* The native radio stays in the tab order and drives keyboard selection; the letter badge is its visual. */
+    .option input { position: absolute; top: 50%; left: 1.25rem; width: 1px; height: 1px; margin: 0; opacity: 0; }
+    .option-letter {
+      display: inline-flex;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border: 2px solid var(--color-border);
+      border-radius: 50%;
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-weight: 700;
+    }
+    .option-body { flex: 1; min-width: 0; padding-top: 0.2rem; }
+    .option-text { display: block; }
+    .option-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
+    .option-tags:empty { display: none; }
+    .option:hover:not(.option-correct):not(.option-incorrect):not(.option-selected):not(.option-locked) { border-color: var(--mode-accent); background: var(--mode-tint); }
+    .option:focus-within { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+    .option:has(input:focus:not(:focus-visible)) { outline-color: transparent; }
+    .option-selected { border-color: var(--mode-accent); background: var(--mode-selected); box-shadow: inset 0 0 0 1px var(--mode-accent); }
+    .option-selected .option-letter { border-color: var(--mode-accent); background: var(--mode-accent); color: #ffffff; }
+    .option-locked { cursor: default; }
+    .option-correct { border-color: var(--color-correct); background: var(--color-correct-bg); box-shadow: inset 0 0 0 1px var(--color-correct); }
+    .option-correct .option-letter { border-color: var(--color-correct); background: var(--color-correct); color: #ffffff; }
+    .option-incorrect { border-color: var(--color-incorrect); background: var(--color-incorrect-bg); box-shadow: inset 0 0 0 1px var(--color-incorrect); }
+    .option-incorrect .option-letter { border-color: var(--color-incorrect); background: var(--color-incorrect); color: #ffffff; }
+    .option-dimmed { border-color: var(--color-border-subtle); background: var(--color-surface-sunken); color: var(--color-muted); }
+    .option-dimmed .option-letter { border-color: var(--color-border-subtle); background: var(--color-surface-sunken); color: var(--color-muted); }
+
+    .validation-message { display: flex; gap: var(--space-2); align-items: baseline; margin-top: var(--space-3); color: var(--color-incorrect); font-weight: 600; }
+
+    .feedback {
+      margin-top: var(--space-5);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      animation: view-enter 0.25s ease-out both;
+    }
+    .feedback-correct { border-color: var(--color-correct); }
+    .feedback-incorrect { border-color: var(--color-incorrect); }
+    .feedback-header { display: flex; align-items: center; gap: var(--space-3); margin: 0; padding: var(--space-3) var(--space-4); font-size: var(--text-lg); font-weight: 700; }
+    .feedback-correct .feedback-header { background: var(--color-correct-bg); color: var(--color-correct); }
+    .feedback-incorrect .feedback-header { background: var(--color-incorrect-bg); color: var(--color-incorrect); }
+    .feedback-mark { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 50%; color: #ffffff; font-size: 1rem; }
+    .feedback-correct .feedback-mark { background: var(--color-correct); }
+    .feedback-incorrect .feedback-mark { background: var(--color-incorrect); }
+    .feedback-body { padding: var(--space-4); }
+    .answer-line { margin: 0 0 var(--space-2); padding: var(--space-2) var(--space-3); border-left: 4px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface-sunken); }
+    .answer-line-correct { border-left-color: var(--color-correct); background: var(--color-correct-bg); }
+    .answer-line-incorrect { border-left-color: var(--color-incorrect); background: var(--color-incorrect-bg); }
+    .answer-label { font-weight: 700; }
+    .explanation { margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--color-border-subtle); }
+    .section-label { margin: 0 0 var(--space-1); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); }
+    .explanation-text { margin: 0; max-width: 68ch; line-height: 1.6; }
+    .source-ref { margin: var(--space-3) 0 0; font-size: var(--text-sm); color: var(--color-muted); }
+    .quiz-actions, .results-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
+
+    /* Results */
+    .score-card {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: var(--space-5);
+      align-items: center;
+      padding: var(--space-5);
+      border: 1px solid var(--color-border);
+      border-left: 8px solid var(--band-color, var(--mode-accent));
+      border-radius: var(--radius-lg);
+      background: var(--mode-tint);
+      box-shadow: var(--shadow-sm);
+    }
+    .band-mastery { --band-color: var(--band-mastery); }
+    .band-proficient { --band-color: var(--band-proficient); }
+    .band-developing { --band-color: var(--band-developing); }
+    .band-needs-review { --band-color: var(--band-review); }
+    .score-figure { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 8.5rem; height: 8.5rem; border: 6px solid var(--band-color, var(--mode-accent)); border-radius: 50%; background: var(--color-surface); text-align: center; }
+    .score-percent { font-size: 2.25rem; font-weight: 800; line-height: 1; }
+    .score-count { margin-top: var(--space-1); font-size: var(--text-sm); color: var(--color-muted); }
+    .score-meta { min-width: 0; }
+    .score-meta p { margin: 0 0 var(--space-2); }
+    .meta-label { display: block; font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); }
+    .meta-value { font-weight: 700; }
+    .band-badge { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); background: var(--band-color, var(--mode-accent)); color: #ffffff; font-size: var(--text-md); font-weight: 700; }
+    .band-description { color: var(--color-text); }
+
+    .history-save { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-4); padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); background: var(--color-surface-sunken); font-size: var(--text-sm); }
+    .history-save p { display: flex; gap: var(--space-2); align-items: baseline; margin: 0; }
+    .history-save:empty { display: none; }
+    .save-failed { border-color: var(--color-incorrect); background: var(--color-incorrect-bg); color: var(--color-incorrect); font-weight: 600; }
+    .save-saved { border-color: var(--color-correct); background: var(--color-correct-bg); color: var(--color-correct); font-weight: 600; }
+    .results-reminder { margin-top: var(--space-4); font-size: var(--text-sm); }
+
+    .table-wrap { max-width: 100%; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; background: var(--color-surface); }
+    caption { text-align: left; padding-bottom: var(--space-2); color: var(--color-muted); font-size: var(--text-sm); }
+    th, td { padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--color-border-subtle); text-align: left; vertical-align: middle; }
+    thead th { border-bottom: 2px solid var(--color-border); font-size: var(--text-sm); color: var(--color-muted); }
+    .topic-count { min-width: 9rem; }
+    .bar { position: relative; display: block; height: 0.5rem; margin-top: var(--space-1); border-radius: var(--radius-pill); background: var(--color-border-subtle); overflow: hidden; }
+    .bar::after { content: ""; position: absolute; top: 0; bottom: 0; left: 75%; width: 2px; background: var(--color-text); }
+    .bar-fill { display: block; height: 100%; border-radius: var(--radius-pill); }
+    .bar-strength { background: var(--color-correct); }
+    .bar-gap { background: var(--color-incorrect); }
+    .topic-lists { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+    .topic-lists ul { margin: 0; padding-left: var(--space-5); }
+
+    .review-list { margin: 0; padding: 0; list-style: none; }
+    .review-item { margin-bottom: var(--space-4); padding: var(--space-4); border: 1px solid var(--color-border-subtle); border-left: 6px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); }
+    .review-correct { border-left-color: var(--color-correct); }
+    .review-incorrect { border-left-color: var(--color-incorrect); }
+    .review-head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin: 0 0 var(--space-2); }
+    .review-topic { font-size: var(--text-sm); color: var(--color-muted); }
+    .review-prompt { font-weight: 600; }
+
+    /* Class score history */
+    .history-panel { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 2px solid var(--color-border-subtle); }
+    .section-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); }
+    .section-head h2 { margin: 0; }
+    .section-intro { margin-top: var(--space-2); color: var(--color-muted); font-size: var(--text-sm); }
+    .history-filters { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-3); }
+    .filter-button { background: var(--color-surface); color: var(--color-accent); padding: var(--space-2) var(--space-4); border-radius: var(--radius-pill); }
+    .filter-button:hover:not(:disabled) { background: var(--mode-tint); color: var(--color-accent-hover); }
+    .filter-button[aria-pressed="true"], .filter-button[aria-pressed="true"]:hover:not(:disabled) { background: var(--color-accent); color: #ffffff; }
+    .history-status { display: flex; gap: var(--space-2); align-items: baseline; padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface-sunken); }
+    .status-error { background: var(--color-incorrect-bg); color: var(--color-incorrect); font-weight: 600; }
+    .status-not-configured { background: var(--color-warning-bg); color: var(--color-warning-text); }
+    .status-ready { padding: 0; background: transparent; color: var(--color-muted); font-size: var(--text-sm); }
+    .history-table td { font-variant-numeric: tabular-nums; }
+    .history-row-self td { background: var(--color-self-bg); }
+    .history-row-self td:first-child { box-shadow: inset 4px 0 0 var(--color-self-border); }
+    .history-name-text { font-weight: 600; }
+
+    /* Narrow screens: stack the hero and every control row. */
+    @media (max-width: 760px) {
+      .hero-inner { grid-template-columns: 1fr; gap: var(--space-3); padding: var(--space-4); }
+      .hero-art svg { max-height: 13rem; margin: 0 auto; }
+      body[data-view="quiz"] .hero-art, body[data-view="results"] .hero-art, body[data-view="quiz"] .hero-lede, body[data-view="results"] .hero-lede { display: none; }
+      .hero-tools { margin-top: var(--space-3); }
+      .app { width: calc(100% - 1rem); margin: var(--space-3) auto var(--space-5); padding: var(--space-4); }
+      .mode-list { grid-template-columns: 1fr; }
+      .quiz-actions, .results-actions { flex-direction: column; }
+      .quiz-actions button, .results-actions button { width: 100%; }
+      .score-card { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: var(--space-4); }
+      th, td { padding: var(--space-2); }
+    }
+    /* Very narrow screens: history rows become labelled cards so the page never scrolls sideways. */
+    @media (max-width: 560px) {
+      .history-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+      .history-table, .history-table tbody, .history-table tr, .history-table td { display: block; width: 100%; }
+      .history-table tr { margin-bottom: var(--space-2); padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); }
+      .history-table td { display: flex; justify-content: space-between; gap: var(--space-3); padding: var(--space-1) 0; border: 0; }
+      .history-table td::before { content: attr(data-label); font-weight: 700; color: var(--color-muted); }
+      .history-row-self { border-color: var(--color-self-border); background: var(--color-self-bg); }
+      .history-row-self td:first-child { box-shadow: none; }
+    }
+
+    /* Reduced motion: stop every animation and transition; the static artwork stays visible. */
+    @media (prefers-reduced-motion: reduce) {
+      #tank-gun, #muzzle-blast, #shell, #dust .dust-puff, #dust .dust-puff:nth-child(2), #dust .dust-puff:nth-child(3), #objective .impact-pulse, .view, .feedback, button, .option, .text-input {
+        animation: none !important;
+        transition: none !important;
+      }
+      #muzzle-blast, #dust .dust-puff { opacity: 0; }
+      #shell { opacity: 1; transform: translate(344px, 186px); }
+      #objective .impact-pulse { opacity: 0.6; transform: none; }
+    }
+
+    @media print {
+      body { background: #ffffff; }
+      .terrain, .hero-art, .hero-tools, .results-actions, .noscript, .history-panel, .history-save { display: none !important; }
+      .hero { background: #ffffff; color: #000000; border-bottom: 2px solid #000000; }
+      .eyebrow, .hero-lede { color: #000000; }
+      .app { box-shadow: none; border: 0; margin: 0 auto; }
+      .review-item { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body data-view="landing">
+  <div class="terrain" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="#5b6b3a" stroke-opacity="0.16" stroke-width="1">
+        <path d="M0 100H1200M0 200H1200M0 300H1200M0 400H1200M0 500H1200M0 600H1200M0 700H1200M100 0V800M200 0V800M300 0V800M400 0V800M500 0V800M600 0V800M700 0V800M800 0V800M900 0V800M1000 0V800M1100 0V800"/>
+      </g>
+      <g fill="none" stroke="#5b6b3a" stroke-opacity="0.3" stroke-width="1.5">
+        <path d="M200 260C260 180 400 170 460 240C520 310 470 400 380 410C280 420 150 350 200 260Z"/>
+        <path d="M250 270C290 220 390 215 425 260C460 305 430 360 370 365C300 370 220 320 250 270Z"/>
+        <path d="M300 280C330 255 380 255 395 285C410 315 380 335 350 335C310 335 285 305 300 280Z"/>
+        <path d="M800 120C900 60 1080 100 1100 200C1120 300 980 340 880 300C780 260 720 170 800 120Z"/>
+        <path d="M850 150C920 110 1040 140 1050 205C1060 270 970 290 900 265C830 240 800 180 850 150Z"/>
+        <path d="M900 180C950 160 1000 180 1005 210C1010 240 960 250 925 238C890 226 870 195 900 180Z"/>
+        <path d="M0 620C200 580 400 660 600 610C800 560 1000 640 1200 600"/>
+        <path d="M0 680C220 640 420 720 620 670C820 620 1010 700 1200 660"/>
+      </g>
+      <g fill="none" stroke="#9a5a00" stroke-opacity="0.2" stroke-width="1.5" stroke-dasharray="6 8">
+        <circle cx="1100" cy="720" r="200"/>
+        <circle cx="1100" cy="720" r="350"/>
+        <circle cx="1100" cy="720" r="500"/>
+      </g>
+    </svg>
+  </div>
+
+  <header class="site-header hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Philippine Army · Armor Operations</p>
+        <h1>Armor Operations Mastery Quiz</h1>
+        <p class="hero-lede">A practice aid for the Fundamentals of Armor Operations lesson: 75 situational questions across Easy, Medium, and Hard.</p>
+        <div class="hero-tools">
+          <button type="button" id="btn-sound" class="sound-toggle" aria-pressed="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/>
+              <path class="sound-waves" d="M15.5 9a4.2 4.2 0 0 1 0 6M18.2 6.5a8 8 0 0 1 0 11"/>
+              <path class="sound-mute" d="M16 9.5l5 5M21 9.5l-5 5"/>
+            </svg>
+            <span>Sound effects</span>
+            <span id="sound-state" class="sound-state" aria-hidden="true">On</span>
+          </button>
+        </div>
+      </div>
+      <div id="hero-art" class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
+          <path d="M0 50H480M0 100H480M0 150H480M0 200H480M80 0V250M160 0V250M240 0V250M320 0V250M400 0V250" fill="none" stroke="#f3efdf" stroke-opacity="0.08" stroke-width="1"/>
+          <g class="terrain-contour" fill="none" stroke="#c9b37a" stroke-opacity="0.35" stroke-width="1.2" stroke-dasharray="3 5">
+            <path d="M0 120Q120 84 240 108T480 96"/>
+            <path d="M0 146Q130 116 250 136T480 126"/>
+            <path d="M0 76Q110 48 230 66T480 58"/>
+          </g>
+          <text x="12" y="18" fill="#e3b65a">ARMOR · FIRE · MANEUVER · SHOCK EFFECT</text>
+          <text x="12" y="31" fill="#d6d2bf">TANK · CAVALRY · MECHANIZED INFANTRY</text>
+          <path class="hill" d="M0 214C60 206 110 210 170 212C240 214 300 206 360 208C410 210 450 206 480 210V250H0Z" fill="#4b4a32"/>
+          <path d="M0 226C80 222 160 230 240 226C320 222 400 232 480 226" fill="none" stroke="#6b6644" stroke-width="1.5"/>
+          <path class="axis-line" d="M24 232H356" fill="none" stroke="#e3b65a" stroke-opacity="0.8" stroke-width="1.6" stroke-dasharray="6 5"/>
+          <path d="M356 226L368 232L356 238Z" fill="#e3b65a" fill-opacity="0.8"/>
+          <text x="30" y="246" fill="#d6d2bf">MECH INF</text>
+          <text x="160" y="246" fill="#d6d2bf">TANK</text>
+          <text x="292" y="246" fill="#d6d2bf">CAVALRY</text>
+          <g class="aifv">
+            <path d="M34 214H112V208L104 190H46L38 200Z" fill="#6b7a45" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="60" y="178" width="24" height="12" rx="2" fill="#586636" stroke="#1f231b" stroke-width="2"/>
+            <path d="M84 182H100" stroke="#1f231b" stroke-width="3" stroke-linecap="round"/>
+            <rect x="32" y="206" width="84" height="10" rx="5" fill="#2a2f24" stroke="#1f231b" stroke-width="2"/>
+            <circle cx="46" cy="211" r="3" fill="#8a8f78"/><circle cx="64" cy="211" r="3" fill="#8a8f78"/><circle cx="82" cy="211" r="3" fill="#8a8f78"/><circle cx="100" cy="211" r="3" fill="#8a8f78"/>
+          </g>
+          <g id="dust" fill="#c9b37a">
+            <circle class="dust-puff" cx="140" cy="208" r="7"/>
+            <circle class="dust-puff" cx="130" cy="204" r="6"/>
+            <circle class="dust-puff" cx="146" cy="200" r="5"/>
+          </g>
+          <g id="tank">
+            <ellipse cx="206" cy="216" rx="54" ry="4" fill="#1b1f16" fill-opacity="0.5"/>
+            <rect x="152" y="198" width="108" height="16" rx="8" fill="#2a2f24" stroke="#1f231b" stroke-width="2"/>
+            <circle cx="166" cy="206" r="4" fill="#8a8f78"/><circle cx="186" cy="206" r="4" fill="#8a8f78"/><circle cx="206" cy="206" r="4" fill="#8a8f78"/><circle cx="226" cy="206" r="4" fill="#8a8f78"/><circle cx="246" cy="206" r="4" fill="#8a8f78"/>
+            <path d="M156 198L166 182H248L258 198Z" fill="#6b7a45" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="180" y="164" width="52" height="18" rx="7" fill="#586636" stroke="#1f231b" stroke-width="2"/>
+            <rect x="196" y="156" width="12" height="8" rx="2" fill="#4a5730" stroke="#1f231b" stroke-width="2"/>
+            <g id="tank-gun">
+              <rect x="230" y="169" width="40" height="6" rx="2" fill="#a3b36d" stroke="#1f231b" stroke-width="2"/>
+              <rect x="266" y="167" width="8" height="10" rx="2" fill="#6b7a45" stroke="#1f231b" stroke-width="2"/>
+            </g>
+            <g id="muzzle-blast">
+              <path d="M276 172L296 158L290 170L310 172L290 174L296 186Z" fill="#ffd166" stroke="#ff8a3d" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="278" cy="172" r="5" fill="#fff3b0"/>
+            </g>
+          </g>
+          <g class="cavalry">
+            <path d="M296 214H352V208L346 196H306L300 200Z" fill="#7a7f64" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="314" y="186" width="20" height="10" rx="2" fill="#586636" stroke="#1f231b" stroke-width="2"/>
+            <path d="M334 190H346" stroke="#1f231b" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="308" cy="214" r="7" fill="#2a2f24" stroke="#1f231b" stroke-width="2"/><circle cx="340" cy="214" r="7" fill="#2a2f24" stroke="#1f231b" stroke-width="2"/>
+          </g>
+          <g id="objective" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M380 214V188H392V176H424V188H436V214Z" fill="#2a2f24" stroke-width="2"/>
+            <path d="M392 188H424M408 176V214" stroke-opacity="0.5"/>
+            <circle cx="408" cy="198" r="8"/>
+            <path d="M408 186V193M408 203V210M396 198H403M413 198H420"/>
+            <circle class="impact-pulse" cx="408" cy="198" r="14" stroke-width="2.5"/>
+            <text x="378" y="170" fill="currentColor" stroke="none">OBJECTIVE</text>
+          </g>
+          <g id="shell">
+            <ellipse cx="0" cy="0" rx="6" ry="3" fill="#e3b65a" stroke="#1f231b" stroke-width="1.5"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="app">
+    <noscript><p class="noscript">This quiz needs JavaScript enabled in your browser.</p></noscript>
+
+    <section id="view-landing" class="view view-landing" aria-labelledby="landing-heading">
+      <h2 id="landing-heading">Before you begin</h2>
+      <div class="field">
+        <label class="field-label" for="student-name">Your name or username</label>
+        <p id="student-name-help" class="field-help">2 to 40 characters. Shown on your results and in the class score history.</p>
+        <input type="text" id="student-name" class="text-input" name="student-name" autocomplete="name" maxlength="40" spellcheck="false" required aria-describedby="student-name-help student-name-message">
+        <p id="student-name-message" class="field-message" aria-live="polite" hidden></p>
+      </div>
+      <div id="study-warning" class="study-warning">
+        <p><strong>This mock examination is a practice aid only.</strong> It cannot replace studying the complete Fundamentals of Armor Operations lesson, and repeated attempts are not a substitute for that study.</p>
+        <label class="study-confirm" for="study-confirm">
+          <input type="checkbox" id="study-confirm" autocomplete="off">
+          <span>I understand that I must study the complete lesson and not rely only on this mock examination.</span>
+        </label>
+      </div>
+
+      <h2 id="difficulty-heading" tabindex="-1">Choose a difficulty</h2>
+      <p id="mode-hint" class="mode-hint" role="status" aria-live="polite">To enable the difficulty buttons, enter your name and check the study confirmation above.</p>
+      <div id="mode-list" class="mode-list" role="group" aria-labelledby="difficulty-heading">
+        <button type="button" id="mode-easy" class="mode-button mode-easy" disabled aria-describedby="mode-hint">
+          <span class="mode-name">Easy</span>
+          <span class="mode-desc">25 questions. One primary doctrinal judgment in each situation.</span>
+        </button>
+        <button type="button" id="mode-medium" class="mode-button mode-medium" disabled aria-describedby="mode-hint">
+          <span class="mode-name">Medium</span>
+          <span class="mode-desc">25 questions. Compare, diagnose, and choose among plausible options.</span>
+        </button>
+        <button type="button" id="mode-hard" class="mode-button mode-hard" disabled aria-describedby="mode-hint">
+          <span class="mode-name">Hard</span>
+          <span class="mode-desc">25 questions. Integrate several concepts under competing constraints.</span>
+        </button>
+      </div>
+      <p class="privacy-note">No login and no tracking. Your answers stay in this browser tab and are cleared when you refresh or close it. When your instructor has set up the class history, finishing an attempt sends your name, difficulty, score, percentage, mastery band and finish time to the class history sheet. Your individual answers are never sent.</p>
+    </section>
+
+    <section id="view-quiz" class="view view-quiz" hidden aria-labelledby="quiz-heading">
+      <div class="quiz-head">
+        <h2 id="quiz-heading">Examination</h2>
+        <p id="quiz-student" class="student-line"></p>
+      </div>
+      <div class="quiz-progress">
+        <label for="quiz-progress">Answers checked</label>
+        <progress id="quiz-progress" max="25" value="0"></progress>
+        <p id="quiz-status" class="quiz-status" role="status" aria-live="polite"></p>
+      </div>
+      <h3 id="question-heading" class="question-heading" tabindex="-1">Question</h3>
+      <p id="question-category" class="question-category"></p>
+      <div id="question-area" class="question-area"></div>
+      <p id="validation-message" class="validation-message" role="alert" tabindex="-1" hidden></p>
+      <div id="answer-feedback" class="feedback" tabindex="-1" hidden></div>
+      <div class="quiz-actions">
+        <button type="button" id="btn-prev" class="secondary">Previous question</button>
+        <button type="button" id="btn-check">Check answer</button>
+        <button type="button" id="btn-next">Next question</button>
+        <button type="button" id="btn-finish">View results</button>
+      </div>
+    </section>
+
+    <section id="view-results" class="view view-results" hidden aria-labelledby="results-heading">
+      <h2 id="results-heading" tabindex="-1">Results</h2>
+      <div id="results-summary" class="results-summary"></div>
+      <div id="history-save" class="history-save">
+        <p id="history-save-message" role="status" aria-live="polite"></p>
+        <button type="button" id="btn-history-retry" class="secondary compact" hidden>Retry saving</button>
+      </div>
+      <p class="results-reminder">This score is practice feedback only. Study the complete lesson; do not rely only on this mock examination.</p>
+      <div class="results-actions">
+        <button type="button" id="btn-print" class="secondary">Print or save results</button>
+        <button type="button" id="btn-retake">Retake same difficulty</button>
+        <button type="button" id="btn-choose" class="secondary">Choose another difficulty</button>
+        <button type="button" id="btn-history" class="secondary">View class score history</button>
+      </div>
+      <section class="results-topics" aria-labelledby="topics-heading">
+        <h3 id="topics-heading">Topic analysis</h3>
+        <div class="table-wrap">
+          <table id="results-categories" class="topic-table">
+            <caption>Correct answers by primary topic. A topic is a strength at 75% or higher and a gap below 75%; the line on each bar marks 75%.</caption>
+            <thead>
+              <tr><th scope="col">Topic</th><th scope="col">Correct</th><th scope="col">Result</th></tr>
+            </thead>
+            <tbody id="results-categories-body"></tbody>
+          </table>
+        </div>
+        <div class="topic-lists">
+          <div>
+            <h4>Strengths</h4>
+            <ul id="results-strengths" class="results-strengths"></ul>
+          </div>
+          <div>
+            <h4>Gaps to review in the lesson</h4>
+            <ul id="results-gaps" class="results-gaps"></ul>
+          </div>
+        </div>
+      </section>
+      <section class="results-review" aria-labelledby="review-heading">
+        <h3 id="review-heading">Full answer review</h3>
+        <ol id="results-review" class="review-list"></ol>
+      </section>
+    </section>
+
+    <section id="view-unavailable" class="view view-unavailable" hidden aria-labelledby="unavailable-heading">
+      <h2 id="unavailable-heading" tabindex="-1">Quiz unavailable</h2>
+      <p>The quiz is unavailable because its question data could not be loaded or did not pass validation, so no examination can start. Please try again later or inform your instructor.</p>
+    </section>
+
+    <section id="history-panel" class="history-panel" aria-labelledby="history-heading" hidden>
+      <div class="section-head">
+        <h2 id="history-heading" tabindex="-1">Class score history</h2>
+        <button type="button" id="btn-history-refresh" class="secondary compact">Refresh</button>
+      </div>
+      <p class="section-intro">Recent attempts from your class, newest first. Rows with your name are marked “You”.</p>
+      <div class="history-filters" role="group" aria-label="Show attempts for">
+        <button type="button" id="history-filter-all" class="filter-button" aria-pressed="true">All</button>
+        <button type="button" id="history-filter-easy" class="filter-button" aria-pressed="false">Easy</button>
+        <button type="button" id="history-filter-medium" class="filter-button" aria-pressed="false">Medium</button>
+        <button type="button" id="history-filter-hard" class="filter-button" aria-pressed="false">Hard</button>
+      </div>
+      <p id="history-status" class="history-status" role="status" aria-live="polite"></p>
+      <div id="history-table-wrap" class="table-wrap" hidden>
+        <table id="history-table" class="history-table">
+          <caption class="sr-only">Recent class attempts, newest first</caption>
+          <thead>
+            <tr><th scope="col">Name</th><th scope="col">Mode</th><th scope="col">Score</th><th scope="col">%</th><th scope="col">Band</th><th scope="col">Date</th></tr>
+          </thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/json" id="questions-easy">[{"id":1,"difficulty":"easy","category":"Armor Fundamentals and Mission","tags":["armor definition","combined arms"],"prompt":"A Philippine Army brigade commander wants a combined arms force that fights mounted and uses armor-protected vehicles as its principal means of accomplishing a ground combat mission. Which force fits this description?","options":["Armor","A dismounted light infantry force","A towed field artillery battery","A static fire-support cell"],"answer":0,"explanation":"Page 13 defines armor as a combined arms force designed for mounted combat using armor-protected vehicles.","sourceSlides":[13]},{"id":2,"difficulty":"easy","category":"Armor Fundamentals and Mission","tags":["armor operation","fire and maneuver"],"prompt":"A battalion S3 briefs that armor operations should climax in a powerful, violent action at the decisive time and place. Which statement matches how the lesson says this is achieved?","options":["Fire and maneuver are combined and controlled to create a preponderance of combat power","Maneuver alone is used because firing would reveal friendly positions to the enemy","Combat power is spread evenly across the front so no sector is weak at any time","Contact is avoided until the enemy has exhausted its own combat power in defense"],"answer":0,"explanation":"Page 13 says armor operations are conducted by fire and maneuver, combined and controlled to create a preponderance of combat power.","sourceSlides":[13]},{"id":3,"difficulty":"easy","category":"Armor Fundamentals and Mission","tags":["armor mission"],"prompt":"An armor battalion drafts the doctrinal mission statement for its operations order. Which wording does the Armor Operations manual give?","options":["To close with and neutralize enemy forces by fire, maneuver and shock effect in coordination with other arms","To hold terrain with static fires and avoid close combat with enemy forces during the operation","To destroy enemy forces only by indirect fire delivered from standoff positions behind the main body","To provide area security for rear installations without engaging the enemy forces directly"],"answer":0,"explanation":"Page 14 states the doctrinal mission of armor.","sourceSlides":[14]},{"id":4,"difficulty":"easy","category":"Characteristics of Armor","tags":["armor protection"],"prompt":"After an ambush, a company commander praises his armored vehicles for shielding the crews from small arms fire. Which characteristic of armor is he describing?","options":["Shock action","Mobility","Flexibility","Armor protection"],"answer":3,"explanation":"Page 20 lists armor protection as the first characteristic of armor.","sourceSlides":[20]},{"id":5,"difficulty":"easy","category":"Characteristics of Armor","tags":["characteristics of armor"],"prompt":"A staff officer lists the characteristics of armor for a class. Which item does NOT appear among the characteristics in the lesson?","options":["Amphibious landing capability","Armor protection","Mobility","Shock action"],"answer":0,"explanation":"Page 20 lists armor protection, firepower, mobility, flexibility, intensive and flexible communication, and shock action.","sourceSlides":[20]},{"id":6,"difficulty":"easy","category":"Mechanized Infantry: Mission and Organization","tags":["mechanized infantry mission"],"prompt":"A battalion commander asks what a mechanized infantry unit is expected to do. Which mission does the lesson give?","options":["Perform reconnaissance and surveillance and provide security for the unit it is assigned to","Close with the enemy by fire and maneuver to destroy or capture him, or repel his assault by fire, close combat and counterattack","Neutralize the enemy by fire, maneuver and shock effect in coordination with other arms","Provide indirect fire support to the main body from covered positions behind the line"],"answer":1,"explanation":"Pages 18 and 23 give the mechanized infantry mission; the distractors are the cavalry and tank missions.","sourceSlides":[18,23]},{"id":7,"difficulty":"easy","category":"Mechanized Infantry: Mission and Organization","tags":["platoon organization","AIFV"],"prompt":"A new platoon leader asks how his mechanized infantry platoon is equipped and organized. Which description matches the lesson?","options":["Three AIFVs; a platoon headquarters and two squads, with the platoon leader riding in a truck","Four AIFVs, each carrying a complete platoon headquarters and one squad of the company","Two AIFVs; a platoon headquarters and four squads, with the squads sharing the vehicles","Four AIFVs; a platoon headquarters and three squads, with the platoon leader and HQ in one AIFV"],"answer":3,"explanation":"Page 27 describes the platoon organization and how the platoon rides in its four AIFVs.","sourceSlides":[27]},{"id":8,"difficulty":"easy","category":"Mechanized Infantry: Mission and Organization","tags":["carrier team","dismount team"],"prompt":"In a mechanized infantry squad, a student asks who makes up the carrier team. Which answer is correct?","options":["The squad leader, the automatic rifleman and the grenadier","The carrier team leader, the gunner and the driver","The gunner, the driver and the platoon leader","All squad members who are not part of the vehicle crew"],"answer":1,"explanation":"Page 26 says the carrier team is the carrier team leader, gunner and driver; the dismount team is everyone else in the squad.","sourceSlides":[26]},{"id":9,"difficulty":"easy","category":"Mechanized Infantry Capabilities and Limitations","tags":["mounted capabilities"],"prompt":"A mechanized infantry platoon is fighting mounted in its AIFVs. Which task is a mounted capability in the lesson?","options":["Infiltrate enemy positions","Destroy light armored vehicles","Move over terrain not trafficable by vehicles","Secure obstacles to defeat enemy breaching efforts"],"answer":1,"explanation":"Page 28 lists mounted capabilities; the other options are dismounted capabilities from page 29.","sourceSlides":[28,29]},{"id":10,"difficulty":"easy","category":"Mechanized Infantry Capabilities and Limitations","tags":["dismounted capabilities"],"prompt":"A platoon leader must move through a swamp trail that AIFVs cannot use and infiltrate an enemy position. Which employment and reason fit the lesson?","options":["Mounted, because AIFVs cross any terrain the infantry can cross and infiltrate positions","Mounted, because dismounted infantry are unable to infiltrate enemy positions at all","Neither; infiltration of enemy positions is a task reserved for tank units only","Dismounted, because infantry can move over terrain vehicles cannot and can infiltrate positions"],"answer":3,"explanation":"Page 29 lists infiltrating enemy positions and moving over terrain not trafficable by vehicles as dismounted capabilities.","sourceSlides":[29]},{"id":11,"difficulty":"easy","category":"Mechanized Infantry Capabilities and Limitations","tags":["limitations of mechanized infantry"],"prompt":"A squad dismounts in the open and takes casualties from enemy mortars. Which stated limitation best explains this?","options":["AVs are restricted to certain avenues of approach due to terrain limitations","Infantrymen need sufficient time to mount and dismount their vehicles","AIFVs and APCs are more vulnerable than tanks to anti-armor weapons","Dismounted infantrymen are vulnerable to small arms and indirect fire"],"answer":3,"explanation":"Page 30 lists that dismounted infantrymen are vulnerable to small arms and indirect fire.","sourceSlides":[30]},{"id":12,"difficulty":"easy","category":"Mounting and Dismounting SOPs","tags":["dismounting SOP","weapon safety"],"prompt":"A squad is about to dismount from its AIFV. Which dismounting SOP is correct?","options":["Weapons are carried with the chamber empty and the muzzle down","Soldiers take cover behind the AV once they are out of the vehicle","Soldiers ride on top of the AV between positions to save time","The first soldier to dismount is also the first to mount again"],"answer":0,"explanation":"Page 31 lists chamber empty, muzzle down; never hide behind an AV; no riders on top; first to dismount is last to mount.","sourceSlides":[31]},{"id":13,"difficulty":"easy","category":"Mounting and Dismounting SOPs","tags":["dismount under fire","IAD"],"prompt":"A squad dismounts left and comes under fire from the right. Which objectives apply after the dismount?","options":["Remain mounted and let the AIFV absorb the fire until the enemy withdraws from the area","React to the contact on the right, extricate out of the kill zone, then perform IAD after dismount procedures","Dismount right toward the enemy to close with it at once, without any reaction drill","Wait at the door of the AV for the enemy fire to stop before taking any action"],"answer":1,"explanation":"Pages 35-39 give the objectives for dismounting left under fire from the right.","sourceSlides":[35]},{"id":14,"difficulty":"easy","category":"Mounting and Dismounting SOPs","tags":["mounting SOP"],"prompt":"After a patrol, a squad boards its AIFV. Which mounting SOP applies?","options":["All soldiers rush the door together so the squad is inside as quickly as possible","Keep weapons loaded with muzzles up once inside the AV to stay ready","Provide cover while others mount, and move inside one at a time without piling at the door","The last soldier to dismount boards first so he can sit nearest the door"],"answer":2,"explanation":"Page 45 lists the mounting SOPs.","sourceSlides":[45]},{"id":15,"difficulty":"easy","category":"Cavalry Operations","tags":["cavalry role","eyes and ears"],"prompt":"A division commander wants his eyes and ears forward to give him situational awareness before he maneuvers. Which unit fits that role?","options":["A tank unit","A mechanized infantry unit","Cavalry","A fire support vehicle section"],"answer":2,"explanation":"Page 53 describes cavalry as the commander's eyes and ears.","sourceSlides":[53]},{"id":16,"difficulty":"easy","category":"Cavalry Operations","tags":["cavalry organization"],"prompt":"A staff lists cavalry organizations: squadron/battalion, troop/company, air cavalry squadron, and separate troop/company. How many basic designs does the lesson give for cavalry?","options":["Three","Five","Four","Two"],"answer":2,"explanation":"Page 55 lists four basic cavalry designs.","sourceSlides":[55]},{"id":17,"difficulty":"easy","category":"Cavalry Operations","tags":["economy of force"],"prompt":"A brigade commander wants a unit that can hold part of the front thinly so he can conserve combat power for engagement where he wishes. Which cavalry role does this describe?","options":["Main effort","Counterattack force","Economy of force","Rear area security only"],"answer":2,"explanation":"Page 54 describes cavalry as an economy of force that lets the commander conserve combat power.","sourceSlides":[54]},{"id":18,"difficulty":"easy","category":"Tank Operations","tags":["tank mission"],"prompt":"A commander assigns a unit to neutralize enemy forces by fire, maneuver and shock effect in coordination with other units. Which armor sub-component is this?","options":["Tank operations","Cavalry operations","Mechanized infantry operations","Fire support operations"],"answer":0,"explanation":"Pages 17 and 63 give this as the tank mission.","sourceSlides":[17,63]},{"id":19,"difficulty":"easy","category":"Tank Operations","tags":["tank platoon organization"],"prompt":"A tank company commander reviews the organization of one platoon. Which description matches the lesson?","options":["Three tanks, each crewed by a commander and a driver only","Five tanks, each crewed by four soldiers including a loader","Two tanks, each crewed by a gunner and a driver only","Four tanks, each crewed by a tank commander, a gunner and a driver"],"answer":3,"explanation":"Page 65 shows a platoon of four tanks, each with commander, gunner and driver.","sourceSlides":[65]},{"id":20,"difficulty":"easy","category":"Tank Operations","tags":["tank capabilities","thermal sights"],"prompt":"A tank company will attack at night. Which capability does the lesson give tanks for night fighting?","options":["Tanks need infantry to light the targets before they can fire accurately","Thermal sights greatly enhance the night fighting capability of the combined arms team","Tanks cannot fight at night and must wait for daylight to engage","Night fighting is done only by dismounted infantry using night vision goggles"],"answer":1,"explanation":"Page 66 says tanks use thermal sights to greatly enhance night fighting.","sourceSlides":[66]},{"id":21,"difficulty":"easy","category":"Planning Considerations","tags":["mechanized infantry planning","dismount"],"prompt":"A mechanized infantry company commander is planning where his troops get off their vehicles. Which options does the lesson list?","options":["Only on the objective","Only before the line of departure","Only after the enemy has withdrawn","On, before or after the objective"],"answer":3,"explanation":"Page 69 lists where to dismount troops: on, before or after the objective.","sourceSlides":[69]},{"id":22,"difficulty":"easy","category":"Planning Considerations","tags":["planning considerations","tank units"],"prompt":"A staff reviews planning considerations for armor units. Which statement matches the lesson?","options":["Mechanized infantry and cavalry are the best choice against enemy tank units, while tanks should avoid other tanks","Tanks cannot be used against other tanks, so tank units are left to mechanized infantry","Mechanized infantry and cavalry cannot be used against tank units, but tanks can be used against other tanks or any enemy armored vehicle","All three armor units can be used equally against enemy tank units with no special planning"],"answer":2,"explanation":"Pages 69-71 list this consideration for each unit.","sourceSlides":[69,70,71]},{"id":23,"difficulty":"easy","category":"Major Equipment of the Armor Division","tags":["Guarani","wheeled APC"],"prompt":"A battalion receives a wheeled APC acquired in 2024 under the Horizon 2 Project, with a crew of 3 and 7 passengers. Which vehicle is it?","options":["Simba Fighting Vehicle","Commando V-150S","Guarani 6x6 wheeled APC","M113A2 APC"],"answer":2,"explanation":"Page 83 lists these specifications for the Guarani 6x6 wheeled APC.","sourceSlides":[83]},{"id":24,"difficulty":"easy","category":"Major Equipment of the Armor Division","tags":["Commando V-150S","internal security"],"prompt":"An internal security unit wants a wheeled AFV designed for internal security operations, with a fully enclosed one-man turret and run-flat tires. Which vehicle?","options":["Sabrah Light Tank ASCOD II","Commando V-150S","M113A2 APC","Fire Support Vehicle"],"answer":1,"explanation":"Page 79 describes the Commando V-150S with these characteristics.","sourceSlides":[79]},{"id":25,"difficulty":"easy","category":"Major Equipment of the Armor Division","tags":["Sabrah","light tank"],"prompt":"Which vehicle in the lesson is the light tank armed with a 105 mm gun and crewed by three?","options":["Sabrah Light Tank ASCOD II","Fire Support Vehicle","Simba Fighting Vehicle","M113A2 IFV Unmanned Turret System"],"answer":0,"explanation":"Page 82 gives the Sabrah specification: 105 mm main armament and a crew of 3.","sourceSlides":[82]}]</script>
+  <script type="application/json" id="questions-medium">[{"id":1,"difficulty":"medium","category":"Armor Fundamentals and Mission","tags":["armor definition"],"prompt":"Two staff officers disagree on the meaning of armor in a lecture. Which statement correctly captures the lesson?","options":["Armor means only the plating of a vehicle and never refers to a force or a way of fighting","Armor is a combined arms force fighting mounted in armor-protected vehicles, and the word also means a defensive covering that affords protection","Armor means tank units fighting alone without the support of any other arm","Armor is a dismounted force that is protected by obstacles and prepared positions"],"answer":1,"explanation":"Page 13 gives both senses of the word.","sourceSlides":[13]},{"id":2,"difficulty":"medium","category":"Armor Fundamentals and Mission","tags":["armor mission","internal security operations"],"prompt":"An armor task force is ordered to conduct internal security operations in peacetime. A staff officer says this contradicts its doctrinal mission. What is the correct assessment?","options":["Contradiction: armor may conduct ISO only when it is attached to an infantry unit","No contradiction: armor may also conduct ISO, independently or in a task force, when higher headquarters requires it","Contradiction: ISO is permitted for armor only in wartime, never in a peacetime environment","No contradiction: ISO is the primary mission of armor and close combat is secondary"],"answer":1,"explanation":"Page 14 says armor may also conduct ISO activities in peacetime as required by higher headquarters.","sourceSlides":[14]},{"id":3,"difficulty":"medium","category":"Armor Fundamentals and Mission","tags":["sub-components of armor"],"prompt":"A staff organizes Philippine Army armor operations into mechanized infantry, cavalry and artillery operations. What correction does the lesson require?","options":["Replace cavalry with engineer operations","Keep all three; the list is complete","Replace artillery with tank operations","Add artillery as a fourth sub-component"],"answer":2,"explanation":"Page 15 lists mechanized infantry, cavalry and tank operations as the three sub-components.","sourceSlides":[15]},{"id":4,"difficulty":"medium","category":"Characteristics of Armor","tags":["intensive and flexible communication"],"prompt":"A commander lists armor protection, firepower, mobility, flexibility and shock action as characteristics. His signal officer says one more is missing. Which?","options":["Amphibious capability","Intensive and flexible communication","Air transportability","Independence from logistics"],"answer":1,"explanation":"Page 20 lists six characteristics, including intensive and flexible communication.","sourceSlides":[20]},{"id":5,"difficulty":"medium","category":"Characteristics of Armor","tags":["intensive and flexible communication"],"prompt":"An armored assault stalls because the company radios fail and orders cannot flow between vehicles. Which characteristic of armor is being degraded?","options":["Intensive and flexible communication","Armor protection","Mobility","Firepower"],"answer":0,"explanation":"Page 20 lists intensive and flexible communication as a characteristic of armor.","sourceSlides":[20]},{"id":6,"difficulty":"medium","category":"Mechanized Infantry: Mission and Organization","tags":["company organization"],"prompt":"A mechanized infantry company has a headquarters of 2 officers and 15 enlisted and three platoons of 1 officer and 37 enlisted each. What is its total strength?","options":["5 officers and 111 enlisted","4 officers and 126 enlisted","6 officers and 126 enlisted","5 officers and 126 enlisted"],"answer":3,"explanation":"Page 24 shows 5 officers and 126 enlisted; 15 + 3 x 37 = 126 and 2 + 3 = 5.","sourceSlides":[24]},{"id":7,"difficulty":"medium","category":"Mechanized Infantry: Mission and Organization","tags":["platoon organization"],"prompt":"A mechanized infantry platoon has a headquarters and three squads. How are the soldiers distributed across the four AIFVs?","options":["All three squads share two AIFVs while the platoon HQ travels on foot","The platoon leader and HQ ride in one AIFV and each squad rides in one of the other three","The platoon HQ is split across all four AIFVs and the squads ride separately","Each AIFV carries one squad and the HQ rides in a separate truck"],"answer":1,"explanation":"Page 27 says the PL and HQ are mounted in one AIFV and the three squads in the other three.","sourceSlides":[27]},{"id":8,"difficulty":"medium","category":"Mechanized Infantry: Mission and Organization","tags":["dismount team","carrier team"],"prompt":"During a dismount, the gunner and driver stay with the AIFV. A new lieutenant asks who forms the dismount team. Which answer is correct?","options":["Only the squad leader and the automatic rifleman","The carrier team leader and the driver","All squad members who are not part of the carrier team","The platoon headquarters section"],"answer":2,"explanation":"Page 26 says the dismount team is made up of all squad members not part of the carrier team.","sourceSlides":[26]},{"id":9,"difficulty":"medium","category":"Mechanized Infantry Capabilities and Limitations","tags":["mounted vs dismounted"],"prompt":"A commander wants to assault unprepared, suppressed defenses and also infiltrate enemy positions. Which pairing of mode and task is correct?","options":["Assault the suppressed defenses dismounted; infiltrate mounted","Do both tasks mounted in the AIFVs","Do both tasks dismounted on foot","Assault the suppressed defenses mounted; infiltrate dismounted"],"answer":3,"explanation":"Page 28 lists assaulting suppressed defenses as mounted; page 29 lists infiltration as dismounted.","sourceSlides":[28,29]},{"id":10,"difficulty":"medium","category":"Mechanized Infantry Capabilities and Limitations","tags":["dismounted capabilities"],"prompt":"A battalion S3 keeps a mechanized infantry company mounted to defend against a dismounted attack and to secure obstacles against enemy breaching. What is the problem?","options":["Both are mounted capabilities, so the plan is correct as written","Defending against dismounted attack is a tank task only","Both are dismounted capabilities, so the infantry must dismount to do them","Securing obstacles is a cavalry task only"],"answer":2,"explanation":"Page 29 lists defending versus dismounted attack and securing obstacles as dismounted capabilities.","sourceSlides":[29]},{"id":11,"difficulty":"medium","category":"Mechanized Infantry Capabilities and Limitations","tags":["limitations of mechanized infantry"],"prompt":"A commander orders a vehicle-mounted advance through dense, steep terrain. Which limitation applies, and which element is less affected?","options":["AVs are unrestricted by terrain, while dismounted infantry are restricted to roads","AVs are restricted to certain avenues of approach, while dismounted infantry can cross terrain vehicles cannot","Infantry need time to dismount, while AVs move over any terrain faster than the infantry","AIFVs are as protected as tanks, so terrain is the only limit on the dismounted infantry"],"answer":1,"explanation":"Pages 29-30 cover vehicle restrictions to avenues of approach and dismounted movement over untrafficable terrain.","sourceSlides":[29,30]},{"id":12,"difficulty":"medium","category":"Mounting and Dismounting SOPs","tags":["SOPs on dismounting"],"prompt":"During a dismount, soldiers pile up at the door, one rides on top of the AIFV, and another uses the AIFV as cover. Which statement is correct?","options":["Only hiding behind the AV violates the SOPs","Only riding on top of the AV violates the SOPs","All three actions violate the dismounting SOPs","None violates the SOPs, since speed is of the essence"],"answer":2,"explanation":"Page 31 says avoid piling at the door, no riders on top, and never hide behind an AV.","sourceSlides":[31]},{"id":13,"difficulty":"medium","category":"Mounting and Dismounting SOPs","tags":["dismount left","dismount right"],"prompt":"A squad has no enemy contact and the terrain is not favorable on the left. Which dismount does the lesson prescribe?","options":["Dismount left","Dismount left under fire from the right","Mount from the right","Dismount right"],"answer":3,"explanation":"Pages 33-34 give dismount right when terrain is not favorable on the left and no enemy contact.","sourceSlides":[33,34]},{"id":14,"difficulty":"medium","category":"Mounting and Dismounting SOPs","tags":["dismount under fire"],"prompt":"An AIFV is hit by fire from the left while the squad is dismounting. Which response matches the lesson?","options":["Dismount right, react to contact on the left, extricate out of the kill zone, then perform IAD","Dismount left toward the fire to engage it and remain in the kill zone until contact ends","Dismount right but wait for the fire to stop before reacting to the contact on the left","Stay mounted with the ramp closed until the contact on the left is over"],"answer":0,"explanation":"Pages 40-44 give the dismount right procedure under fire from the left.","sourceSlides":[40]},{"id":15,"difficulty":"medium","category":"Cavalry Operations","tags":["cavalry limitations"],"prompt":"A cavalry troop is tasked with a long screen across dense forest and a major river. Which limitations does the lesson list?","options":["High logistics requirements and mobility restricted by dense forest, steep rugged terrain and major water obstacles","Inability to conduct reconnaissance and a requirement to be reinforced for any security task","Limited mobility on roads and a restriction to daylight operations only","Reliance on infantry for security and an inability to operate as an economy of force"],"answer":0,"explanation":"Page 61 lists high logistics requirements and terrain-restricted mobility as cavalry limitations.","sourceSlides":[61]},{"id":16,"difficulty":"medium","category":"Cavalry Operations","tags":["separate cavalry troop"],"prompt":"A brigade commander asks what a separate cavalry troop is. Which statement is correct?","options":["It belongs to the division cavalry squadron and works for the division commander","It is always a heavy unit, whatever the type of brigade it serves","It is an air cavalry unit that supports several brigades from the air","It is part of a separate light or armored brigade, heavy or light as the brigade is, and works for the brigade commander"],"answer":3,"explanation":"Page 58 describes the separate cavalry troop.","sourceSlides":[58]},{"id":17,"difficulty":"medium","category":"Cavalry Operations","tags":["eyes and ears","economy of force"],"prompt":"A division commander uses cavalry to see the enemy early and to hold part of the front thinly. How does the lesson say this helps him?","options":["Cavalry takes over the main attack so the division can avoid engagement","Cavalry holds all terrain permanently, so the division no longer needs a reserve","Cavalry replaces division reconnaissance units so staff planning is shortened","Situational awareness improves his ability to maneuver, and economy of force conserves combat power for engagement where he desires"],"answer":3,"explanation":"Pages 53-54 give both fundamentals.","sourceSlides":[53,54]},{"id":18,"difficulty":"medium","category":"Tank Operations","tags":["unit missions"],"prompt":"A staff assigns one unit to repel an enemy assault by close combat and counterattack, and another to neutralize the enemy by fire, maneuver and shock effect. Which units?","options":["Tank first; mechanized infantry second","Cavalry first; tank second","Mechanized infantry first; tank second","Mechanized infantry first; cavalry second"],"answer":2,"explanation":"Pages 18 and 17 give the mechanized infantry and tank missions.","sourceSlides":[17,18]},{"id":19,"difficulty":"medium","category":"Tank Operations","tags":["tank capabilities"],"prompt":"A tank company must fight at night in an area where NBC hazards are possible. Which statement matches the lesson?","options":["Tanks can operate only on a conventional battlefield, and thermal sights are issued to infantry","Tanks can operate on a conventional or NBC battlefield, and thermal sights enhance night fighting","Tanks cannot operate at night, and NBC hazards make tank support unusable","Tanks can fight at night only with illumination from other arms on a conventional battlefield"],"answer":1,"explanation":"Page 66 lists these tank capabilities.","sourceSlides":[66]},{"id":20,"difficulty":"medium","category":"Tank Operations","tags":["tank limitations"],"prompt":"A planner assumes tanks will deploy to the theater under their own power and be sustained by infantry battalion trucks. Which limitations contradict this?","options":["Tanks depend on flatbeds for deployment, and infantry units lack organic transport for tank CSS needs, especially Classes III, V and IX","Tanks depend on aircraft for deployment, and infantry units have enough transport for Class I only","Tanks deploy themselves, but their fuel needs are met by cavalry units","Tanks need no CSS support because they carry all supplies they need for the operation"],"answer":0,"explanation":"Pages 67-68 list these tank limitations.","sourceSlides":[67,68]},{"id":21,"difficulty":"medium","category":"Planning Considerations","tags":["tank planning considerations"],"prompt":"A tank company commander builds his plan. Which combination lists the planning considerations the lesson gives for tanks?","options":["Surface danger zone, direct fire control measures, SBF positions and cover against enemy air","Where to dismount troops, weapon range, objective to combat trains distance and avenue restrictions","Indirect fire weapon support, weapon range, security operations and distance from main body","Surface danger zone, weapon range, security operations and the Ex-O as resource manager"],"answer":0,"explanation":"Page 71 lists the tank planning considerations; the distractors mix in mechanized infantry and cavalry items.","sourceSlides":[69,70,71]},{"id":22,"difficulty":"medium","category":"Planning Considerations","tags":["cavalry planning considerations"],"prompt":"A staff lists distance from main body, security operations and indirect fire weapon support as planning considerations. For which armor unit is this the list?","options":["Tank","Mechanized infantry","Tank and mechanized infantry together","Cavalry"],"answer":3,"explanation":"Page 70 lists these cavalry planning considerations.","sourceSlides":[70]},{"id":23,"difficulty":"medium","category":"Major Equipment of the Armor Division","tags":["M113A2 RCWS"],"prompt":"A unit moves from the basic M113A2 APC to the RCWS version. Which change matches the lesson?","options":["The RCWS replaces the .50 cal with a 25 mm cannon and extends maximum range to 6,800 m","The RCWS adds day and night cameras, range measuring and automatic target tracking, but its maximum range is 2,000 m versus 6,800 m","The RCWS removes the weapon from the vehicle and carries an unarmed crew","The RCWS has the same sights as the basic APC but a longer effective range of 2,000 m"],"answer":1,"explanation":"Pages 73-74 compare the two M113A2 data sheets.","sourceSlides":[73,74]},{"id":24,"difficulty":"medium","category":"Major Equipment of the Armor Division","tags":["Fire Support Vehicle"],"prompt":"A commander needs a direct-fire vehicle with a 76 mm L23A1 main gun, 2,200 m effective direct fire range and a maximum ammunition load of 40 rounds. Which vehicle?","options":["Sabrah Light Tank ASCOD II","M113A2 IFV Unmanned Turret System","Fire Support Vehicle (FSV)","Guarani 6x6 wheeled APC"],"answer":2,"explanation":"Page 81 gives the FSV main gun and ranges.","sourceSlides":[81]},{"id":25,"difficulty":"medium","category":"Major Equipment of the Armor Division","tags":["main armament"],"prompt":"Which pairing of vehicle and main weapon is correct according to the lesson?","options":["Sabrah, 105 mm gun; M113A2 UTS, 25 mm Bush-Master; Guarani, 12.7 mm HMG","Sabrah, 76 mm gun; M113A2 UTS, 105 mm gun; Guarani, 25 mm Bush-Master","Sabrah, 12.7 mm HMG; M113A2 UTS, 76 mm gun; Guarani, 105 mm gun","Sabrah, 25 mm Bush-Master; M113A2 UTS, 12.7 mm HMG; Guarani, 105 mm gun"],"answer":0,"explanation":"Pages 75, 82 and 83 give these main weapons.","sourceSlides":[75,82,83]}]</script>
+  <script type="application/json" id="questions-hard">[{"id":1,"difficulty":"hard","category":"Armor Fundamentals and Mission","tags":["armor definition","armor mission","internal security operations"],"prompt":"A brigade commander in Mindanao wants a force that attacks mounted in protected vehicles, combines fire and maneuver at the decisive time and place, and may also be tasked with ISO in peacetime. Which assessment of armor is accurate?","options":["Armor fights mainly dismounted, relies on maneuver alone, and is barred from ISO in peacetime","Armor fights as a pure tank force without other arms, relying on shock effect only, and may not conduct ISO","Armor fights mounted in armor-protected vehicles, uses controlled fire and maneuver, and may conduct ISO when higher headquarters requires","Armor fights from static positions, relies on indirect fire, and conducts ISO only in wartime"],"answer":2,"explanation":"Pages 13-14 give the definition, the fire and maneuver method and the ISO provision.","sourceSlides":[13,14]},{"id":2,"difficulty":"hard","category":"Armor Fundamentals and Mission","tags":["sub-components of armor","unit missions"],"prompt":"A staff assigns three missions: (1) reconnaissance, surveillance and security; (2) neutralize the enemy by fire, maneuver and shock effect; (3) close with the enemy to destroy or capture him. Which units match, in order?","options":["Tank, cavalry, mechanized infantry","Mechanized infantry, tank, cavalry","Cavalry, mechanized infantry, tank","Cavalry, tank, mechanized infantry"],"answer":3,"explanation":"Pages 16-18 give these three missions.","sourceSlides":[16,17,18]},{"id":3,"difficulty":"hard","category":"Armor Fundamentals and Mission","tags":["armor operation","shock effect"],"prompt":"An S3 argues that armor operations succeed through shock effect alone. Which flaw does the lesson expose?","options":["Shock effect is not part of the armor mission, which depends only on dismounted fire and maneuver","Armor operations depend on armor protection alone, so firepower and mobility are secondary","Shock effect applies only to cavalry, so tanks and mechanized infantry should not seek it","Armor operations combine and control fire and maneuver to create a preponderance of combat power, with shock effect applied in coordination with other arms"],"answer":3,"explanation":"Pages 13-14 tie shock effect to fire and maneuver in coordination with other arms.","sourceSlides":[13,14]},{"id":4,"difficulty":"hard","category":"Characteristics of Armor","tags":["characteristics of armor","armor protection","communication","mobility"],"prompt":"After an exercise, a company is scored: crews survived small arms and shell fragments, the radio net failed during maneuver, and the vehicles kept pace over varied terrain. Which assessment fits the lesson?","options":["Armor protection was degraded, intensive and flexible communication held, and mobility held","Armor protection held, intensive and flexible communication was degraded, and mobility held","Armor protection held, intensive and flexible communication held, and mobility was degraded","Armor protection and mobility were degraded, while intensive and flexible communication held"],"answer":1,"explanation":"Page 20 names all three characteristics.","sourceSlides":[20]},{"id":5,"difficulty":"hard","category":"Characteristics of Armor","tags":["characteristics of armor","firepower","mobility","armor protection"],"prompt":"A planner links vehicle features to characteristics: the 25 mm cannon, the amphibious M113A2 hull, and Level 4 ballistic protection on the Sabrah. Which linkage is correct?","options":["Mobility, firepower, armor protection","Armor protection, mobility, firepower","Firepower, armor protection, mobility","Firepower, mobility, armor protection"],"answer":3,"explanation":"Pages 20, 73, 75 and 82 support this linkage.","sourceSlides":[20,73,75,82]},{"id":6,"difficulty":"hard","category":"Mechanized Infantry: Mission and Organization","tags":["platoon organization","AIFV"],"prompt":"A mechanized infantry platoon has 1 officer and 37 enlisted; the HQ has 1 officer and 10 enlisted and the three squads are equal. How many enlisted are in each squad, and how many AIFVs does the platoon use?","options":["12 enlisted per squad; three AIFVs","9 enlisted per squad; four AIFVs","10 enlisted per squad; four AIFVs","9 enlisted per squad; three AIFVs"],"answer":1,"explanation":"Page 25 gives 37 - 10 = 27, or 9 per squad; page 27 gives four AIFVs.","sourceSlides":[25,27]},{"id":7,"difficulty":"hard","category":"Mechanized Infantry: Mission and Organization","tags":["dismount team","responsibilities"],"prompt":"During a dismount, who is responsible for both the maneuver of the dismount team and the positioning of the AV?","options":["The squad leader or the platoon leader","The AIFV driver alone","The carrier team leader only","The company first sergeant"],"answer":0,"explanation":"Page 31 assigns this responsibility to the SL or PL.","sourceSlides":[31]},{"id":8,"difficulty":"hard","category":"Mechanized Infantry: Mission and Organization","tags":["company organization","AIFV"],"prompt":"A mechanized infantry company has three platoons of four AIFVs each. How many AIFVs do the platoons field together?","options":["Eight","Ten","Twelve","Sixteen"],"answer":2,"explanation":"Pages 24 and 27 give three platoons of four AIFVs each: 3 x 4 = 12.","sourceSlides":[24,27]},{"id":9,"difficulty":"hard","category":"Mechanized Infantry Capabilities and Limitations","tags":["mounted vs dismounted","capabilities"],"prompt":"A platoon must assault unprepared, suppressed defenses, infiltrate along a trail vehicles cannot use, and fix the enemy so tanks can maneuver. Which allocation matches the lesson?","options":["Assault dismounted; infiltrate mounted; fix mounted","Assault mounted; infiltrate and fix dismounted","Assault, infiltrate and fix all mounted","Assault, infiltrate and fix all dismounted"],"answer":1,"explanation":"Pages 28-29 list the mounted and dismounted capabilities.","sourceSlides":[28,29]},{"id":10,"difficulty":"hard","category":"Mechanized Infantry Capabilities and Limitations","tags":["limitations of mechanized infantry"],"prompt":"Enemy mortars range the only road while AIFVs halt so squads can dismount. Which limitations combine here?","options":["AVs are restricted to certain avenues, infantry need time to mount and dismount, and dismounted infantry are vulnerable to indirect fire","AIFVs are less vulnerable than tanks, infantry dismount instantly, and indirect fire is no risk","AVs may use any avenue, infantry need no time to dismount, and small arms are the only risk","AIFVs and APCs are stronger than tanks, so halting is safe, and dismounted infantry are protected by armor"],"answer":0,"explanation":"Page 30 lists all three limitations.","sourceSlides":[30]},{"id":11,"difficulty":"hard","category":"Mechanized Infantry Capabilities and Limitations","tags":["planning considerations","limitations"],"prompt":"A commander says mechanized infantry are tanks with legs and will lead an assault against enemy tanks. Which flaw does the lesson show?","options":["Mechanized infantry should lead because AIFVs are better protected than tanks","Mechanized infantry can be used against tank units if the infantry stay dismounted","Mechanized infantry cannot be used against tank units, and AIFVs and APCs are more vulnerable than tanks","Mechanized infantry lack the firepower to support tanks in any form of attack"],"answer":2,"explanation":"Pages 30 and 69 give both points.","sourceSlides":[30,69]},{"id":12,"difficulty":"hard","category":"Mounting and Dismounting SOPs","tags":["dismount left under fire","IAD"],"prompt":"A squad dismounts left because terrain on the right is unfavorable, and fire opens from the right as it deploys. Which actions follow?","options":["Return fire from the kill zone, remain there until the AV is repositioned, then dismount the rest","Dismount right into the enemy fire, then wait for the AV to reposition before reacting","Stay mounted, close the ramp and wait until the enemy fire ceases before the dismount drill","React to contact on the right, extricate out of the kill zone, perform IAD after dismount procedures, with the SL or PL positioning the AV"],"answer":3,"explanation":"Pages 31 and 35-39 combine the dismount left objectives with the SOP on positioning the AV.","sourceSlides":[31,35]},{"id":13,"difficulty":"hard","category":"Mounting and Dismounting SOPs","tags":["mount under fire"],"prompt":"A squad remounts from the right while under fire from the left. Which actions comply with the SOPs?","options":["Rush the door together, keep weapons loaded and muzzles up inside, and close the ramp after the last soldier","Provide cover while others mount, avoid piling at the door, move in one at a time, clear weapons and muzzles down inside","Mount only after the enemy fire stops, then climb on top of the AV to watch the flank","Let the first soldiers out board first, hide behind the AV, then board when the cover team is ready"],"answer":1,"explanation":"Pages 45 and 49 combine the mounting SOPs with mounting from the right under fire from the left.","sourceSlides":[45,49]},{"id":14,"difficulty":"hard","category":"Mounting and Dismounting SOPs","tags":["mounting SOP","dismounting SOP"],"prompt":"Eight soldiers dismounted in order 1 through 8 and must remount under fire. Which sequence follows the SOPs?","options":["Soldier 8 mounts first, soldier 1 mounts last, one at a time, with cover provided","Soldier 1 mounts first and soldier 8 last, all in a single rush","All eight mount at once to save time, in any order","Soldier 1 mounts first and soldier 8 last, one at a time"],"answer":0,"explanation":"Page 31 says the first to dismount is last to mount and vice versa; page 45 says one at a time with cover.","sourceSlides":[31,45]},{"id":15,"difficulty":"hard","category":"Cavalry Operations","tags":["cavalry fundamentals","capabilities"],"prompt":"A brigade commander gives a cavalry troop a zone reconnaissance as flank guard while keeping the main body concentrated for the decisive point. Which fundamentals support this?","options":["Main effort, concealment from the enemy, and permanent holding of the flank","Rear security, resupply of the main body, and replacement of the reserve","Economy of force, eyes and ears for situational awareness, and concentration of superior combat power at the decisive time and point","Reserve role, counterattack, and reinforcement of the main body"],"answer":2,"explanation":"Pages 53-54 and 60 support these fundamentals.","sourceSlides":[53,54,60]},{"id":16,"difficulty":"hard","category":"Cavalry Operations","tags":["separate cavalry troop","limitations"],"prompt":"A separate cavalry troop with a light brigade must cover a flank through dense forest, steep ridges and a major river, with a stretched supply line. Which statement fits the lesson?","options":["It works for the division commander as a heavy unit, and terrain does not restrict its mobility","It works for the brigade commander as a heavy unit, since all separate troops are heavy","It works for the division commander as a light unit, and logistics are not a concern","It works for the brigade commander as a light unit, but high logistics needs and terrain-restricted mobility are limitations"],"answer":3,"explanation":"Pages 58 and 61 give these points.","sourceSlides":[58,61]},{"id":17,"difficulty":"hard","category":"Cavalry Operations","tags":["cavalry organization"],"prompt":"A unit supporting a separate light brigade needs the cavalry design organized as part of that brigade. Which design is it?","options":["Cavalry Troop/Company (Separate), light because the brigade is light","Cavalry Squadron/Battalion, heavy because squadrons are always heavy","Air Cavalry Squadron, light because it flies above the brigade","Cavalry Troop/Company, assigned to the division and not to the brigade"],"answer":0,"explanation":"Pages 55 and 58 describe the separate troop and its weight.","sourceSlides":[55,58]},{"id":18,"difficulty":"hard","category":"Tank Operations","tags":["tank limitations","CSS"],"prompt":"A tank company is attached to an infantry battalion for a theater deployment. Which arrangements does the lesson require?","options":["The tanks deploy under their own power, and the infantry trucks carry all Class III, V and IX supplies","The tanks deploy by air, and the infantry battalion provides all Class III, V and IX support","Flatbeds for deployment, and FFSU and division CSS support for Classes III, V and IX because the infantry lacks organic transport","The tanks need no sustainment support, since they carry enough supplies for the whole operation"],"answer":2,"explanation":"Pages 67-68 give the flatbed and CSS limitations.","sourceSlides":[67,68]},{"id":19,"difficulty":"hard","category":"Tank Operations","tags":["light tank limitations"],"prompt":"A light tank must fight in extremely close terrain against infantry with anti-armor weapons and antitank mines. Which statement fits the lesson?","options":["Light tanks lack main battle tank protection, are vulnerable to anti-armor weapons and mines, and their mobility and firepower are restricted in close terrain","Light tanks match main battle tank protection and can ignore mines, but mobility is restricted","Light tanks are protected against all anti-armor weapons, and close terrain improves their firepower","Light tanks are vulnerable only to enemy aircraft, and close terrain improves their mobility"],"answer":0,"explanation":"Pages 67-68 list these limitations.","sourceSlides":[67,68]},{"id":20,"difficulty":"hard","category":"Tank Operations","tags":["tank planning considerations"],"prompt":"A tank platoon leader plans an SBF and asks about employment. Which statement is correct?","options":["Plan the objective to combat trains distance and the Ex-O as resource manager; tanks cannot be used against other tanks","Plan the surface danger zone, direct fire control measures and cover against enemy air; tanks may be used against other tanks or any armored vehicle","Plan indirect fire weapon support and distance from main body; tanks should be kept from armored vehicles","Plan where to dismount and avenue restrictions; tanks may be used only against infantry"],"answer":1,"explanation":"Page 71 lists tank planning considerations.","sourceSlides":[71]},{"id":21,"difficulty":"hard","category":"Planning Considerations","tags":["planning considerations","tank units"],"prompt":"A task force commander gives four assignments. Which one violates the lesson's planning considerations?","options":["The cavalry troop screens at a planned distance from the main body","The mechanized infantry company attacks the enemy tank company","The tank platoon occupies an SBF position with cover against enemy air","The mechanized infantry commander plans where to dismount on, before or after the objective"],"answer":1,"explanation":"Page 69 says mechanized infantry cannot be used against tank units; the other assignments follow pages 69-71.","sourceSlides":[69,70,71]},{"id":22,"difficulty":"hard","category":"Planning Considerations","tags":["planning considerations"],"prompt":"A staff matches considerations to units: Ex-O as resource manager and objective-to-combat-trains distance; indirect fire weapon support and distance from main body; surface danger zone and SBF positions. Which units, in order?","options":["Cavalry, tank, mechanized infantry","Tank, mechanized infantry, cavalry","Mechanized infantry, cavalry, tank","Mechanized infantry, tank, cavalry"],"answer":2,"explanation":"Pages 69-71 list the considerations per unit.","sourceSlides":[69,70,71]},{"id":23,"difficulty":"hard","category":"Major Equipment of the Armor Division","tags":["wheeled vehicles"],"prompt":"A planner needs wheeled vehicles only for a road march. Which group contains only wheeled vehicles from the lesson?","options":["M113A2 APC, Simba Fighting Vehicle and Guarani 6x6","Commando V-150S, Sabrah Light Tank and Guarani 6x6","Commando V-150S, Simba Fighting Vehicle and Guarani 6x6","Commando V-150S, Fire Support Vehicle and Simba Fighting Vehicle"],"answer":2,"explanation":"Pages 79, 80 and 83 describe wheeled vehicles; the M113A2 family (page 73), FSV and Sabrah are tracked.","sourceSlides":[73,79,80,81,82,83]},{"id":24,"difficulty":"hard","category":"Major Equipment of the Armor Division","tags":["effective range","Sabrah"],"prompt":"A target sits 3,200 m away. Which vehicle can engage it within its stated maximum effective range?","options":["Sabrah Light Tank ASCOD II (3,600 m)","M113A2 IFV Unmanned Turret System (3,000 m)","Fire Support Vehicle (2,200 m direct fire)","Guarani 6x6 wheeled APC (1,830 m)"],"answer":0,"explanation":"Pages 75, 81, 82 and 83 give these effective ranges.","sourceSlides":[75,81,82,83]},{"id":25,"difficulty":"hard","category":"Major Equipment of the Armor Division","tags":["M113A2 variants","Mounted Mortar System","Fire Support Vehicle"],"prompt":"A commander needs casualty evacuation, 81/120 mm mortar fire, and 76 mm direct fire support. Which vehicles fit, in order?","options":["Mounted Mortar System, M113A2 APC (ambulance), Fire Support Vehicle","Fire Support Vehicle, Mounted Mortar System, M113A2 APC (ambulance)","M113A2 APC (ambulance), Fire Support Vehicle, Mounted Mortar System","M113A2 APC (ambulance), Mounted Mortar System, Fire Support Vehicle"],"answer":3,"explanation":"Pages 77, 78 and 81 describe these vehicles.","sourceSlides":[77,78,81]}]</script>
+  <script>
+  (function () {
+    'use strict';
+
+    // =======================================================================
+    // CLASS HISTORY CONFIGURATION (the only setting most instructors change)
+    //
+    // Paste the Google Apps Script web app URL (it ends in /exec) between the
+    // quotes, then run `node scripts/build.mjs`. Leave it empty ('') to switch
+    // class history off. Setup steps: apps-script/SETUP.md.
+    //
+    // On finishing an attempt the app sends only the name, difficulty, score,
+    // total, percentage, mastery band and finish time. Answers are never sent.
+    // This URL is the only network address the page ever contacts.
+    // =======================================================================
+    var HISTORY_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwTNNYOiebIGo46PzM3fUA9VT6XnS740D72prOPg-0OJ5Kvg4W8LVl-xJEo_gxImxqnmg/exec';
+    // Most recent attempts requested for the score history table (the sheet caps this at 200).
+    var HISTORY_LIMIT = 100;
+    // Names the score-history tab for this lesson in the shared Google Sheet (see apps-script/Code.gs LESSONS).
+    var HISTORY_LESSON = 'armor';
+
+    var MODES = ['easy', 'medium', 'hard'];
+    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard' };
+    var QUESTION_COUNT = 25;
+    var LETTERS = ['A', 'B', 'C', 'D'];
+    var CATEGORY_ORDER = [
+      'Armor Fundamentals and Mission',
+      'Characteristics of Armor',
+      'Mechanized Infantry: Mission and Organization',
+      'Mechanized Infantry Capabilities and Limitations',
+      'Mounting and Dismounting SOPs',
+      'Cavalry Operations',
+      'Tank Operations',
+      'Planning Considerations',
+      'Major Equipment of the Armor Division'
+    ];
+    // A primary topic counts as a strength at or above this percentage, otherwise a gap.
+    var STRENGTH_THRESHOLD = 75;
+    // Mastery bands, checked from the top: the first band whose minimum is met applies.
+    var MASTERY_BANDS = [
+      { min: 90, name: 'Mastery', description: 'Consistent command of the lesson at this difficulty.' },
+      { min: 75, name: 'Proficient', description: 'Solid understanding. Restudy the topics listed as gaps.' },
+      { min: 60, name: 'Developing', description: 'Partial understanding. Restudy the lesson before retaking.' },
+      { min: 0, name: 'Needs review', description: 'Study the complete lesson again before another attempt.' }
+    ];
+
+    // Mirrors validateQuestion in scripts/build.mjs; the verifier checks both agree error-for-error.
+    function validateQuestion(question, expectedDifficulty, expectedId) {
+      if (question === null || typeof question !== 'object' || Array.isArray(question)) {
+        return ['question must be an object'];
+      }
+      var errors = [];
+      if (!Number.isInteger(question.id) || question.id !== expectedId) {
+        errors.push('id must be integer ' + expectedId);
+      }
+      if (question.difficulty !== expectedDifficulty) {
+        errors.push('difficulty must be ' + expectedDifficulty);
+      }
+      ['category', 'prompt', 'explanation'].forEach(function (field) {
+        if (typeof question[field] !== 'string' || !question[field].trim()) {
+          errors.push(field + ' must be a nonempty string');
+        }
+      });
+      if (!Array.isArray(question.tags) || question.tags.some(function (tag) { return typeof tag !== 'string' || !tag.trim(); })) {
+        errors.push('tags must be an array of nonempty strings');
+      }
+      if (!Array.isArray(question.options) || question.options.length !== 4 || question.options.some(function (option) { return typeof option !== 'string' || !option.trim(); })) {
+        errors.push('options must contain four nonempty strings');
+      }
+      if (!Number.isInteger(question.answer) || question.answer < 0 || question.answer > 3) {
+        errors.push('answer must be an integer from 0 to 3');
+      }
+      if (!Array.isArray(question.sourceSlides) || question.sourceSlides.length === 0 || question.sourceSlides.some(function (slide) { return !Number.isInteger(slide) || slide < 13 || slide > 83; })) {
+        errors.push('sourceSlides must contain integers from 13 to 83');
+      }
+      return errors;
+    }
+
+    function validateBanks(banks) {
+      if (banks === null || typeof banks !== 'object') {
+        return { valid: false, errors: ['question banks must be an object'] };
+      }
+      var errors = [];
+      MODES.forEach(function (mode) {
+        var bank = banks[mode];
+        if (!Array.isArray(bank)) {
+          errors.push(mode + ' bank must be an array of ' + QUESTION_COUNT + ' questions');
+          return;
+        }
+        if (bank.length !== QUESTION_COUNT) {
+          errors.push(mode + ' bank must contain exactly ' + QUESTION_COUNT + ' questions (found ' + bank.length + ')');
+        }
+        bank.forEach(function (question, index) {
+          validateQuestion(question, mode, index + 1).forEach(function (error) {
+            errors.push(mode + ' question ' + (index + 1) + ': ' + error);
+          });
+        });
+      });
+      return { valid: errors.length === 0, errors: errors };
+    }
+
+    // Fisher-Yates shuffle of a copy; the source array is never mutated.
+    function shuffleQuestions(bank, random) {
+      if (typeof random !== 'function') random = Math.random;
+      var copy = Array.prototype.slice.call(bank);
+      for (var i = copy.length - 1; i > 0; i--) {
+        var j = Math.min(i, Math.max(0, Math.floor(random() * (i + 1))));
+        var held = copy[i];
+        copy[i] = copy[j];
+        copy[j] = held;
+      }
+      return copy;
+    }
+
+    function createAttempt(mode, banks, random) {
+      if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
+      var questions = shuffleQuestions(banks[mode], random);
+      return {
+        mode: mode,
+        questions: questions,
+        current: 0,
+        responses: questions.map(function () { return { selected: null, checked: false }; })
+      };
+    }
+
+    function masteryBand(percentage) {
+      for (var i = 0; i < MASTERY_BANDS.length; i++) {
+        if (percentage >= MASTERY_BANDS[i].min) return MASTERY_BANDS[i];
+      }
+      return MASTERY_BANDS[MASTERY_BANDS.length - 1];
+    }
+
+    function computeResults(attempt) {
+      var byCategory = {};
+      var order = CATEGORY_ORDER.slice();
+      var score = 0;
+      var review = attempt.questions.map(function (question, index) {
+        var response = attempt.responses[index];
+        var correct = response.selected === question.answer;
+        if (correct) score++;
+        if (!byCategory[question.category]) {
+          byCategory[question.category] = { category: question.category, correct: 0, total: 0 };
+          if (order.indexOf(question.category) === -1) order.push(question.category);
+        }
+        byCategory[question.category].total++;
+        if (correct) byCategory[question.category].correct++;
+        return { number: index + 1, question: question, selected: response.selected, correct: correct };
+      });
+      var total = attempt.questions.length;
+      var percentage = total ? Math.round((score / total) * 100) : 0;
+      var categories = order.filter(function (name) { return byCategory[name]; }).map(function (name) {
+        var entry = byCategory[name];
+        entry.percentage = Math.round((entry.correct / entry.total) * 100);
+        entry.status = entry.percentage >= STRENGTH_THRESHOLD ? 'Strength' : 'Gap';
+        return entry;
+      });
+      return {
+        mode: attempt.mode,
+        score: score,
+        total: total,
+        percentage: percentage,
+        band: masteryBand(percentage),
+        categories: categories,
+        review: review
+      };
+    }
+
+    function deepFreeze(value) {
+      if (value && typeof value === 'object' && !Object.isFrozen(value)) {
+        Object.freeze(value);
+        Object.keys(value).forEach(function (key) { deepFreeze(value[key]); });
+      }
+      return value;
+    }
+
+    // ----- Student name -----
+
+    var NAME_MIN_LENGTH = 2;
+    var NAME_MAX_LENGTH = 40;
+
+    // Collapses whitespace, turns control and invisible formatting characters into spaces, and drops
+    // leading spreadsheet formula triggers (=, +, -, @) exactly as the class history sheet does.
+    function normalizeName(raw) {
+      return String(raw === null || raw === undefined ? '' : raw)
+        .replace(/[\u0000-\u001F\u007F-\u009F\u200B-\u200F\u2028-\u202E\u2060-\u2064\uFEFF]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .replace(/^[=+\-@\s]+/, '');
+    }
+
+    function validateName(raw) {
+      var name = normalizeName(raw);
+      var length = Array.from(name).length;
+      var message = '';
+      if (!length) message = 'Enter your name or username to continue.';
+      else if (length < NAME_MIN_LENGTH) message = 'Your name must be at least ' + NAME_MIN_LENGTH + ' characters.';
+      else if (length > NAME_MAX_LENGTH) message = 'Your name must be ' + NAME_MAX_LENGTH + ' characters or fewer.';
+      else if (!/[\p{L}\p{N}]/u.test(name)) message = 'Your name must include at least one letter or number.';
+      return { valid: !message, name: message ? '' : name, message: message };
+    }
+
+    // ----- Sound cues (Web Audio only; no audio files) -----
+
+    // Each cue is a list of [frequency Hz, start offset s, duration s, waveform, peak gain, end frequency].
+    // Every cue ends within 400 ms and peaks at a low volume.
+    var SOUND_CUES = {
+      select: [[1320, 0, 0.035, 'triangle', 0.035]],
+      correct: [[659.25, 0, 0.12, 'sine', 0.07], [987.77, 0.1, 0.2, 'sine', 0.07]],
+      incorrect: [[196, 0, 0.26, 'triangle', 0.08, 164.81]],
+      start: [[523.25, 0, 0.09, 'sine', 0.06], [783.99, 0.08, 0.16, 'sine', 0.06]],
+      error: [[392, 0, 0.09, 'sine', 0.05, 330]],
+      'finish-mastery': [[523.25, 0, 0.1, 'sine', 0.06], [659.25, 0.08, 0.1, 'sine', 0.06], [783.99, 0.16, 0.1, 'sine', 0.06], [1046.5, 0.24, 0.16, 'sine', 0.06]],
+      'finish-proficient': [[523.25, 0, 0.1, 'sine', 0.06], [659.25, 0.09, 0.1, 'sine', 0.06], [783.99, 0.18, 0.18, 'sine', 0.06]],
+      'finish-developing': [[523.25, 0, 0.12, 'sine', 0.06], [659.25, 0.11, 0.2, 'sine', 0.06]],
+      'finish-review': [[440, 0, 0.14, 'sine', 0.05], [392, 0.13, 0.22, 'sine', 0.05]]
+    };
+
+    // The AudioContext is created lazily by the first cue, which always runs inside a user gesture.
+    function createWebAudioPlayer() {
+      var context = null;
+      return function (cue) {
+        var notes = SOUND_CUES[cue];
+        var AudioCtor = window.AudioContext || window.webkitAudioContext;
+        if (!notes || typeof AudioCtor !== 'function') return;
+        if (!context) context = new AudioCtor();
+        if (context.state === 'suspended' && typeof context.resume === 'function') context.resume();
+        var now = context.currentTime + 0.01;
+        notes.forEach(function (note) {
+          var start = now + note[1];
+          var end = start + note[2];
+          var oscillator = context.createOscillator();
+          var gain = context.createGain();
+          oscillator.type = note[3];
+          oscillator.frequency.setValueAtTime(note[0], start);
+          if (note[5]) oscillator.frequency.exponentialRampToValueAtTime(note[5], end);
+          gain.gain.setValueAtTime(0.0001, start);
+          gain.gain.exponentialRampToValueAtTime(note[4], start + 0.012);
+          gain.gain.exponentialRampToValueAtTime(0.0001, end);
+          oscillator.connect(gain);
+          gain.connect(context.destination);
+          oscillator.start(start);
+          oscillator.stop(end + 0.02);
+        });
+      };
+    }
+
+    function finishCue(bandName) {
+      return {
+        Mastery: 'finish-mastery',
+        Proficient: 'finish-proficient',
+        Developing: 'finish-developing'
+      }[bandName] || 'finish-review';
+    }
+
+    // ----- State and DOM -----
+
+    var HISTORY_FILTERS = ['all', 'easy', 'medium', 'hard'];
+    var ENDPOINT = String(HISTORY_ENDPOINT || '').trim();
+
+    var state = {
+      available: false,
+      errors: [],
+      banks: null,
+      studyConfirmed: false,
+      studentName: '',
+      nameValid: false,
+      view: 'landing',
+      attempt: null,
+      results: null,
+      submission: null,
+      history: { filter: 'all', status: 'idle', rows: [], request: 0 },
+      soundEnabled: true,
+      soundPlayer: createWebAudioPlayer(),
+      random: Math.random
+    };
+    var defaultSoundPlayer = state.soundPlayer;
+    var pending = [];
+
+    function byId(id) { return document.getElementById(id); }
+
+    var ui = {
+      views: {
+        landing: byId('view-landing'),
+        quiz: byId('view-quiz'),
+        results: byId('view-results'),
+        unavailable: byId('view-unavailable')
+      },
+      nameInput: byId('student-name'),
+      nameMessage: byId('student-name-message'),
+      studyConfirm: byId('study-confirm'),
+      modeHint: byId('mode-hint'),
+      difficultyHeading: byId('difficulty-heading'),
+      unavailableHeading: byId('unavailable-heading'),
+      modeButtons: {
+        easy: byId('mode-easy'),
+        medium: byId('mode-medium'),
+        hard: byId('mode-hard')
+      },
+      soundToggle: byId('btn-sound'),
+      soundState: byId('sound-state'),
+      quizHeading: byId('quiz-heading'),
+      quizStudent: byId('quiz-student'),
+      quizProgress: byId('quiz-progress'),
+      quizStatus: byId('quiz-status'),
+      questionHeading: byId('question-heading'),
+      questionCategory: byId('question-category'),
+      questionArea: byId('question-area'),
+      validation: byId('validation-message'),
+      feedback: byId('answer-feedback'),
+      btnPrev: byId('btn-prev'),
+      btnCheck: byId('btn-check'),
+      btnNext: byId('btn-next'),
+      btnFinish: byId('btn-finish'),
+      resultsHeading: byId('results-heading'),
+      resultsSummary: byId('results-summary'),
+      resultsCategories: byId('results-categories-body'),
+      resultsStrengths: byId('results-strengths'),
+      resultsGaps: byId('results-gaps'),
+      resultsReview: byId('results-review'),
+      saveBox: byId('history-save'),
+      saveMessage: byId('history-save-message'),
+      btnSaveRetry: byId('btn-history-retry'),
+      btnPrint: byId('btn-print'),
+      btnRetake: byId('btn-retake'),
+      btnChoose: byId('btn-choose'),
+      btnHistory: byId('btn-history'),
+      historyPanel: byId('history-panel'),
+      historyHeading: byId('history-heading'),
+      historyRefresh: byId('btn-history-refresh'),
+      historyFilters: {
+        all: byId('history-filter-all'),
+        easy: byId('history-filter-easy'),
+        medium: byId('history-filter-medium'),
+        hard: byId('history-filter-hard')
+      },
+      historyStatus: byId('history-status'),
+      historyTableWrap: byId('history-table-wrap'),
+      historyBody: byId('history-body'),
+      radios: [],
+      options: []
+    };
+
+    // Every node is built with textContent; remote or authored strings never pass through an HTML parser.
+    function make(tag, className, text) {
+      var node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    }
+
+    function textNode(text) { return document.createTextNode(text); }
+
+    function iconNode(name) {
+      var icon = make('span', 'icon icon-' + name);
+      icon.setAttribute('aria-hidden', 'true');
+      return icon;
+    }
+
+    function tagNode(kind, icon, text) {
+      var tag = make('span', 'tag tag-' + kind);
+      if (icon) tag.appendChild(iconNode(icon));
+      tag.appendChild(textNode(text));
+      return tag;
+    }
+
+    // Empties a node and appends the given nodes; avoids the Safari 14+ only children-replacement API.
+    function setChildren(node, children) {
+      node.textContent = '';
+      children.forEach(function (child) { node.appendChild(child); });
+    }
+
+    function optionText(question, index) {
+      return LETTERS[index] + '. ' + question.options[index];
+    }
+
+    // Keeps a promise visible to whenSettled() until it finishes (used by the verifier and never rejects).
+    function track(promise) {
+      pending.push(promise);
+      var done = function () {
+        var index = pending.indexOf(promise);
+        if (index !== -1) pending.splice(index, 1);
+      };
+      promise.then(done, done);
+      return promise;
+    }
+
+    function whenSettled() {
+      if (!pending.length) return Promise.resolve();
+      return Promise.all(pending.slice()).then(whenSettled);
+    }
+
+    function showView(name) {
+      state.view = name;
+      Object.keys(ui.views).forEach(function (key) {
+        ui.views[key].hidden = key !== name;
+      });
+      ui.historyPanel.hidden = !(name === 'landing' || name === 'results');
+      // Lets the stylesheet compact the hero outside the landing view.
+      document.body.setAttribute('data-view', name);
+    }
+
+    // Difficulty accent for the page: theme-easy, theme-medium or theme-hard; null clears it.
+    function setTheme(mode) {
+      MODES.forEach(function (key) {
+        document.body.classList.toggle('theme-' + key, key === mode);
+      });
+    }
+
+    function hideValidation() {
+      ui.validation.textContent = '';
+      ui.validation.hidden = true;
+    }
+
+    function showValidation(message) {
+      setChildren(ui.validation, [iconNode('alert'), make('span', null, message)]);
+      ui.validation.hidden = false;
+      ui.validation.focus();
+      playCue('error');
+    }
+
+    function checkedCount(attempt) {
+      return attempt.responses.filter(function (response) { return response.checked; }).length;
+    }
+
+    function firstUncheckedIndex(attempt) {
+      for (var i = 0; i < attempt.responses.length; i++) {
+        if (!attempt.responses[i].checked) return i;
+      }
+      return -1;
+    }
+
+    // ----- Sound -----
+
+    function playCue(cue) {
+      if (!state.soundEnabled || typeof state.soundPlayer !== 'function') return false;
+      try {
+        state.soundPlayer(cue);
+      } catch (error) {
+        // Audio is an enhancement only; a failing audio stack must never interrupt the quiz.
+      }
+      return true;
+    }
+
+    function setSoundEnabled(enabled) {
+      state.soundEnabled = Boolean(enabled);
+      ui.soundToggle.setAttribute('aria-pressed', String(state.soundEnabled));
+      ui.soundState.textContent = state.soundEnabled ? 'On' : 'Off';
+      return state.soundEnabled;
+    }
+
+    // ----- Start gate: a valid name and the study confirmation -----
+
+    function gateOpen() {
+      return state.available && state.studyConfirmed && state.nameValid;
+    }
+
+    function updateGate() {
+      var open = gateOpen();
+      MODES.forEach(function (mode) {
+        ui.modeButtons[mode].disabled = !open;
+      });
+      if (state.available) {
+        var missing = [];
+        if (!state.nameValid) missing.push('enter your name');
+        if (!state.studyConfirmed) missing.push('check the study confirmation');
+        ui.modeHint.textContent = open
+          ? 'Difficulty buttons enabled. Choose Easy, Medium, or Hard to begin.'
+          : 'To enable the difficulty buttons, ' + missing.join(' and ') + ' above.';
+      }
+      return open;
+    }
+
+    function setStudyConfirmed(confirmed) {
+      state.studyConfirmed = Boolean(confirmed) && state.available;
+      ui.studyConfirm.checked = state.studyConfirmed;
+      updateGate();
+      return state.studyConfirmed;
+    }
+
+    function renderNameMessage(result, force) {
+      var show = !result.valid && (force || normalizeName(ui.nameInput.value) !== '');
+      ui.nameInput.setAttribute('aria-invalid', show ? 'true' : 'false');
+      if (show) {
+        setChildren(ui.nameMessage, [iconNode('alert'), make('span', null, result.message)]);
+        ui.nameMessage.hidden = false;
+      } else {
+        ui.nameMessage.textContent = '';
+        ui.nameMessage.hidden = true;
+      }
+    }
+
+    // Validates and stores the student's name; `showMessage` forces the message even for an empty field.
+    function setStudentName(raw, showMessage) {
+      if (!state.available) return false;
+      if (ui.nameInput.value !== String(raw)) ui.nameInput.value = String(raw);
+      var result = validateName(raw);
+      state.nameValid = result.valid;
+      state.studentName = result.name;
+      renderNameMessage(result, Boolean(showMessage));
+      updateGate();
+      if (state.history.status === 'ready') renderHistory();
+      return result.valid;
+    }
+
+    // ----- Quiz flow -----
+
+    function startQuiz(mode) {
+      if (!gateOpen() || MODES.indexOf(mode) === -1) return false;
+      state.attempt = createAttempt(mode, state.banks, state.random);
+      state.attempt.studentName = state.studentName;
+      state.results = null;
+      state.submission = null;
+      setTheme(mode);
+      showView('quiz');
+      renderQuestion();
+      ui.questionHeading.focus();
+      playCue('start');
+      return true;
+    }
+
+    function renderQuestion() {
+      var attempt = state.attempt;
+      var index = attempt.current;
+      var question = attempt.questions[index];
+      var response = attempt.responses[index];
+      var done = checkedCount(attempt);
+      var total = attempt.questions.length;
+
+      ui.quizHeading.textContent = MODE_LABELS[attempt.mode] + ' examination';
+      var student = make('strong', null, attempt.studentName);
+      setChildren(ui.quizStudent, [textNode('Student: '), student]);
+      ui.quizProgress.setAttribute('max', String(total));
+      ui.quizProgress.setAttribute('value', String(done));
+      ui.quizStatus.textContent = 'Question ' + (index + 1) + ' of ' + total + '. ' + done + ' of ' + total + ' answers checked.';
+      ui.questionHeading.textContent = 'Question ' + (index + 1) + ' of ' + total;
+      ui.questionCategory.textContent = 'Topic: ' + question.category;
+
+      var fieldset = make('fieldset', 'question-fieldset');
+      fieldset.id = 'question-fieldset';
+      var legend = make('legend', 'question-prompt', question.prompt);
+      legend.id = 'question-prompt';
+      fieldset.appendChild(legend);
+      ui.options = [];
+      ui.radios = question.options.map(function (option, optionIndex) {
+        var inputId = 'answer-option-' + optionIndex;
+        var label = make('label', 'option');
+        label.htmlFor = inputId;
+        var input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'answer';
+        input.id = inputId;
+        input.value = String(optionIndex);
+        input.checked = response.selected === optionIndex;
+        input.disabled = response.checked;
+        input.addEventListener('change', function () { selectAnswer(optionIndex); });
+        var letter = make('span', 'option-letter');
+        letter.append(make('span', null, LETTERS[optionIndex]), make('span', 'sr-only', '.'));
+        var body = make('span', 'option-body');
+        var tags = make('span', 'option-tags');
+        body.append(make('span', 'option-text', option), tags);
+        label.append(input, letter, textNode(' '), body);
+        fieldset.appendChild(label);
+        ui.options.push({ label: label, tags: tags });
+        return input;
+      });
+      setChildren(ui.questionArea, [fieldset]);
+      applyOptionStates(question, response);
+
+      hideValidation();
+      renderFeedback(question, response);
+
+      var allChecked = done === total;
+      ui.btnPrev.hidden = index === 0;
+      ui.btnCheck.hidden = response.checked;
+      ui.btnNext.hidden = !response.checked || index === total - 1;
+      ui.btnFinish.hidden = !allChecked;
+    }
+
+    // Unselected, selected, correct, incorrect and dimmed states, each with a text tag, never colour alone.
+    function applyOptionStates(question, response) {
+      ui.options.forEach(function (entry, index) {
+        var classes = ['option'];
+        var tags = [];
+        if (response.checked) {
+          classes.push('option-locked');
+          if (index === question.answer) {
+            classes.push('option-correct');
+            tags.push(tagNode('correct', 'check', 'Correct answer'));
+            if (index === response.selected) tags.push(tagNode('correct', 'check', 'Your answer'));
+          } else if (index === response.selected) {
+            classes.push('option-incorrect');
+            tags.push(tagNode('incorrect', 'cross', 'Your answer'));
+          } else {
+            classes.push('option-dimmed');
+          }
+        } else if (index === response.selected) {
+          classes.push('option-selected');
+          tags.push(tagNode('selected', 'check', 'Selected'));
+        }
+        entry.label.className = classes.join(' ');
+        setChildren(entry.tags, tags);
+      });
+    }
+
+    function answerLine(kind, label, question, index) {
+      var line = make('p', 'answer-line answer-line-' + kind + ' feedback-' + (label === 'Your answer:' ? 'selected' : 'answer'));
+      line.append(make('span', 'answer-label', label), textNode(' ' + optionText(question, index)));
+      return line;
+    }
+
+    function explanationBlock(question, className) {
+      var block = make('div', 'explanation ' + className);
+      block.append(
+        make('p', 'section-label', 'Explanation'),
+        make('p', 'explanation-text', question.explanation),
+        make('p', 'source-ref', 'Lesson reference: page ' + question.sourceSlides.join(', '))
+      );
+      return block;
+    }
+
+    function renderFeedback(question, response) {
+      if (!response.checked) {
+        ui.feedback.className = 'feedback';
+        setChildren(ui.feedback, []);
+        ui.feedback.hidden = true;
+        return;
+      }
+      var correct = response.selected === question.answer;
+      ui.feedback.className = 'feedback ' + (correct ? 'feedback-correct' : 'feedback-incorrect');
+      var header = make('p', 'feedback-header feedback-verdict');
+      var mark = make('span', 'feedback-mark');
+      mark.appendChild(iconNode(correct ? 'check' : 'cross'));
+      header.append(mark, make('span', null, correct ? 'Correct.' : 'Incorrect.'));
+      var body = make('div', 'feedback-body');
+      if (correct) {
+        body.appendChild(answerLine('correct', 'Correct answer:', question, question.answer));
+      } else {
+        body.append(
+          answerLine('incorrect', 'Your answer:', question, response.selected),
+          answerLine('correct', 'Correct answer:', question, question.answer)
+        );
+      }
+      body.appendChild(explanationBlock(question, 'feedback-explanation'));
+      setChildren(ui.feedback, [header, body]);
+      ui.feedback.hidden = false;
+    }
+
+    function selectAnswer(index) {
+      var attempt = state.attempt;
+      if (state.view !== 'quiz' || !attempt) return false;
+      var question = attempt.questions[attempt.current];
+      var response = attempt.responses[attempt.current];
+      if (response.checked || !Number.isInteger(index) || index < 0 || index > 3) {
+        ui.radios.forEach(function (radio, radioIndex) { radio.checked = response.selected === radioIndex; });
+        return false;
+      }
+      response.selected = index;
+      ui.radios.forEach(function (radio, radioIndex) { radio.checked = radioIndex === index; });
+      applyOptionStates(question, response);
+      hideValidation();
+      playCue('select');
+      return true;
+    }
+
+    function checkAnswer() {
+      var attempt = state.attempt;
+      if (state.view !== 'quiz' || !attempt) return false;
+      var question = attempt.questions[attempt.current];
+      var response = attempt.responses[attempt.current];
+      if (response.checked) return false;
+      if (response.selected === null) {
+        showValidation('Select an answer before pressing Check answer.');
+        return false;
+      }
+      response.checked = true;
+      renderQuestion();
+      ui.feedback.focus();
+      playCue(response.selected === question.answer ? 'correct' : 'incorrect');
+      return true;
+    }
+
+    function goToQuestion(index) {
+      var attempt = state.attempt;
+      if (state.view !== 'quiz' || !attempt || !Number.isInteger(index)) return false;
+      if (index < 0 || index >= attempt.questions.length) return false;
+      var limit = firstUncheckedIndex(attempt);
+      if (limit !== -1 && index > limit) return false;
+      attempt.current = index;
+      renderQuestion();
+      ui.questionHeading.focus();
+      return true;
+    }
+
+    function finishQuiz() {
+      var attempt = state.attempt;
+      if (state.view !== 'quiz' || !attempt) return false;
+      if (firstUncheckedIndex(attempt) !== -1) {
+        showValidation('Check all ' + attempt.questions.length + ' answers before viewing results.');
+        return false;
+      }
+      state.results = computeResults(attempt);
+      state.results.studentName = attempt.studentName;
+      renderResults(state.results);
+      showView('results');
+      ui.resultsHeading.focus();
+      playCue(finishCue(state.results.band.name));
+      submitAttempt(buildSubmission(state.results));
+      return true;
+    }
+
+    function retakeQuiz() {
+      var mode = state.attempt ? state.attempt.mode : null;
+      if (!mode) return false;
+      return startQuiz(mode);
+    }
+
+    function resetToDifficulty() {
+      if (!state.available) return false;
+      state.attempt = null;
+      state.results = null;
+      state.submission = null;
+      setTheme(null);
+      showView('landing');
+      setStudyConfirmed(state.studyConfirmed);
+      ui.difficultyHeading.focus();
+      if (ENDPOINT) loadHistory(state.history.filter);
+      return true;
+    }
+
+    // ----- Results -----
+
+    function bandClass(name) {
+      return 'band-' + String(name).toLowerCase().replace(/[^a-z]+/g, '-');
+    }
+
+    function renderResults(results) {
+      ui.resultsHeading.textContent = MODE_LABELS[results.mode] + ' examination results';
+
+      var card = make('div', 'score-card ' + bandClass(results.band.name));
+      var figure = make('p', 'score-figure results-score');
+      figure.append(make('span', 'score-percent', results.percentage + '%'), make('span', 'score-count', results.score + ' of ' + results.total + ' correct'));
+      var meta = make('div', 'score-meta');
+      var student = make('p', 'results-student');
+      student.append(make('span', 'meta-label', 'Student'), make('span', 'meta-value', results.studentName));
+      var mode = make('p', 'results-mode');
+      mode.append(make('span', 'meta-label', 'Difficulty'), make('span', 'meta-value', MODE_LABELS[results.mode]));
+      var bandLabel = make('p', 'meta-label', 'Mastery band');
+      var band = make('p', 'band-badge results-band');
+      band.append(iconNode(results.percentage >= STRENGTH_THRESHOLD ? 'check' : 'alert'), make('span', null, results.band.name));
+      meta.append(student, mode, bandLabel, band, make('p', 'band-description', results.band.description));
+      card.append(figure, meta);
+      setChildren(ui.resultsSummary, [card]);
+
+      var rows = results.categories.map(function (entry) {
+        var strength = entry.status === 'Strength';
+        var row = document.createElement('tr');
+        var name = make('th', null, entry.category);
+        name.setAttribute('scope', 'row');
+        var count = make('td', 'topic-count');
+        var bar = make('span', 'bar');
+        bar.setAttribute('aria-hidden', 'true');
+        var fill = make('span', 'bar-fill ' + (strength ? 'bar-strength' : 'bar-gap'));
+        fill.setAttribute('style', 'width: ' + entry.percentage + '%');
+        bar.appendChild(fill);
+        count.append(make('span', null, entry.correct + ' of ' + entry.total + ' (' + entry.percentage + '%)'), bar);
+        var status = make('td', 'topic-status');
+        status.appendChild(tagNode(strength ? 'strength' : 'gap', strength ? 'check' : 'alert', entry.status));
+        row.append(name, count, status);
+        return row;
+      });
+      setChildren(ui.resultsCategories, rows);
+
+      renderTopicList(ui.resultsStrengths, results.categories.filter(function (entry) { return entry.status === 'Strength'; }), 'No topic reached 75% in this attempt.');
+      renderTopicList(ui.resultsGaps, results.categories.filter(function (entry) { return entry.status === 'Gap'; }), 'No gaps in this attempt. Keep studying the complete lesson.');
+
+      var items = results.review.map(function (entry) {
+        var question = entry.question;
+        var item = make('li', 'review-item ' + (entry.correct ? 'review-correct' : 'review-incorrect'));
+        var head = make('h4', 'review-head');
+        head.append(
+          make('span', null, 'Question ' + entry.number),
+          make('span', 'sr-only', ': '),
+          tagNode(entry.correct ? 'correct' : 'incorrect', entry.correct ? 'check' : 'cross', entry.correct ? 'Correct' : 'Incorrect')
+        );
+        item.append(
+          head,
+          make('p', 'review-topic', 'Topic: ' + question.category),
+          make('p', 'review-prompt', question.prompt),
+          answerLine(entry.correct ? 'correct' : 'incorrect', 'Your answer:', question, entry.selected),
+          answerLine('correct', 'Correct answer:', question, question.answer),
+          explanationBlock(question, 'review-explanation')
+        );
+        return item;
+      });
+      setChildren(ui.resultsReview, items);
+    }
+
+    function renderTopicList(list, entries, emptyText) {
+      if (!entries.length) {
+        setChildren(list, [make('li', 'topic-empty', emptyText)]);
+        return;
+      }
+      setChildren(list, entries.map(function (entry) {
+        return make('li', null, entry.category + ': ' + entry.correct + ' of ' + entry.total + ' correct');
+      }));
+    }
+
+    // ----- Class history (network) -----
+
+    // The single network call in the app. It only ever contacts HISTORY_ENDPOINT, and it
+    // resolves with the parsed {ok: true, ...} body or rejects on any HTTP, JSON or {ok: false} failure.
+    function historyRequest(url, init) {
+      if (!ENDPOINT || url.indexOf(ENDPOINT) !== 0) return Promise.reject(new Error('Class history is not configured.'));
+      if (typeof window.fetch !== 'function') return Promise.reject(new Error('This browser cannot reach the class history.'));
+      return window.fetch(url, init).then(function (response) {
+        if (!response || !response.ok) throw new Error('The class history returned an error.');
+        return response.json();
+      }).then(function (body) {
+        if (!body || body.ok !== true) throw new Error('The class history rejected the request.');
+        return body;
+      });
+    }
+
+    function buildSubmission(results) {
+      return {
+        name: results.studentName,
+        lesson: HISTORY_LESSON,
+        mode: results.mode,
+        score: results.score,
+        total: results.total,
+        percent: results.percentage,
+        band: results.band.name,
+        finishedAt: new Date().toISOString()
+      };
+    }
+
+    // Saves one finished attempt. Failure only changes the small notice; results are already on screen.
+    function submitAttempt(payload) {
+      var submission = { payload: payload, status: ENDPOINT ? 'saving' : 'not-configured' };
+      state.submission = submission;
+      renderSaveStatus();
+      if (!ENDPOINT) return Promise.resolve(false);
+      return track(historyRequest(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      }).then(function () {
+        if (state.submission !== submission) return false;
+        submission.status = 'saved';
+        renderSaveStatus();
+        loadHistory(state.history.filter);
+        return true;
+      }, function () {
+        if (state.submission !== submission) return false;
+        submission.status = 'failed';
+        renderSaveStatus();
+        return false;
+      }));
+    }
+
+    function retrySubmission() {
+      if (!state.submission || state.submission.status !== 'failed') return Promise.resolve(false);
+      return submitAttempt(state.submission.payload);
+    }
+
+    function renderSaveStatus() {
+      var submission = state.submission;
+      var status = submission ? submission.status : 'none';
+      var copy = {
+        none: null,
+        saving: ['dot', 'Saving your score to the class history…'],
+        saved: ['check', 'Saved to the class history.'],
+        failed: ['alert', 'Could not save to class history. Your results below are unaffected.'],
+        'not-configured': ['dot', 'Class history is not set up, so this score was not saved to a class list.']
+      }[status];
+      ui.saveBox.className = 'history-save save-' + status;
+      setChildren(ui.saveMessage, copy ? [iconNode(copy[0]), make('span', null, copy[1])] : []);
+      ui.saveBox.hidden = !copy;
+      ui.btnSaveRetry.hidden = status !== 'failed';
+    }
+
+    function historyUrl(filter) {
+      return ENDPOINT + (ENDPOINT.indexOf('?') === -1 ? '?' : '&') + 'lesson=' + encodeURIComponent(HISTORY_LESSON) + '&mode=' + encodeURIComponent(filter) + '&limit=' + HISTORY_LIMIT;
+    }
+
+    function toInteger(value) {
+      if (value === null || value === undefined || value === '') return null;
+      var number = Number(value);
+      return Number.isFinite(number) ? Math.round(number) : null;
+    }
+
+    // Treats every remote field as untrusted: coerced to plain strings or numbers, clipped and validated.
+    function cleanHistoryRow(row) {
+      if (!row || typeof row !== 'object') return null;
+      var mode = String(row.mode === null || row.mode === undefined ? '' : row.mode).trim().toLowerCase();
+      if (MODES.indexOf(mode) === -1) return null;
+      var name = Array.from(normalizeName(row.name)).slice(0, 60).join('');
+      if (!name) return null;
+      var finishedAt = String(row.finishedAt === null || row.finishedAt === undefined ? '' : row.finishedAt);
+      var time = Date.parse(finishedAt);
+      return {
+        name: name,
+        mode: mode,
+        score: toInteger(row.score),
+        total: toInteger(row.total),
+        percent: toInteger(row.percent),
+        band: normalizeName(row.band).slice(0, 40),
+        finishedAt: finishedAt,
+        time: isNaN(time) ? null : time
+      };
+    }
+
+    function loadHistory(filter) {
+      if (HISTORY_FILTERS.indexOf(filter) === -1) filter = state.history.filter;
+      var history = state.history;
+      history.filter = filter;
+      if (!ENDPOINT) {
+        history.status = 'not-configured';
+        history.rows = [];
+        renderHistory();
+        return Promise.resolve(false);
+      }
+      var request = ++history.request;
+      history.status = 'loading';
+      renderHistory();
+      return track(historyRequest(historyUrl(filter), { method: 'GET', cache: 'no-store' }).then(function (body) {
+        if (request !== history.request) return false;
+        var rows = Array.isArray(body.rows) ? body.rows : [];
+        history.rows = rows.map(cleanHistoryRow).filter(function (row) {
+          return row && (filter === 'all' || row.mode === filter);
+        }).map(function (row, index) {
+          row.order = index;
+          return row;
+        }).sort(function (a, b) {
+          // Newest first; rows without a readable date keep the sheet's order after dated rows.
+          if (a.time !== null && b.time !== null && a.time !== b.time) return b.time - a.time;
+          if (a.time === null && b.time !== null) return 1;
+          if (b.time === null && a.time !== null) return -1;
+          return a.order - b.order;
+        }).slice(0, HISTORY_LIMIT);
+        history.status = history.rows.length ? 'ready' : 'empty';
+        renderHistory();
+        return true;
+      }, function () {
+        if (request !== history.request) return false;
+        history.status = 'error';
+        history.rows = [];
+        renderHistory();
+        return false;
+      }));
+    }
+
+    function isCurrentStudent(name) {
+      return Boolean(state.studentName) && name.toLowerCase() === state.studentName.toLowerCase();
+    }
+
+    function pad(number) { return (number < 10 ? '0' : '') + number; }
+
+    function formatDate(time) {
+      var date = new Date(time);
+      return date.getFullYear() + '-' + pad(date.getMonth() + 1) + '-' + pad(date.getDate()) + ' ' + pad(date.getHours()) + ':' + pad(date.getMinutes());
+    }
+
+    function historyCell(label, content, className) {
+      var cell = make('td', className);
+      cell.setAttribute('data-label', label);
+      if (typeof content === 'string') cell.textContent = content;
+      else cell.appendChild(content);
+      return cell;
+    }
+
+    function historyRowNode(row) {
+      var self = isCurrentStudent(row.name);
+      var tr = make('tr', 'history-row' + (self ? ' history-row-self' : ''));
+      var name = make('span', 'history-name');
+      name.appendChild(make('span', 'history-name-text', row.name));
+      if (self) name.append(textNode(' '), tagNode('you', null, 'You'));
+      var date;
+      if (row.time === null) {
+        date = make('span', null, 'Unknown');
+      } else {
+        date = make('time', null, formatDate(row.time));
+        date.setAttribute('datetime', new Date(row.time).toISOString());
+      }
+      tr.append(
+        historyCell('Name', name, 'history-name-cell'),
+        historyCell('Mode', MODE_LABELS[row.mode]),
+        historyCell('Score', row.score !== null && row.total !== null ? row.score + '/' + row.total : '—'),
+        historyCell('%', row.percent !== null ? row.percent + '%' : '—'),
+        historyCell('Band', row.band || '—'),
+        historyCell('Date', date)
+      );
+      return tr;
+    }
+
+    function renderHistory() {
+      var history = state.history;
+      HISTORY_FILTERS.forEach(function (filter) {
+        ui.historyFilters[filter].setAttribute('aria-pressed', String(filter === history.filter));
+        ui.historyFilters[filter].disabled = !ENDPOINT;
+      });
+      ui.historyRefresh.disabled = !ENDPOINT;
+      var scope = history.filter === 'all' ? '' : ' ' + MODE_LABELS[history.filter];
+      var copy = {
+        idle: ['dot', ''],
+        'not-configured': ['alert', 'Class history is not set up yet, so scores are not being collected. Instructors: follow apps-script/SETUP.md in the quiz repository to connect a Google Sheet, then set HISTORY_ENDPOINT.'],
+        loading: ['dot', 'Loading class history…'],
+        empty: ['dot', 'No' + scope + ' attempts have been recorded yet.'],
+        error: ['alert', 'Could not load the class history. Check your connection, then select Refresh to try again.'],
+        ready: [null, 'Showing the ' + history.rows.length + ' most recent' + scope + ' attempts, newest first.']
+      }[history.status];
+      ui.historyStatus.className = 'history-status status-' + history.status;
+      setChildren(ui.historyStatus, (copy[0] ? [iconNode(copy[0])] : []).concat([make('span', null, copy[1])]));
+      ui.historyTableWrap.hidden = history.status !== 'ready';
+      ui.historyTableWrap.setAttribute('aria-busy', String(history.status === 'loading'));
+      setChildren(ui.historyBody, history.status === 'ready' ? history.rows.map(historyRowNode) : []);
+    }
+
+    function showHistory() {
+      if (ui.historyPanel.hidden) return false;
+      ui.historyHeading.focus();
+      if (ENDPOINT) loadHistory(state.history.filter);
+      return true;
+    }
+
+    // ----- Startup -----
+
+    function readBanks() {
+      var banks = {};
+      var errors = [];
+      MODES.forEach(function (mode) {
+        var element = byId('questions-' + mode);
+        if (!element) {
+          errors.push(mode + ' bank data is missing');
+          return;
+        }
+        try {
+          banks[mode] = JSON.parse(element.textContent);
+        } catch (error) {
+          errors.push(mode + ' bank data is not valid JSON');
+        }
+      });
+      return { banks: banks, errors: errors };
+    }
+
+    function init() {
+      var loaded = readBanks();
+      var validation = validateBanks(loaded.banks);
+      state.errors = loaded.errors.concat(validation.errors);
+      state.available = state.errors.length === 0;
+
+      ui.soundToggle.addEventListener('click', function () { setSoundEnabled(!state.soundEnabled); });
+      setSoundEnabled(true);
+
+      if (!state.available) {
+        state.banks = null;
+        ui.studyConfirm.checked = false;
+        ui.studyConfirm.disabled = true;
+        ui.nameInput.disabled = true;
+        MODES.forEach(function (mode) { ui.modeButtons[mode].disabled = true; });
+        showView('unavailable');
+        ui.unavailableHeading.focus();
+        console.error('Armor Operations Mastery Quiz is unavailable: ' + state.errors.join('; '));
+        return;
+      }
+
+      state.banks = deepFreeze(loaded.banks);
+      ui.nameInput.addEventListener('input', function () { setStudentName(ui.nameInput.value, false); });
+      ui.nameInput.addEventListener('change', function () { setStudentName(ui.nameInput.value, true); });
+      ui.nameInput.addEventListener('blur', function () { setStudentName(ui.nameInput.value, true); });
+      ui.studyConfirm.addEventListener('change', function () { setStudyConfirmed(ui.studyConfirm.checked); });
+      MODES.forEach(function (mode) {
+        ui.modeButtons[mode].addEventListener('click', function () { startQuiz(mode); });
+      });
+      ui.btnCheck.addEventListener('click', checkAnswer);
+      ui.btnPrev.addEventListener('click', function () { if (state.attempt) goToQuestion(state.attempt.current - 1); });
+      ui.btnNext.addEventListener('click', function () { if (state.attempt) goToQuestion(state.attempt.current + 1); });
+      ui.btnFinish.addEventListener('click', finishQuiz);
+      ui.btnPrint.addEventListener('click', function () { window.print(); });
+      ui.btnRetake.addEventListener('click', retakeQuiz);
+      ui.btnChoose.addEventListener('click', resetToDifficulty);
+      ui.btnHistory.addEventListener('click', showHistory);
+      ui.btnSaveRetry.addEventListener('click', retrySubmission);
+      ui.historyRefresh.addEventListener('click', function () { loadHistory(state.history.filter); });
+      HISTORY_FILTERS.forEach(function (filter) {
+        ui.historyFilters[filter].addEventListener('click', function () { loadHistory(filter); });
+      });
+
+      showView('landing');
+      setStudentName(ui.nameInput.value, false);
+      setStudyConfirmed(false);
+      renderSaveStatus();
+      loadHistory('all');
+    }
+
+    function getState() {
+      return JSON.parse(JSON.stringify({
+        available: state.available,
+        errors: state.errors,
+        studyConfirmed: state.studyConfirmed,
+        studentName: state.studentName,
+        nameValid: state.nameValid,
+        view: state.view,
+        attempt: state.attempt,
+        results: state.results,
+        submission: state.submission,
+        history: { filter: state.history.filter, status: state.history.status, rows: state.history.rows },
+        historyConfigured: Boolean(ENDPOINT),
+        soundEnabled: state.soundEnabled
+      }));
+    }
+
+    init();
+
+    globalThis.__armorQuiz = Object.freeze({
+      validateBanks: validateBanks,
+      shuffleQuestions: shuffleQuestions,
+      createAttempt: createAttempt,
+      computeResults: computeResults,
+      masteryBand: masteryBand,
+      validateName: validateName,
+      setStudentName: setStudentName,
+      setStudyConfirmed: setStudyConfirmed,
+      startQuiz: startQuiz,
+      selectAnswer: selectAnswer,
+      checkAnswer: checkAnswer,
+      goToQuestion: goToQuestion,
+      finishQuiz: finishQuiz,
+      retakeQuiz: retakeQuiz,
+      resetToDifficulty: resetToDifficulty,
+      loadHistory: loadHistory,
+      retrySubmission: retrySubmission,
+      whenSettled: whenSettled,
+      setSoundEnabled: setSoundEnabled,
+      // Replaces the Web Audio player (tests inject a recorder); null restores the default player.
+      setSoundPlayer: function (player) { state.soundPlayer = typeof player === 'function' ? player : defaultSoundPlayer; },
+      getState: getState,
+      getBanks: function () { return state.banks; },
+      setRandom: function (random) { state.random = typeof random === 'function' ? random : Math.random; }
+    });
+  })();
+  </script>
+</body>
+</html>

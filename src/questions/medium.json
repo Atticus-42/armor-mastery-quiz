@@ -1,0 +1,517 @@
+[
+  {
+    "id": 1,
+    "difficulty": "medium",
+    "category": "Armor Fundamentals and Mission",
+    "tags": [
+      "armor definition"
+    ],
+    "prompt": "Two staff officers disagree on the meaning of armor in a lecture. Which statement correctly captures the lesson?",
+    "options": [
+      "Armor means only the plating of a vehicle and never refers to a force or a way of fighting",
+      "Armor is a combined arms force fighting mounted in armor-protected vehicles, and the word also means a defensive covering that affords protection",
+      "Armor means tank units fighting alone without the support of any other arm",
+      "Armor is a dismounted force that is protected by obstacles and prepared positions"
+    ],
+    "answer": 1,
+    "explanation": "Page 13 gives both senses of the word.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 2,
+    "difficulty": "medium",
+    "category": "Armor Fundamentals and Mission",
+    "tags": [
+      "armor mission",
+      "internal security operations"
+    ],
+    "prompt": "An armor task force is ordered to conduct internal security operations in peacetime. A staff officer says this contradicts its doctrinal mission. What is the correct assessment?",
+    "options": [
+      "Contradiction: armor may conduct ISO only when it is attached to an infantry unit",
+      "No contradiction: armor may also conduct ISO, independently or in a task force, when higher headquarters requires it",
+      "Contradiction: ISO is permitted for armor only in wartime, never in a peacetime environment",
+      "No contradiction: ISO is the primary mission of armor and close combat is secondary"
+    ],
+    "answer": 1,
+    "explanation": "Page 14 says armor may also conduct ISO activities in peacetime as required by higher headquarters.",
+    "sourceSlides": [
+      14
+    ]
+  },
+  {
+    "id": 3,
+    "difficulty": "medium",
+    "category": "Armor Fundamentals and Mission",
+    "tags": [
+      "sub-components of armor"
+    ],
+    "prompt": "A staff organizes Philippine Army armor operations into mechanized infantry, cavalry and artillery operations. What correction does the lesson require?",
+    "options": [
+      "Replace cavalry with engineer operations",
+      "Keep all three; the list is complete",
+      "Replace artillery with tank operations",
+      "Add artillery as a fourth sub-component"
+    ],
+    "answer": 2,
+    "explanation": "Page 15 lists mechanized infantry, cavalry and tank operations as the three sub-components.",
+    "sourceSlides": [
+      15
+    ]
+  },
+  {
+    "id": 4,
+    "difficulty": "medium",
+    "category": "Characteristics of Armor",
+    "tags": [
+      "intensive and flexible communication"
+    ],
+    "prompt": "A commander lists armor protection, firepower, mobility, flexibility and shock action as characteristics. His signal officer says one more is missing. Which?",
+    "options": [
+      "Amphibious capability",
+      "Intensive and flexible communication",
+      "Air transportability",
+      "Independence from logistics"
+    ],
+    "answer": 1,
+    "explanation": "Page 20 lists six characteristics, including intensive and flexible communication.",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 5,
+    "difficulty": "medium",
+    "category": "Characteristics of Armor",
+    "tags": [
+      "intensive and flexible communication"
+    ],
+    "prompt": "An armored assault stalls because the company radios fail and orders cannot flow between vehicles. Which characteristic of armor is being degraded?",
+    "options": [
+      "Intensive and flexible communication",
+      "Armor protection",
+      "Mobility",
+      "Firepower"
+    ],
+    "answer": 0,
+    "explanation": "Page 20 lists intensive and flexible communication as a characteristic of armor.",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 6,
+    "difficulty": "medium",
+    "category": "Mechanized Infantry: Mission and Organization",
+    "tags": [
+      "company organization"
+    ],
+    "prompt": "A mechanized infantry company has a headquarters of 2 officers and 15 enlisted and three platoons of 1 officer and 37 enlisted each. What is its total strength?",
+    "options": [
+      "5 officers and 111 enlisted",
+      "4 officers and 126 enlisted",
+      "6 officers and 126 enlisted",
+      "5 officers and 126 enlisted"
+    ],
+    "answer": 3,
+    "explanation": "Page 24 shows 5 officers and 126 enlisted; 15 + 3 x 37 = 126 and 2 + 3 = 5.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 7,
+    "difficulty": "medium",
+    "category": "Mechanized Infantry: Mission and Organization",
+    "tags": [
+      "platoon organization"
+    ],
+    "prompt": "A mechanized infantry platoon has a headquarters and three squads. How are the soldiers distributed across the four AIFVs?",
+    "options": [
+      "All three squads share two AIFVs while the platoon HQ travels on foot",
+      "The platoon leader and HQ ride in one AIFV and each squad rides in one of the other three",
+      "The platoon HQ is split across all four AIFVs and the squads ride separately",
+      "Each AIFV carries one squad and the HQ rides in a separate truck"
+    ],
+    "answer": 1,
+    "explanation": "Page 27 says the PL and HQ are mounted in one AIFV and the three squads in the other three.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 8,
+    "difficulty": "medium",
+    "category": "Mechanized Infantry: Mission and Organization",
+    "tags": [
+      "dismount team",
+      "carrier team"
+    ],
+    "prompt": "During a dismount, the gunner and driver stay with the AIFV. A new lieutenant asks who forms the dismount team. Which answer is correct?",
+    "options": [
+      "Only the squad leader and the automatic rifleman",
+      "The carrier team leader and the driver",
+      "All squad members who are not part of the carrier team",
+      "The platoon headquarters section"
+    ],
+    "answer": 2,
+    "explanation": "Page 26 says the dismount team is made up of all squad members not part of the carrier team.",
+    "sourceSlides": [
+      26
+    ]
+  },
+  {
+    "id": 9,
+    "difficulty": "medium",
+    "category": "Mechanized Infantry Capabilities and Limitations",
+    "tags": [
+      "mounted vs dismounted"
+    ],
+    "prompt": "A commander wants to assault unprepared, suppressed defenses and also infiltrate enemy positions. Which pairing of mode and task is correct?",
+    "options": [
+      "Assault the suppressed defenses dismounted; infiltrate mounted",
+      "Do both tasks mounted in the AIFVs",
+      "Do both tasks dismounted on foot",
+      "Assault the suppressed defenses mounted; infiltrate dismounted"
+    ],
+    "answer": 3,
+    "explanation": "Page 28 lists assaulting suppressed defenses as mounted; page 29 lists infiltration as dismounted.",
+    "sourceSlides": [
+      28,
+      29
+    ]
+  },
+  {
+    "id": 10,
+    "difficulty": "medium",
+    "category": "Mechanized Infantry Capabilities and Limitations",
+    "tags": [
+      "dismounted capabilities"
+    ],
+    "prompt": "A battalion S3 keeps a mechanized infantry company mounted to defend against a dismounted attack and to secure obstacles against enemy breaching. What is the problem?",
+    "options": [
+      "Both are mounted capabilities, so the plan is correct as written",
+      "Defending against dismounted attack is a tank task only",
+      "Both are dismounted capabilities, so the infantry must dismount to do them",
+      "Securing obstacles is a cavalry task only"
+    ],
+    "answer": 2,
+    "explanation": "Page 29 lists defending versus dismounted attack and securing obstacles as dismounted capabilities.",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 11,
+    "difficulty": "medium",
+    "category": "Mechanized Infantry Capabilities and Limitations",
+    "tags": [
+      "limitations of mechanized infantry"
+    ],
+    "prompt": "A commander orders a vehicle-mounted advance through dense, steep terrain. Which limitation applies, and which element is less affected?",
+    "options": [
+      "AVs are unrestricted by terrain, while dismounted infantry are restricted to roads",
+      "AVs are restricted to certain avenues of approach, while dismounted infantry can cross terrain vehicles cannot",
+      "Infantry need time to dismount, while AVs move over any terrain faster than the infantry",
+      "AIFVs are as protected as tanks, so terrain is the only limit on the dismounted infantry"
+    ],
+    "answer": 1,
+    "explanation": "Pages 29-30 cover vehicle restrictions to avenues of approach and dismounted movement over untrafficable terrain.",
+    "sourceSlides": [
+      29,
+      30
+    ]
+  },
+  {
+    "id": 12,
+    "difficulty": "medium",
+    "category": "Mounting and Dismounting SOPs",
+    "tags": [
+      "SOPs on dismounting"
+    ],
+    "prompt": "During a dismount, soldiers pile up at the door, one rides on top of the AIFV, and another uses the AIFV as cover. Which statement is correct?",
+    "options": [
+      "Only hiding behind the AV violates the SOPs",
+      "Only riding on top of the AV violates the SOPs",
+      "All three actions violate the dismounting SOPs",
+      "None violates the SOPs, since speed is of the essence"
+    ],
+    "answer": 2,
+    "explanation": "Page 31 says avoid piling at the door, no riders on top, and never hide behind an AV.",
+    "sourceSlides": [
+      31
+    ]
+  },
+  {
+    "id": 13,
+    "difficulty": "medium",
+    "category": "Mounting and Dismounting SOPs",
+    "tags": [
+      "dismount left",
+      "dismount right"
+    ],
+    "prompt": "A squad has no enemy contact and the terrain is not favorable on the left. Which dismount does the lesson prescribe?",
+    "options": [
+      "Dismount left",
+      "Dismount left under fire from the right",
+      "Mount from the right",
+      "Dismount right"
+    ],
+    "answer": 3,
+    "explanation": "Pages 33-34 give dismount right when terrain is not favorable on the left and no enemy contact.",
+    "sourceSlides": [
+      33,
+      34
+    ]
+  },
+  {
+    "id": 14,
+    "difficulty": "medium",
+    "category": "Mounting and Dismounting SOPs",
+    "tags": [
+      "dismount under fire"
+    ],
+    "prompt": "An AIFV is hit by fire from the left while the squad is dismounting. Which response matches the lesson?",
+    "options": [
+      "Dismount right, react to contact on the left, extricate out of the kill zone, then perform IAD",
+      "Dismount left toward the fire to engage it and remain in the kill zone until contact ends",
+      "Dismount right but wait for the fire to stop before reacting to the contact on the left",
+      "Stay mounted with the ramp closed until the contact on the left is over"
+    ],
+    "answer": 0,
+    "explanation": "Pages 40-44 give the dismount right procedure under fire from the left.",
+    "sourceSlides": [
+      40
+    ]
+  },
+  {
+    "id": 15,
+    "difficulty": "medium",
+    "category": "Cavalry Operations",
+    "tags": [
+      "cavalry limitations"
+    ],
+    "prompt": "A cavalry troop is tasked with a long screen across dense forest and a major river. Which limitations does the lesson list?",
+    "options": [
+      "High logistics requirements and mobility restricted by dense forest, steep rugged terrain and major water obstacles",
+      "Inability to conduct reconnaissance and a requirement to be reinforced for any security task",
+      "Limited mobility on roads and a restriction to daylight operations only",
+      "Reliance on infantry for security and an inability to operate as an economy of force"
+    ],
+    "answer": 0,
+    "explanation": "Page 61 lists high logistics requirements and terrain-restricted mobility as cavalry limitations.",
+    "sourceSlides": [
+      61
+    ]
+  },
+  {
+    "id": 16,
+    "difficulty": "medium",
+    "category": "Cavalry Operations",
+    "tags": [
+      "separate cavalry troop"
+    ],
+    "prompt": "A brigade commander asks what a separate cavalry troop is. Which statement is correct?",
+    "options": [
+      "It belongs to the division cavalry squadron and works for the division commander",
+      "It is always a heavy unit, whatever the type of brigade it serves",
+      "It is an air cavalry unit that supports several brigades from the air",
+      "It is part of a separate light or armored brigade, heavy or light as the brigade is, and works for the brigade commander"
+    ],
+    "answer": 3,
+    "explanation": "Page 58 describes the separate cavalry troop.",
+    "sourceSlides": [
+      58
+    ]
+  },
+  {
+    "id": 17,
+    "difficulty": "medium",
+    "category": "Cavalry Operations",
+    "tags": [
+      "eyes and ears",
+      "economy of force"
+    ],
+    "prompt": "A division commander uses cavalry to see the enemy early and to hold part of the front thinly. How does the lesson say this helps him?",
+    "options": [
+      "Cavalry takes over the main attack so the division can avoid engagement",
+      "Cavalry holds all terrain permanently, so the division no longer needs a reserve",
+      "Cavalry replaces division reconnaissance units so staff planning is shortened",
+      "Situational awareness improves his ability to maneuver, and economy of force conserves combat power for engagement where he desires"
+    ],
+    "answer": 3,
+    "explanation": "Pages 53-54 give both fundamentals.",
+    "sourceSlides": [
+      53,
+      54
+    ]
+  },
+  {
+    "id": 18,
+    "difficulty": "medium",
+    "category": "Tank Operations",
+    "tags": [
+      "unit missions"
+    ],
+    "prompt": "A staff assigns one unit to repel an enemy assault by close combat and counterattack, and another to neutralize the enemy by fire, maneuver and shock effect. Which units?",
+    "options": [
+      "Tank first; mechanized infantry second",
+      "Cavalry first; tank second",
+      "Mechanized infantry first; tank second",
+      "Mechanized infantry first; cavalry second"
+    ],
+    "answer": 2,
+    "explanation": "Pages 18 and 17 give the mechanized infantry and tank missions.",
+    "sourceSlides": [
+      17,
+      18
+    ]
+  },
+  {
+    "id": 19,
+    "difficulty": "medium",
+    "category": "Tank Operations",
+    "tags": [
+      "tank capabilities"
+    ],
+    "prompt": "A tank company must fight at night in an area where NBC hazards are possible. Which statement matches the lesson?",
+    "options": [
+      "Tanks can operate only on a conventional battlefield, and thermal sights are issued to infantry",
+      "Tanks can operate on a conventional or NBC battlefield, and thermal sights enhance night fighting",
+      "Tanks cannot operate at night, and NBC hazards make tank support unusable",
+      "Tanks can fight at night only with illumination from other arms on a conventional battlefield"
+    ],
+    "answer": 1,
+    "explanation": "Page 66 lists these tank capabilities.",
+    "sourceSlides": [
+      66
+    ]
+  },
+  {
+    "id": 20,
+    "difficulty": "medium",
+    "category": "Tank Operations",
+    "tags": [
+      "tank limitations"
+    ],
+    "prompt": "A planner assumes tanks will deploy to the theater under their own power and be sustained by infantry battalion trucks. Which limitations contradict this?",
+    "options": [
+      "Tanks depend on flatbeds for deployment, and infantry units lack organic transport for tank CSS needs, especially Classes III, V and IX",
+      "Tanks depend on aircraft for deployment, and infantry units have enough transport for Class I only",
+      "Tanks deploy themselves, but their fuel needs are met by cavalry units",
+      "Tanks need no CSS support because they carry all supplies they need for the operation"
+    ],
+    "answer": 0,
+    "explanation": "Pages 67-68 list these tank limitations.",
+    "sourceSlides": [
+      67,
+      68
+    ]
+  },
+  {
+    "id": 21,
+    "difficulty": "medium",
+    "category": "Planning Considerations",
+    "tags": [
+      "tank planning considerations"
+    ],
+    "prompt": "A tank company commander builds his plan. Which combination lists the planning considerations the lesson gives for tanks?",
+    "options": [
+      "Surface danger zone, direct fire control measures, SBF positions and cover against enemy air",
+      "Where to dismount troops, weapon range, objective to combat trains distance and avenue restrictions",
+      "Indirect fire weapon support, weapon range, security operations and distance from main body",
+      "Surface danger zone, weapon range, security operations and the Ex-O as resource manager"
+    ],
+    "answer": 0,
+    "explanation": "Page 71 lists the tank planning considerations; the distractors mix in mechanized infantry and cavalry items.",
+    "sourceSlides": [
+      69,
+      70,
+      71
+    ]
+  },
+  {
+    "id": 22,
+    "difficulty": "medium",
+    "category": "Planning Considerations",
+    "tags": [
+      "cavalry planning considerations"
+    ],
+    "prompt": "A staff lists distance from main body, security operations and indirect fire weapon support as planning considerations. For which armor unit is this the list?",
+    "options": [
+      "Tank",
+      "Mechanized infantry",
+      "Tank and mechanized infantry together",
+      "Cavalry"
+    ],
+    "answer": 3,
+    "explanation": "Page 70 lists these cavalry planning considerations.",
+    "sourceSlides": [
+      70
+    ]
+  },
+  {
+    "id": 23,
+    "difficulty": "medium",
+    "category": "Major Equipment of the Armor Division",
+    "tags": [
+      "M113A2 RCWS"
+    ],
+    "prompt": "A unit moves from the basic M113A2 APC to the RCWS version. Which change matches the lesson?",
+    "options": [
+      "The RCWS replaces the .50 cal with a 25 mm cannon and extends maximum range to 6,800 m",
+      "The RCWS adds day and night cameras, range measuring and automatic target tracking, but its maximum range is 2,000 m versus 6,800 m",
+      "The RCWS removes the weapon from the vehicle and carries an unarmed crew",
+      "The RCWS has the same sights as the basic APC but a longer effective range of 2,000 m"
+    ],
+    "answer": 1,
+    "explanation": "Pages 73-74 compare the two M113A2 data sheets.",
+    "sourceSlides": [
+      73,
+      74
+    ]
+  },
+  {
+    "id": 24,
+    "difficulty": "medium",
+    "category": "Major Equipment of the Armor Division",
+    "tags": [
+      "Fire Support Vehicle"
+    ],
+    "prompt": "A commander needs a direct-fire vehicle with a 76 mm L23A1 main gun, 2,200 m effective direct fire range and a maximum ammunition load of 40 rounds. Which vehicle?",
+    "options": [
+      "Sabrah Light Tank ASCOD II",
+      "M113A2 IFV Unmanned Turret System",
+      "Fire Support Vehicle (FSV)",
+      "Guarani 6x6 wheeled APC"
+    ],
+    "answer": 2,
+    "explanation": "Page 81 gives the FSV main gun and ranges.",
+    "sourceSlides": [
+      81
+    ]
+  },
+  {
+    "id": 25,
+    "difficulty": "medium",
+    "category": "Major Equipment of the Armor Division",
+    "tags": [
+      "main armament"
+    ],
+    "prompt": "Which pairing of vehicle and main weapon is correct according to the lesson?",
+    "options": [
+      "Sabrah, 105 mm gun; M113A2 UTS, 25 mm Bush-Master; Guarani, 12.7 mm HMG",
+      "Sabrah, 76 mm gun; M113A2 UTS, 105 mm gun; Guarani, 25 mm Bush-Master",
+      "Sabrah, 12.7 mm HMG; M113A2 UTS, 76 mm gun; Guarani, 105 mm gun",
+      "Sabrah, 25 mm Bush-Master; M113A2 UTS, 12.7 mm HMG; Guarani, 105 mm gun"
+    ],
+    "answer": 0,
+    "explanation": "Pages 75, 82 and 83 give these main weapons.",
+    "sourceSlides": [
+      75,
+      82,
+      83
+    ]
+  }
+]
