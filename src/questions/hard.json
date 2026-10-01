@@ -253,25 +253,23 @@
     "difficulty": "hard",
     "category": "Mounting and Dismounting SOPs",
     "tags": [
-      "dismount left under fire",
-      "IAD"
+      "mount under fire",
+      "mounting SOP",
+      "mount order"
     ],
-    "prompt": "A squad dismounts left because terrain on the right is unfavorable, and fire opens from the right as it deploys. Which actions follow?",
+    "prompt": "A Philippine Army squad dismounted in order, soldiers 1 to 8, to clear a checkpoint. As they remount, the enemy opens fire from the right of the AIFV. Which drill and boarding sequence follow the lesson?",
     "options": [
-      "Return fire from the kill zone and stay beside the AV until it repositions, with the carrier team leader moving the AV",
-      "Dismount right toward the enemy fire to close with it, then let the driver reposition the AV once the contact ends",
-      "Remain mounted with the ramp closed until the fire ceases, then begin the dismount left drill under the platoon leader",
-      "React to contact on the right, extricate out of the kill zone, perform IAD, with the SL or PL positioning the AV"
+      "Mount from the right under fire from the right; soldier 1 boards first, one at a time, with cover provided",
+      "Mount from the left under fire from the right; all eight rush the door together, since speed is of the essence",
+      "Mount from the right under fire from the left; soldier 8 boards first, one at a time, with cover provided",
+      "Mount from the left under fire from the right; soldier 8 boards first, one at a time, with cover provided"
     ],
     "answer": 3,
-    "explanation": "Pages 35-39 give the dismount left objectives under fire from the right: react to contact on the right, extricate out of the kill zone, and perform IAD after dismount procedures. Page 31 makes the SL or PL responsible for both the dismount team's maneuver and the AV's position.",
+    "explanation": "Page 50 shows mount from the left (under fire from the right). Page 31 says the first to dismount is the last to mount, so soldier 8 boards first; page 45 requires cover while others mount and moving in one at a time without piling up at the door.",
     "sourceSlides": [
       31,
-      35,
-      36,
-      37,
-      38,
-      39
+      45,
+      50
     ]
   },
   {
@@ -301,21 +299,26 @@
     "difficulty": "hard",
     "category": "Mounting and Dismounting SOPs",
     "tags": [
-      "mounting SOP",
-      "dismounting SOP"
+      "mount procedures",
+      "mounting SOP"
     ],
-    "prompt": "Eight soldiers dismounted in order 1 through 8 and must remount under fire. Which sequence follows the SOPs?",
+    "prompt": "A Philippine Army platoon sergeant drafts mounting drill cards for: mount, mount from the right, mount from the right (under fire from the left), and mount from the left (under fire from the right). A squad leader checks the cards against the lesson's mounting procedures and SOPs. Which correction is right?",
     "options": [
-      "Soldier 8 mounts first and soldier 1 last, one at a time, with cover provided",
-      "Soldier 1 mounts first and soldier 8 last, in a single rush to keep up speed",
-      "All eight mount at once in any order, since speed is of the essence under fire",
-      "Soldier 1 mounts first and soldier 8 last, one at a time, with cover provided"
+      "Add mount from the left; every card must also require cover while others mount and weapons cleared, muzzles down, inside",
+      "Add mount from the left (under fire from the left); every card must also require cover while others mount and loaded weapons",
+      "Remove the basic mount, as every mount uses one side; every card must also require weapons cleared, muzzles down, inside",
+      "No card is missing; the four cover every case, and every card must have the first soldier out be the first back in"
     ],
     "answer": 0,
-    "explanation": "Page 31 says the first to dismount is the last to mount and vice versa; page 45 says to provide cover while others mount and to move inside one at a time.",
+    "explanation": "Pages 46-50 give five mounting procedures: mount, mount from the right, mount from the left, mount from the right (under fire from the left) and mount from the left (under fire from the right). Page 45 requires cover while others mount and clearing weapons, muzzles down, once inside; page 31 says the first to dismount is the last to mount.",
     "sourceSlides": [
       31,
-      45
+      45,
+      46,
+      47,
+      48,
+      49,
+      50
     ]
   },
   {
@@ -389,19 +392,21 @@
     "difficulty": "hard",
     "category": "Tank Operations",
     "tags": [
-      "tank limitations",
+      "tank capabilities",
+      "anti-tank fires",
       "CSS"
     ],
-    "prompt": "A tank company is attached to an infantry battalion for a theater deployment. Which arrangements does the lesson require?",
+    "prompt": "A Philippine Army tank platoon is attached to an infantry battalion for a several-day operation that includes night attacks against an enemy force with armored vehicles, on a battlefield where NBC agents may be used. Which employment and support plan matches the lesson?",
     "options": [
-      "Tanks deploy under their own strategic mobility, and infantry battalion trucks carry their Classes III, V and IX",
-      "Tanks deploy by air, and the infantry battalion supplies Classes III and V, since the FFSU handles only Class IX",
-      "Flatbeds for deployment, plus FFSU and division CSS support, since the infantry lacks transport for tank CSS",
-      "Flatbeds for deployment, and the infantry battalion's organic trucks for Classes III, V and IX once in theater"
+      "Tanks engage only infantry with direct fire, fight at night with thermal sights, avoid any NBC threat, and draw Classes III, V and IX from infantry trucks",
+      "Tanks engage enemy armor with accurate anti-tank fires, fight only by day, operate under NBC threat, and draw Classes III, V and IX from infantry trucks",
+      "Tanks engage enemy armor with accurate anti-tank fires, fight at night with thermal sights, operate under NBC threat, and rely on FFSU and division CSS",
+      "Tanks engage enemy armor with accurate anti-tank fires, fight at night with thermal sights, avoid any NBC threat, and rely on FFSU and division CSS"
     ],
     "answer": 2,
-    "explanation": "Page 67 says the tank depends on flatbeds for deployment; page 68 says tanks need FFSU and division CSS support because infantry units lack the organic transportation to support tank CSS needs, especially Classes III, V and IX.",
+    "explanation": "Page 66 says tanks support the close fight with accurate anti-tank fires and direct fire, operate on a conventional or NBC battlefield, and use thermal sights to enhance night fighting. Page 68 says they need FFSU and division CSS support because infantry units lack the organic transport for tank Classes III, V and IX.",
     "sourceSlides": [
+      66,
       67,
       68
     ]
@@ -454,18 +459,19 @@
     "difficulty": "hard",
     "category": "Planning Considerations",
     "tags": [
-      "planning considerations",
-      "tank units"
+      "mechanized infantry planning",
+      "weapon range",
+      "avenue of approach"
     ],
-    "prompt": "A task force commander gives four assignments. Which one violates the lesson's planning considerations?",
+    "prompt": "A Philippine Army mechanized infantry company commander's planning checklist reads: where to dismount troops, objective to combat trains distance, Ex-O or First Sergeant as resource manager, and no employment against tank units. Facing a narrow valley road toward an enemy with long-range weapons, he finds two lesson items missing. Which are they?",
     "options": [
-      "The cavalry troop screens at a planned distance from the main body",
-      "The mechanized infantry company attacks the enemy tank company",
-      "The tank platoon occupies an SBF position with cover against enemy air",
-      "The mechanized infantry commander plans where to dismount on, before or after the objective"
+      "Surface danger zone and SBF positions",
+      "Weapon range and avenue of approach restrictions",
+      "Indirect fire weapon support and distance from main body",
+      "Security operations and cover against enemy air"
     ],
     "answer": 1,
-    "explanation": "Page 69 says mechanized infantry cannot be used against tank units; the other assignments follow pages 69-71.",
+    "explanation": "Page 69 lists six mechanized infantry considerations: where to dismount, weapon range, objective to combat trains distance, Ex-O or First Sergeant as resource manager, avenue of approach restrictions, and no use against tank units. The other pairs come from the cavalry (page 70) and tank (page 71) lists.",
     "sourceSlides": [
       69,
       70,
@@ -499,24 +505,23 @@
     "difficulty": "hard",
     "category": "Major Equipment of the Armor Division",
     "tags": [
-      "wheeled vehicles"
+      "road march",
+      "cruising range",
+      "amphibious"
     ],
-    "prompt": "A planner needs wheeled vehicles only for a road march. Which group contains only wheeled vehicles from the lesson?",
+    "prompt": "A Philippine Army task force plans a long road march with M113A2 APCs, Commando V-150S and Simba vehicles, refuelling only when the shortest-ranged vehicle must, and ending at a river with no bridge. Which planning assessment matches the lesson's data sheets?",
     "options": [
-      "M113A2 APC, Simba Fighting Vehicle and Guarani 6x6",
-      "Commando V-150S, Mounted Mortar System and Guarani 6x6",
-      "Commando V-150S, Simba Fighting Vehicle and Guarani 6x6",
-      "Commando V-150S, M113A2 APC (Ambulance) and Simba Fighting Vehicle"
+      "The V-150S's 644 km range sets the refuel point; the Simba (100 kph) outpaces the M113A2 (66 kph); only the M113A2 is fully amphibious",
+      "The M113A2's 482.80 km range sets the refuel point; the M113A2 (72 kph) outpaces the Simba (66 kph); all three are fully amphibious",
+      "The M113A2's 482.80 km range sets the refuel point; the Simba (100 kph) outpaces the M113A2 (66 kph); it and the V-150S are amphibious",
+      "The Simba's 660 km range sets the refuel point; the Simba (100 kph) outpaces the M113A2 (66 kph); the M113A2 and Simba are amphibious"
     ],
     "answer": 2,
-    "explanation": "Pages 79, 80 and 83 describe the Commando V-150S and Simba as wheeled AFVs and the Guarani as a 6x6 wheeled APC. The M113A2 APC, its ambulance version and the Mounted Mortar System are listed as full tracked laying (pages 73, 77 and 78).",
+    "explanation": "Page 73 gives the M113A2 a 482.80 km road range, 66 kph forward speed and a fully amphibious hull (3 mph in water); page 79 gives the V-150S 644 km and a fully amphibious hull; page 80 gives the Simba 100 kph and 660 km and lists no amphibious capability.",
     "sourceSlides": [
       73,
-      77,
-      78,
       79,
-      80,
-      83
+      80
     ]
   },
   {
@@ -524,23 +529,24 @@
     "difficulty": "hard",
     "category": "Major Equipment of the Armor Division",
     "tags": [
-      "effective range",
-      "Sabrah"
+      "AIFV",
+      "M113A2 UTS",
+      "25 mm"
     ],
-    "prompt": "An enemy armored vehicle halts 3,200 m from a Philippine Army position held by a Sabrah light tank, an M113A2 IFV with the Unmanned Turret System, a Fire Support Vehicle and a Guarani APC. Which vehicle can engage it within the stated effective range of its main weapon?",
+    "prompt": "A Philippine Army mechanized battalion fields both the AIFV (230 rounds in its EWS, 1,610 stowed) and the M113A2 IFV with the Unmanned Turret System. At a gunnery review, the S3 must state what the two 25 mm systems share and what sets the AIFV apart. Which statement matches the lesson?",
     "options": [
-      "The Sabrah light tank with its 105 mm main gun",
-      "The M113A2 UTS with its 25 mm Bush-Master cannon",
-      "The Fire Support Vehicle with its 76 mm L23A1 gun",
-      "The Guarani with its 12.7 mm heavy machine gun"
+      "Both: HE 1,100 m/s, AP 1,325 m/s, 3,000 m max effective; only the AIFV: 260 hp turbocharged 6V53T and direct attack on aircraft up to 1.5 km",
+      "Both: HE 1,100 m/s, AP 1,325 m/s, 3,000 m max effective; only the UTS: 260 hp turbocharged 6V53T and direct attack on aircraft up to 1.5 km",
+      "Both: HE 1,325 m/s, AP 1,100 m/s, 6,800 m max effective; only the AIFV: 260 hp turbocharged 6V53T and direct attack on aircraft up to 1.5 km",
+      "Both: HE 1,100 m/s, AP 1,325 m/s, 1,700 m max effective; only the AIFV: 212 hp turbocharged 6V53T and direct attack on aircraft up to 2.5 km"
     ],
     "answer": 0,
-    "explanation": "Page 82 gives the Sabrah's 105 mm a combat effective range of 3,600 m. The UTS 25 mm reaches 3,000 m effective (page 75), the FSV 2,200 m by direct fire (its 5,000 m semi-direct figure is a maximum range, page 81), and the Guarani 1,830 m (page 83).",
+    "explanation": "Pages 75 and 76 give both 25 mm cannons HE 1,100 m/s, AP 1,325 m/s and a 3,000 m maximum effective range (6,800 m is maximum range; 1,700 m is the RCWS, page 74). Page 76 gives only the AIFV the 260 hp turbocharged 6V53T (the UTS uses the M113A2's 212 hp 6V53, page 73) and credits its Oerlikon KBA with downing low-flying aircraft at 2 km and attacking aircraft directly up to 1.5 km.",
     "sourceSlides": [
+      73,
+      74,
       75,
-      81,
-      82,
-      83
+      76
     ]
   },
   {
@@ -550,20 +556,23 @@
     "tags": [
       "M113A2 variants",
       "Mounted Mortar System",
-      "Fire Support Vehicle"
+      "Ambulance"
     ],
-    "prompt": "A commander needs casualty evacuation, 81/120 mm mortar fire, and 76 mm direct fire support. Which vehicles fit, in order?",
+    "prompt": "A Philippine Army battalion S4 plans fuel and engines for its M113A2 APC (Ambulance), Mounted Mortar System and Fire Support Vehicle. The MMS's smooth bore, muzzle-loaded, recoiling 81/120 mm mortar, designed from CARDOM combat experience, is laid by an auto-laying Electronic Drive System that may fail. Which assessment matches the lesson?",
     "options": [
-      "Mounted Mortar System, M113A2 APC (ambulance), Fire Support Vehicle",
-      "Fire Support Vehicle, Mounted Mortar System, M113A2 APC (ambulance)",
-      "M113A2 APC (ambulance), Fire Support Vehicle, Mounted Mortar System",
-      "M113A2 APC (ambulance), Mounted Mortar System, Fire Support Vehicle"
+      "All use a 260 hp Detroit Diesel 6V53T with 360 L of fuel; the ambulance is fully amphibious; the mortar then lays only by Fire Control System",
+      "All use a 212 hp Detroit Diesel 6V53 with 300 L of fuel; the ambulance is a wheeled vehicle; the mortar then lays manually by back-up handles and optical sight",
+      "All use a 212 hp Detroit Diesel 6V53 with 360 L of fuel; the ambulance carries only casualties; the mortar must then be withdrawn from action until repaired",
+      "All use a 212 hp Detroit Diesel 6V53 with 360 L of fuel; the ambulance is fully amphibious; the mortar then lays manually by back-up handles and optical sight"
     ],
     "answer": 3,
-    "explanation": "Pages 77, 78 and 81 describe these vehicles.",
+    "explanation": "Pages 77, 78 and 81 give the MMS, ambulance and FSV the M113A2's 212 hp Detroit Diesel 6V53 and 360 L of fuel (page 73); the 260 hp 6V53T is the AIFV (page 76) and 300 L the V-150S (page 79). Page 78 lists the ambulance as a fully amphibious troop or cargo carrier; page 77 says the MMS can be laid manually using back-up handles and an optical sight unit.",
     "sourceSlides": [
+      73,
+      76,
       77,
       78,
+      79,
       81
     ]
   }

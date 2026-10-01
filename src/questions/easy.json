@@ -67,17 +67,18 @@
     "difficulty": "easy",
     "category": "Characteristics of Armor",
     "tags": [
-      "armor protection"
+      "shock action",
+      "characteristics of armor"
     ],
-    "prompt": "After an ambush, a company commander praises his armored vehicles for shielding the crews from small arms fire. Which characteristic of armor is he describing?",
+    "prompt": "During a Philippine Army exercise, a tank company bursts out of a tree line at speed, firing as it closes, and the opposing force abandons its trenches before it can organize any resistance. Which characteristic of armor mainly produced this collapse?",
     "options": [
-      "Shock action",
+      "Firepower",
       "Mobility",
-      "Flexibility",
-      "Armor protection"
+      "Armor protection",
+      "Shock action"
     ],
     "answer": 3,
-    "explanation": "Page 20 lists armor protection as the first characteristic of armor.",
+    "explanation": "Page 20 lists shock action among the six characteristics of armor. The defenders broke under the sudden, violent impact of the whole assault rather than from the weight of fire or the speed of movement alone, and nothing in the scenario tests protection.",
     "sourceSlides": [
       20
     ]
@@ -173,17 +174,19 @@
     "difficulty": "easy",
     "category": "Mechanized Infantry Capabilities and Limitations",
     "tags": [
-      "mounted capabilities"
+      "mounted capabilities",
+      "secure terrain",
+      "maneuver with tanks"
     ],
-    "prompt": "A mechanized infantry platoon is fighting mounted in its AIFVs. Which task is a mounted capability in the lesson?",
+    "prompt": "After seizing a ridge in Sulu, a Philippine Army mechanized infantry platoon leader is ordered to hold the ridge with his AIFVs and then advance alongside a tank platoon, all without dismounting. Which mounted capabilities from the lesson cover these two tasks?",
     "options": [
-      "Infiltrate enemy positions",
-      "Destroy light armored vehicles",
+      "Infiltrate enemy positions, and fix the enemy to allow maneuver",
+      "Secure terrain, and maneuver with tanks",
       "Move over terrain not trafficable by vehicles",
       "Secure obstacles to defeat enemy breaching efforts"
     ],
     "answer": 1,
-    "explanation": "Page 28 lists mounted capabilities; the other options are dismounted capabilities from page 29.",
+    "explanation": "Page 28 lists secure terrain and maneuver with tanks among the mounted capabilities, with destroying light armor vehicles, suppressing dismounted elements and assaulting unprepared, suppressed defenses. The other options are dismounted capabilities from page 29.",
     "sourceSlides": [
       28,
       29
@@ -235,20 +238,24 @@
     "difficulty": "easy",
     "category": "Mounting and Dismounting SOPs",
     "tags": [
+      "dismount left",
       "dismounting SOP",
       "weapon safety"
     ],
-    "prompt": "A squad is about to dismount from its AIFV. Which dismounting SOP is correct?",
+    "prompt": "A Philippine Army mechanized squad halts on a road in Maguindanao with no enemy contact. The right side of the AIFV drops into a flooded rice paddy, while the left shoulder is firm. Which dismount and weapon handling follow the lesson?",
     "options": [
-      "Weapons are carried with the chamber empty and the muzzle down",
-      "Soldiers take cover behind the AV once they are out of the vehicle",
-      "Soldiers ride on top of the AV between positions to save time",
-      "The first soldier to dismount is also the first to mount again"
+      "Dismount left, with chambers empty and muzzles down",
+      "Dismount right, with chambers empty and muzzles down",
+      "Dismount left, with rounds chambered and muzzles up",
+      "Standard dismount, with rounds chambered and muzzles down"
     ],
     "answer": 0,
-    "explanation": "Page 31 lists chamber empty, muzzle down; never hide behind an AV; no riders on top; first to dismount is last to mount.",
+    "explanation": "Page 33 prescribes dismount left when there is no enemy contact and the terrain is not favorable on the right; page 31 requires chamber empty, muzzle down. Dismount right (page 34) is for unfavorable terrain on the left, and the standard dismount (page 32) needs favorable terrain.",
     "sourceSlides": [
-      31
+      31,
+      32,
+      33,
+      34
     ]
   },
   {
@@ -346,19 +353,22 @@
     "difficulty": "easy",
     "category": "Cavalry Operations",
     "tags": [
-      "economy of force"
+      "scout platoon",
+      "cavalry organization"
     ],
-    "prompt": "A brigade commander wants a unit that can hold part of the front thinly so he can conserve combat power for engagement where he wishes. Which cavalry role does this describe?",
+    "prompt": "A newly assigned scout platoon leader in a Philippine Army cavalry troop checks his platoon roster against the lesson's scout platoon chart. Which roster matches?",
     "options": [
-      "Main effort",
-      "Counterattack force",
-      "Economy of force",
-      "Rear area security only"
+      "1 officer and 37 enlisted, with a platoon headquarters of 1 officer and 10 enlisted",
+      "2 officers and 17 enlisted, with a platoon headquarters of 1 officer and 9 enlisted",
+      "1 officer and 19 enlisted, with a platoon headquarters of 1 officer and 9 enlisted",
+      "1 officer and 19 enlisted, with a platoon headquarters of 1 officer and 17 enlisted"
     ],
     "answer": 2,
-    "explanation": "Page 54 describes cavalry as an economy of force that lets the commander conserve combat power.",
+    "explanation": "Page 57 shows the scout platoon at 1 officer and 19 enlisted, with a platoon HQ of 1 officer and 9 enlisted. 1 and 37 with an HQ of 1 and 10 is the mechanized infantry platoon (page 25); 2 and 17 is the cavalry troop HQ (page 56).",
     "sourceSlides": [
-      54
+      25,
+      56,
+      57
     ]
   },
   {
@@ -366,20 +376,23 @@
     "difficulty": "easy",
     "category": "Tank Operations",
     "tags": [
-      "tank mission"
+      "tank company organization",
+      "tank platoon"
     ],
-    "prompt": "A commander assigns a unit to neutralize enemy forces by fire, maneuver and shock effect in coordination with other units. Which armor sub-component is this?",
+    "prompt": "A Philippine Army tank company commander sketches his unit's organization for a newly arrived executive officer. Which sketch matches the lesson's tank company and tank platoon charts?",
     "options": [
-      "Tank operations",
-      "Cavalry operations",
-      "Mechanized infantry operations",
-      "Fire support operations"
+      "A company headquarters over tank platoons of four tanks each",
+      "Tank platoons of four tanks each, with no company headquarters",
+      "A company headquarters over tank platoons of three tanks each",
+      "A company headquarters over scout platoons and one tank platoon"
     ],
     "answer": 0,
-    "explanation": "Pages 17 and 63 give this as the tank mission.",
+    "explanation": "Page 64 shows the tank company as a company headquarters with tank platoons, and page 65 shows each tank platoon with four tanks. Scout platoons belong to the cavalry troop (pages 56-57).",
     "sourceSlides": [
-      17,
-      63
+      56,
+      57,
+      64,
+      65
     ]
   },
   {
@@ -450,22 +463,21 @@
     "difficulty": "easy",
     "category": "Planning Considerations",
     "tags": [
-      "planning considerations",
-      "tank units"
+      "mechanized infantry planning",
+      "resource manager",
+      "First Sergeant"
     ],
-    "prompt": "An enemy tank platoon is reported approaching a Philippine Army task force made up of a mechanized infantry company, a cavalry troop and a tank platoon. Which unit should the commander assign to engage the enemy tanks?",
+    "prompt": "A Philippine Army mechanized infantry company commander is planning an attack, but his executive officer has been detailed to battalion for the operation. Whom can he designate as resource manager under the lesson's planning considerations?",
     "options": [
-      "The mechanized infantry company, since its AIFVs can destroy light armor vehicles when fighting mounted",
-      "The cavalry troop, since in suitable terrain it can attack to overrun or penetrate enemy strong points",
-      "The tank platoon, since tanks can be used against other tanks or any armored vehicle of the enemy",
-      "Any of the three units, since all armor units share the characteristics of firepower and shock action"
+      "The lead platoon leader, who will be closest to the objective",
+      "The carrier team leader of the headquarters AIFV",
+      "The First Sergeant, named with the Ex-O as resource manager",
+      "No one; only the Ex-O may act as resource manager"
     ],
     "answer": 2,
-    "explanation": "Pages 69 and 70 say mechanized infantry and cavalry cannot be used against tank units; page 71 says tanks can be used against other tanks or any armored vehicle of the enemy.",
+    "explanation": "Page 69 lists the Ex-O or First Sergeant as resource manager among the mechanized infantry planning considerations, so the First Sergeant can take the role when the Ex-O is unavailable.",
     "sourceSlides": [
-      69,
-      70,
-      71
+      69
     ]
   },
   {
@@ -476,16 +488,18 @@
       "Guarani",
       "wheeled APC"
     ],
-    "prompt": "A battalion receives a wheeled APC acquired in 2024 under the Horizon 2 Project, with a crew of 3 and 7 passengers. Which vehicle is it?",
+    "prompt": "A Philippine Army mechanized battalion receives the wheeled APC acquired in 2024 under the Horizon 2 Project, carrying a crew of 3 and 7 passengers, whose heavy machine gun fires 485-635 rds/min. The S4 prepares its fact sheet. Which entry matches the lesson?",
     "options": [
-      "Simba Fighting Vehicle",
-      "Commando V-150S",
-      "Guarani 6x6 wheeled APC",
-      "M113A2 Armored Personnel Carrier"
+      "Guarani 6x6: 100 kph, Perkins Phaser engine, 12.7 mm HMG and co-axial 7.62 mm GPMG, 5 units",
+      "Guarani 6x6: 72 kph, Cummins ISC engine, 25 mm cannon and co-axial 7.62 mm GPMG, 12 units",
+      "Guarani 6x6: 72 kph, Cummins ISC engine, 12.7 mm HMG and co-axial 7.62 mm GPMG, 5 units",
+      "Guarani 6x6: 66 kph, Cummins ISC engine, 12.7 mm HMG and co-axial 7.62 mm GPMG, 15 units"
     ],
     "answer": 2,
-    "explanation": "Page 83 lists these specifications for the Guarani 6x6 wheeled APC.",
+    "explanation": "Page 83 gives the Guarani a 72 kph maximum speed, a Cummins ISC diesel engine, a 12.7 mm HMG main gun with a co-axial 7.62 mm GPMG, and 5 units. 100 kph and the Perkins Phaser belong to the Simba (page 80); 66 kph is the M113A2 (page 73).",
     "sourceSlides": [
+      73,
+      80,
       83
     ]
   },
@@ -495,19 +509,22 @@
     "category": "Major Equipment of the Armor Division",
     "tags": [
       "Commando V-150S",
-      "internal security"
+      "Simba",
+      "amphibious"
     ],
-    "prompt": "An internal security unit wants a wheeled AFV designed for internal security operations, with a fully enclosed one-man turret and run-flat tires. Which vehicle?",
+    "prompt": "A Philippine Army unit on internal security duty must patrol a long coastal road and then cross a river with no bridge, using a wheeled AFV. Which vehicle and data from the lesson's sheets fit the task?",
     "options": [
-      "Sabrah Light Tank ASCOD II",
-      "Commando V-150S",
-      "M113A2 APC",
-      "Fire Support Vehicle"
+      "Simba Fighting Vehicle: Perkins Phaser 212 hp, 660 km road range, two or four wheel drive, fully amphibious",
+      "Commando V-150S: Cummins V8 202 hp, 300 L of fuel, 644 km road range, front wheel drive, fully amphibious",
+      "Commando V-150S: Perkins Phaser 212 hp, 360 L of fuel, 482.80 km road range, four wheel drive, not amphibious",
+      "Simba Fighting Vehicle: Cummins V8 202 hp, 100 kph top speed, 644 km road range, air conditioned, not amphibious"
     ],
     "answer": 1,
-    "explanation": "Page 79 describes the Commando V-150S with these characteristics.",
+    "explanation": "Page 79 describes the Commando V-150S as designed for internal security operations, with a Cummins V8 of 202 hp, 300 L of fuel, a 644 km road range, front wheel drive and a fully amphibious hull. The Simba (page 80) has a Perkins Phaser of 212 hp, 100 kph, a 660 km range and two or four wheel drive, and its sheet lists no amphibious capability; 360 L and 482.80 km are M113A2 data (page 73).",
     "sourceSlides": [
-      79
+      73,
+      79,
+      80
     ]
   },
   {
@@ -515,23 +532,21 @@
     "difficulty": "easy",
     "category": "Major Equipment of the Armor Division",
     "tags": [
-      "Sabrah",
-      "light tank"
+      "M113A2 UTS",
+      "ammunition"
     ],
-    "prompt": "A Philippine Army mechanized unit in a defensive position expects low-flying enemy aircraft. Which vehicle's primary weapon does the lesson describe as able to bring down low-flying aircraft at a range of 2 km?",
+    "prompt": "Before a live-fire exercise, a Philippine Army M113A2 IFV crew with the Unmanned Turret System checks its ammunition against the lesson's data sheet. Which load is correct?",
     "options": [
-      "Armored Infantry Fighting Vehicle, 25 mm Oerlikon KBA cannon",
-      "M113A2 Remote Controlled Weapon System, Browning M2A1 .50 cal",
-      "Commando V-150S, Browning M2 heavy barrel 12.7 mm",
-      "Fire Support Vehicle, Ordnance 76 mm L23A1 main gun"
+      "25 mm: 75 AP and 105 HE authorized, 1,840 rounds; M60: 460 rounds in magazine",
+      "25 mm: 105 AP and 75 HE authorized, 1,840 rounds; M60: 460 rounds in magazine",
+      "25 mm: 75 AP and 105 HE authorized, 1,610 rounds; M60: 800 rounds in magazine",
+      "25 mm: 145 AP and 230 HE authorized, 1,840 rounds; M60: 40 rounds in magazine"
     ],
     "answer": 0,
-    "explanation": "Page 76 says the AIFV's 25 mm Oerlikon KBA can bring down low flying aircraft at a range of 2 km and directly attack aircraft up to 1.5 km. The lesson gives no anti-aircraft role for the other vehicles' weapons.",
+    "explanation": "Page 75 gives the UTS 25 mm Bush-Master 75 AP and 105 HE authorized rounds and 1,840 rounds, and the secondary M60 460 rounds in the magazine (800 rds/min is its rate of fire). The 1,610, 145 and 230 figures are AIFV stowage data (page 76).",
     "sourceSlides": [
-      74,
-      76,
-      79,
-      81
+      75,
+      76
     ]
   }
 ]

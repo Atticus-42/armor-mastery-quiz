@@ -86,17 +86,18 @@
     "difficulty": "medium",
     "category": "Characteristics of Armor",
     "tags": [
-      "intensive and flexible communication"
+      "flexibility",
+      "characteristics of armor"
     ],
-    "prompt": "An armored assault stalls because the company radios fail and orders cannot pass between vehicles. Which characteristic of armor is directly degraded by the radio failure?",
+    "prompt": "Midway through an attack, a Philippine Army armor task force is ordered to stop attacking north and block an enemy force moving in from the east, using the same vehicles and crews without pausing to reorganize. Apart from the radio net that passes the order, which characteristic of armor does the switch mainly test?",
     "options": [
-      "Intensive and flexible communication, since orders can no longer pass between the vehicles",
-      "Flexibility, since the company can no longer change its formation and direction quickly",
-      "Shock action, since the assault has lost the momentum of a powerful and violent action",
-      "Mobility, since the vehicles stopped moving forward once the assault stalled on the objective"
+      "Flexibility, since the force must change its task and direction quickly without reorganizing",
+      "Mobility, since the force must cover the distance from the northern axis to the eastern flank",
+      "Shock action, since the block must still hit the enemy with a powerful and violent action",
+      "Firepower, since the block must stop the enemy force with the weight of its direct fire"
     ],
     "answer": 0,
-    "explanation": "Page 20 lists intensive and flexible communication as a characteristic of armor; the radio failure attacks it directly, and any loss of flexibility, shock or movement is a consequence rather than the characteristic degraded.",
+    "explanation": "Page 20 lists flexibility as a characteristic of armor; changing task and direction mid-operation without reorganizing is what it describes. Movement, impact and fire are needed in any block, but they are not what the sudden change of mission tests.",
     "sourceSlides": [
       20
     ]
@@ -168,17 +169,18 @@
     "difficulty": "medium",
     "category": "Mechanized Infantry Capabilities and Limitations",
     "tags": [
-      "mounted vs dismounted"
+      "mounted vs dismounted",
+      "destroy light armor vehicles"
     ],
-    "prompt": "A commander wants to assault unprepared, suppressed defenses and also infiltrate enemy positions. Which pairing of mode and task is correct?",
+    "prompt": "A Philippine Army mechanized company must destroy enemy light armored vehicles, suppress and kill the dismounted enemy around them, and then fix the remaining enemy so a sister company can maneuver. Which allocation matches the lesson?",
     "options": [
-      "Assault the suppressed defenses dismounted; infiltrate mounted",
-      "Do both tasks mounted in the AIFVs",
-      "Do both tasks dismounted on foot",
-      "Assault the suppressed defenses mounted; infiltrate dismounted"
+      "Destroy and suppress dismounted; fix the enemy mounted",
+      "Do all three tasks mounted in the AIFVs",
+      "Do all three tasks dismounted on foot",
+      "Destroy and suppress mounted; fix the enemy dismounted"
     ],
     "answer": 3,
-    "explanation": "Page 28 lists assaulting suppressed defenses as mounted; page 29 lists infiltration as dismounted.",
+    "explanation": "Page 28 lists destroying light armor vehicles and suppressing and killing dismounted elements as mounted capabilities; page 29 lists fixing the enemy to allow maneuver as a dismounted capability.",
     "sourceSlides": [
       28,
       29
@@ -364,20 +366,22 @@
     "difficulty": "medium",
     "category": "Tank Operations",
     "tags": [
-      "unit missions"
+      "tank capabilities",
+      "opposed entry",
+      "strategic and tactical mobility"
     ],
-    "prompt": "A staff assigns one unit to repel an enemy assault by close combat and counterattack, and another to neutralize the enemy by fire, maneuver and shock effect. Which units?",
+    "prompt": "While planning a landing against a defended shore in a Philippine Army joint exercise, a staff officer argues that tanks should be kept out of the initial entry and brought in only after the beach is secure. Which assessment matches the lesson?",
     "options": [
-      "Tank first; mechanized infantry second",
-      "Cavalry first; tank second",
-      "Mechanized infantry first; tank second",
-      "Mechanized infantry first; cavalry second"
+      "He is right; tanks depend on flatbeds for deployment, so they lack the strategic mobility an opposed entry needs",
+      "He is right; tanks are vulnerable to anti-armor weapons and mines, so the lesson bars them from opposed entry",
+      "He is wrong; tanks can operate in an opposed entry role and use strategic and tactical mobility to advantage",
+      "He is wrong; tanks withstand anti-armor weapons, mines and tank fires, so they should lead every entry alone"
     ],
     "answer": 2,
-    "explanation": "Pages 18 and 17 give the mechanized infantry and tank missions.",
+    "explanation": "Page 66 lists operating in an opposed entry role and using strategic and tactical mobility to advantage as tank capabilities. Page 67's flatbed dependence and vulnerability to anti-armor weapons and mines are limitations, not a bar on opposed entry, and tanks may not withstand tank fires, missiles or mines.",
     "sourceSlides": [
-      17,
-      18
+      66,
+      67
     ]
   },
   {
@@ -471,17 +475,19 @@
     "difficulty": "medium",
     "category": "Major Equipment of the Armor Division",
     "tags": [
-      "M113A2 RCWS"
+      "M113A2 RCWS",
+      "Browning M2",
+      "effective range"
     ],
-    "prompt": "A Philippine Army mechanized unit replaces a basic M113A2 APC with the Remote Controlled Weapon System (RCWS) version. Which comparison matches the lesson's data sheets?",
+    "prompt": "A Philippine Army mechanized company fields both the basic M113A2 APC and the M113A2 RCWS. Both .50 cal guns fire 450-500 rds/min, and the RCWS adds a quick change barrel, day and night cameras, automatic target tracking, a Fire Control System and an Electrical Drive System. The commander must set engagement ranges for each gun. Which comparison is correct?",
     "options": [
-      "The RCWS replaces the .50 cal with a 25 mm cannon, and its maximum range stays at 6,800 m like the basic APC",
-      "The RCWS adds day and night cameras, range measuring and target tracking, and its maximum range is 2,000 m",
-      "The RCWS keeps the same sighting as the basic APC, and its maximum effective range rises to 2,000 m",
-      "The RCWS adds thermal sights and automatic target tracking, and its maximum effective range rises to 3,000 m"
+      "Basic M2 HB: 1,700 m max effective, 2,000 m max; RCWS M2A1 QCB: 1,830 m max effective, 6,800 m max",
+      "Basic M2 HB: 1,830 m max effective, 6,800 m max; RCWS M2A1 QCB: 1,700 m max effective, 2,000 m max",
+      "Basic M2 HB: 1,830 m max effective, 6,800 m max; RCWS M2A1 QCB: 3,000 m max effective, 6,800 m max",
+      "Basic M2 HB: 2,000 m max effective, 6,800 m max; RCWS M2A1 QCB: 1,700 m max effective, 1,830 m max"
     ],
     "answer": 1,
-    "explanation": "Page 74 gives the RCWS a Browning M2A1 .50 cal QCB with day and night cameras, range measuring and automatic target tracking, a 2,000 m maximum range and 1,700 m maximum effective range; page 73 gives the basic M113A2's M2 a 6,800 m maximum range and 1,830 m maximum effective range. The 25 mm cannon, thermal modules and 3,000 m belong to the UTS (page 75).",
+    "explanation": "Page 73 gives the basic M113A2's Browning M2 heavy barrel a 1,830 m maximum effective range and 6,800 m maximum range; page 74 gives the RCWS M2A1 QCB a 1,700 m maximum effective range and 2,000 m maximum range. 3,000 m belongs to the UTS 25 mm cannon (page 75).",
     "sourceSlides": [
       73,
       74,
@@ -513,21 +519,21 @@
     "difficulty": "medium",
     "category": "Major Equipment of the Armor Division",
     "tags": [
-      "main armament"
+      "Sabrah",
+      "Fire Support Vehicle"
     ],
-    "prompt": "Which pairing of vehicle and main weapon is correct according to the lesson?",
+    "prompt": "A Philippine Army brigade commander compares the Sabrah light tank (30 tons, crew of 3, Level 4 STANAG 4569 protection, NATO-fuel diesel, 72 km/h, BMS and Navigation System) with the Fire Support Vehicle for a direct-fire support role. Which comparison of their armament matches the lesson?",
     "options": [
-      "Sabrah, 105 mm gun; M113A2 UTS, 25 mm Bush-Master; Guarani, 12.7 mm HMG",
-      "Sabrah, 76 mm gun; M113A2 UTS, 105 mm gun; Guarani, 25 mm Bush-Master",
-      "Sabrah, 12.7 mm HMG; M113A2 UTS, 76 mm gun; Guarani, 105 mm gun",
-      "Sabrah, 25 mm Bush-Master; M113A2 UTS, 12.7 mm HMG; Guarani, 105 mm gun"
+      "Sabrah: 105 mm gun, 6 rds/min, 3,600 m combat range, eight 76 mm launchers; FSV: 76 mm gun, 40-round load, 2,200 m direct, six smoke dischargers",
+      "Sabrah: 105 mm gun, 40 rds/min, 3,600 m combat range, six 76 mm launchers; FSV: 76 mm gun, 6-round load, 2,200 m direct, eight smoke dischargers",
+      "Sabrah: 76 mm gun, 6 rds/min, 2,200 m combat range, eight 76 mm launchers; FSV: 105 mm gun, 40-round load, 3,600 m direct, six smoke dischargers",
+      "Sabrah: 105 mm gun, 6 rds/min, 5,000 m combat range, eight 76 mm launchers; FSV: 76 mm gun, 40-round load, 5,000 m direct, six smoke dischargers"
     ],
     "answer": 0,
-    "explanation": "Pages 75, 82 and 83 give these main weapons.",
+    "explanation": "Page 82 gives the Sabrah a 105 mm gun with a 3,600 m combat effective range, 6 rounds per minute and eight 76 mm smoke/grenade launchers. Page 81 gives the FSV a 76 mm L23A1 with a 2,200 m direct-fire effective range, a 40-round maximum load and six smoke grenade dischargers; 5,000 m is its semi-direct maximum range.",
     "sourceSlides": [
-      75,
-      82,
-      83
+      81,
+      82
     ]
   }
 ]
