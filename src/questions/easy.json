@@ -514,13 +514,13 @@
     ],
     "prompt": "A Philippine Army unit on internal security duty must patrol a long coastal road and then cross a river with no bridge, using a wheeled AFV. Which vehicle and data from the lesson's sheets fit the task?",
     "options": [
-      "Simba Fighting Vehicle: Perkins Phaser 212 hp, 660 km road range, two or four wheel drive, fully amphibious",
+      "Simba Fighting Vehicle: Perkins Phaser 212 hp, 660 km road range, two or four wheel drive, designed for internal security operations",
       "Commando V-150S: Cummins V8 202 hp, 300 L of fuel, 644 km road range, front wheel drive, fully amphibious",
       "Commando V-150S: Perkins Phaser 212 hp, 360 L of fuel, 482.80 km road range, four wheel drive, not amphibious",
-      "Simba Fighting Vehicle: Cummins V8 202 hp, 100 kph top speed, 644 km road range, air conditioned, not amphibious"
+      "Simba Fighting Vehicle: Cummins V8 202 hp, 100 kph top speed, 644 km road range, air conditioned, front wheel drive"
     ],
     "answer": 1,
-    "explanation": "Page 79 describes the Commando V-150S as designed for internal security operations, with a Cummins V8 of 202 hp, 300 L of fuel, a 644 km road range, front wheel drive and a fully amphibious hull. The Simba (page 80) has a Perkins Phaser of 212 hp, 100 kph, a 660 km range and two or four wheel drive, and its sheet lists no amphibious capability; 360 L and 482.80 km are M113A2 data (page 73).",
+    "explanation": "Page 79 describes the Commando V-150S as designed for internal security operations, with a Cummins V8 of 202 hp, 300 L of fuel, a 644 km road range, front wheel drive and a fully amphibious hull. The Simba (page 80) has a Perkins Phaser of 212 hp, 100 kph, a 660 km range and two or four wheel drive; 360 L and 482.80 km are M113A2 data (page 73).",
     "sourceSlides": [
       73,
       79,
